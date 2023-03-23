@@ -10,6 +10,6 @@ document
   .addEventListener('click', ev => {
     if (ev.target.nodeName === 'BUTTON') {
       onChangePage(ev.target);
-      console.log(pagination.currentPage);
+      console.log(pagination.genCurrentPage());
     }
   });
