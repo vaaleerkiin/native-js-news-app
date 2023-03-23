@@ -54,20 +54,20 @@ async function getNewsBySearchQuery(url) {
 async function getCategories() {
   const sectionListUrl = `${BASE_URL}news/v3/content/section-list.json?api-key=${API_KEY}`;
   try {
-    const news = await axiosInstance.get(sectionListUrl).then(response => {
-      if ((response.statusText = 'OK')) {
-        console.log(response);
-        // .data.results
-      }
-    });
-    return news;
+    const categories = await axiosInstance
+      .get(sectionListUrl)
+      .then(response => {
+        if ((response.statusText = 'OK')) {
+          console.log(response.data.results);
+        }
+      });
+    return categories;
   } catch (error) {
     console.log(error.message);
   }
 }
 
 // getCategories();
-// console.log(categories);
 
 // Get news by category
 
