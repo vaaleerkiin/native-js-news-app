@@ -8,7 +8,7 @@ class nytNewsApi {
     this.POP_URL = 'mostpopular/v2/viewed/1.json';
     this.SEARCH_URL = 'search/v2/articlesearch.json';
     this.CATEGORY_URL = 'news/v3/content/all/';
-    this.totalHits = 1;
+    this.totalHits = 0;
 
     // Most popular search
     this.mostPopUrl = `${this.BASE_URL}${this.POP_URL}?api-key=${this.API_KEY}`;
@@ -39,13 +39,17 @@ class nytNewsApi {
     }
   }
 
-  async getNewsBySearchQuery() {
+  async getNewsBySearchQuery(query) {
+    this.setSearchQuery(query);
+    this.setSearchUrl();
     try {
       const news = await axiosInstance.get(this.searchUrl).then(response => {
         if ((response.statusText = 'OK')) {
-          console.log(response.data.response.docs);
+          console.log(this.searchUrl);
+          // console.log(response.data.response.docs);
           this.totalHits = response.data.response.meta.hits;
           // console.log(response);
+          this.totalHits = response.data.response.meta.hits;
           return response.data.response.docs;
         }
       });
@@ -106,6 +110,14 @@ class nytNewsApi {
 
   getPage() {
     return this.page;
+  }
+
+  setSearchQuery(query) {
+    this.searchQuery = query;
+  }
+
+  setSearchUrl() {
+    this.searchUrl = `${this.BASE_URL}${this.SEARCH_URL}?q=${this.searchQuery}&page=${this.page}&api-key=${this.API_KEY}`;
   }
 
   setCategorySearchUrl() {

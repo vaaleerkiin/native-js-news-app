@@ -8,7 +8,27 @@ import './js/modal';
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
-pagination.renderPagination(pagination.createPagination(500, 1));
+/* Search by word */
+
+const searchQuery = document.querySelector('.search-form');
+searchQuery.addEventListener('submit', onSearchSubmit);
+
+function onSearchSubmit(e) {
+  e.preventDefault();
+  const query = searchQuery.query.value;
+  console.log(query);
+  newsApi.resetPage();
+  let news = [];
+  newsApi.getNewsBySearchQuery(query).then(res => {
+    news = res;
+    console.log(news);
+    newsApi.getTotalHits();
+  });
+}
+
+/* Pagination */
+
+pagination.renderPagination(pagination.createPagination(50, 1));
 
 document
   .getElementById('pagination-container')
