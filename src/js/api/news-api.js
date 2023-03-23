@@ -70,7 +70,9 @@ class nytNewsApi {
     }
   }
 
-  async getNewsByCategory() {
+  async getNewsByCategory(page) {
+    this.setPage(page);
+    this.setCategorySearchUrl();
     try {
       const news = await axiosInstance
         .get(this.categorySearchUrl)

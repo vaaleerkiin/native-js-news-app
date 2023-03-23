@@ -14,13 +14,8 @@ document
     if (ev.target.nodeName === 'BUTTON') {
       onChangePage(ev.target);
       //   console.log(pagination.genCurrentPage());
-      const page = pagination.genCurrentPage();
-      //   console.log(page);
-      newsApi.setPage(page);
-      newsApi.setCategorySearchUrl();
-      console.log('page in news API: ' + newsApi.getPage());
       let news = [];
-      newsApi.getNewsByCategory().then(res => {
+      newsApi.getNewsByCategory(pagination.genCurrentPage()).then(res => {
         news = res;
         // console.log(news);
         newsApi.getTotalHits();
