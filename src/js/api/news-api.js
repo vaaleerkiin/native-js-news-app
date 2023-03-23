@@ -43,7 +43,7 @@ class nytNewsApi {
     try {
       const news = await axiosInstance.get(this.searchUrl).then(response => {
         if ((response.statusText = 'OK')) {
-          // console.log(response.data.response.docs);
+          console.log(response.data.response.docs);
           this.totalHits = response.data.response.meta.hits;
           return response.data.response.docs;
         }
