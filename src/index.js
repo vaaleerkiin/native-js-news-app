@@ -6,14 +6,13 @@ import { pagination, onChangePage } from './js/pagination';
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
-pagination.renderPagination(pagination.createPagination(50, 1));
+pagination.renderPagination(pagination.createPagination(500, 1));
 
 document
   .getElementById('pagination-container')
   .addEventListener('click', ev => {
     if (ev.target.nodeName === 'BUTTON') {
       onChangePage(ev.target);
-      //   console.log(pagination.genCurrentPage());
       let news = [];
       newsApi.getNewsByCategory(pagination.genCurrentPage()).then(res => {
         news = res;
@@ -22,10 +21,3 @@ document
       });
     }
   });
-
-// let news = [];
-// newsApi.getNewsByCategory().then(res => {
-//   news = res;
-//   console.log(news);
-//   newsApi.getTotalHits();
-// });
