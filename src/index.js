@@ -1,5 +1,6 @@
 import { axiosInstance, newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
+import { filtrBtnClickHandler } from './js/filter-categories';
 // newsApi.getCategories(); // Returns list of 50 categories
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
@@ -13,3 +14,9 @@ document
       console.log(pagination.genCurrentPage());
     }
   });
+
+// ===============filter===================
+
+const filtrButtonsContainerRef = document.querySelector('ul.news__filtr-menu');
+
+filtrButtonsContainerRef.addEventListener('click', filtrBtnClickHandler);

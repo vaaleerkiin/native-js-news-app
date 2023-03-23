@@ -1,0 +1,39 @@
+.news {
+  padding: 28px 0;
+}
+
+.news-navigation {
+  display: flex;
+  justify-content: space-between;
+}
+.news__filtr-menu {
+  display: flex;
+  gap: 16px;
+}
+
+.news__filtr-menu-button {
+  padding: 8px 23px;
+  border: 1px solid #4b48db;
+  color: #4440f6;
+  border-radius: 20px;
+  background-color: transparent;
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.news__filtr-menu-button:hover {
+  background-color: #4b48db;
+  color: #ffffff;
+}
+
+.news__filtr-menu-button--active {
+  background-color: #4b48db;
+  color: #ffffff;
+}
+
+.date-picker {
+  margin-right: 36px;
+}
