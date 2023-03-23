@@ -13,7 +13,18 @@ document
   .addEventListener('click', ev => {
     if (ev.target.nodeName === 'BUTTON') {
       onChangePage(ev.target);
-      console.log(pagination.genCurrentPage());
+      //   console.log(pagination.genCurrentPage());
+      const page = pagination.genCurrentPage();
+      //   console.log(page);
+      newsApi.setPage(page);
+      newsApi.setCategorySearchUrl();
+      console.log('page in news API: ' + newsApi.getPage());
+      let news = [];
+      newsApi.getNewsByCategory().then(res => {
+        news = res;
+        // console.log(news);
+        newsApi.getTotalHits();
+      });
     }
   });
 
