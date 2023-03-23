@@ -7,7 +7,8 @@ class nytNewsApi {
     this.API_KEY = '73zrfLwsQvyOL4F8B4EmM5lidJ3O3t7Z';
     this.POP_URL = 'mostpopular/v2/viewed/1.json';
     this.SEARCH_URL = 'search/v2/articlesearch.json';
-    this.CATEGORY_URL = 'news/v3/content/nyt/';
+    this.CATEGORY_URL = 'news/v3/content/all/';
+    this.totalHits = 1;
 
     // Most popular search
     this.mostPopUrl = `${this.BASE_URL}${this.POP_URL}?api-key=${this.API_KEY}`;
@@ -20,8 +21,8 @@ class nytNewsApi {
     // Category search
     this.category = 'world';
     this.limit = 20;
-    this.currentPage = 1;
-    this.categorySearchUrl = `${this.BASE_URL}${this.CATEGORY_URL}${this.category}.json?limit=${this.limit}&offset=${this.currentPage}&api-key=${this.API_KEY}`;
+    // this.currentPage = 1;
+    this.categorySearchUrl = `${this.BASE_URL}${this.CATEGORY_URL}${this.category}.json?limit=${this.limit}&offset=${this.page}&api-key=${this.API_KEY}`;
   }
 
   async getMostPopularNews() {
@@ -29,6 +30,7 @@ class nytNewsApi {
       const news = await axiosInstance.get(this.mostPopUrl).then(response => {
         if ((response.statusText = 'OK')) {
           console.log(response.data.results);
+          return response.data.results;
         }
       });
       return news;
@@ -42,6 +44,9 @@ class nytNewsApi {
       const news = await axiosInstance.get(this.searchUrl).then(response => {
         if ((response.statusText = 'OK')) {
           console.log(response.data.response.docs);
+          this.totalHits = response.data.response.meta.hits;
+          // console.log(response);
+          return response.data.response.docs;
         }
       });
       return news;
@@ -57,6 +62,7 @@ class nytNewsApi {
         .then(response => {
           if ((response.statusText = 'OK')) {
             console.log(response.data.results);
+            return response.data.results;
           }
         });
       return categories;
@@ -65,19 +71,45 @@ class nytNewsApi {
     }
   }
 
-  async getNewsByCategory() {
+  async getNewsByCategory(page) {
+    this.setPage(page);
+    this.setCategorySearchUrl();
     try {
       const news = await axiosInstance
         .get(this.categorySearchUrl)
         .then(response => {
           if ((response.statusText = 'OK')) {
+            console.log(this.categorySearchUrl);
             console.log(response.data.results);
+            this.totalHits = response.data.num_results;
+            return response.data.results;
           }
         });
       return news;
     } catch (error) {
       console.log(error.message);
     }
+  }
+
+  getTotalHits() {
+    console.log(this.totalHits);
+    return this.totalHits;
+  }
+
+  setPage(page) {
+    this.page = page;
+  }
+
+  resetPage() {
+    this.page = 1;
+  }
+
+  getPage() {
+    return this.page;
+  }
+
+  setCategorySearchUrl() {
+    this.categorySearchUrl = `${this.BASE_URL}${this.CATEGORY_URL}${this.category}.json?limit=${this.limit}&offset=${this.page}&api-key=${this.API_KEY}`;
   }
 }
 
