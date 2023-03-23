@@ -8,6 +8,7 @@ class nytNewsApi {
     this.POP_URL = 'mostpopular/v2/viewed/1.json';
     this.SEARCH_URL = 'search/v2/articlesearch.json';
     this.CATEGORY_URL = 'news/v3/content/nyt/';
+    this.totalHits = 1;
 
     // Most popular search
     this.mostPopUrl = `${this.BASE_URL}${this.POP_URL}?api-key=${this.API_KEY}`;
@@ -29,6 +30,7 @@ class nytNewsApi {
       const news = await axiosInstance.get(this.mostPopUrl).then(response => {
         if ((response.statusText = 'OK')) {
           console.log(response.data.results);
+          return response.data.results;
         }
       });
       return news;
@@ -41,7 +43,9 @@ class nytNewsApi {
     try {
       const news = await axiosInstance.get(this.searchUrl).then(response => {
         if ((response.statusText = 'OK')) {
-          console.log(response.data.response.docs);
+          // console.log(response.data.response.docs);
+          this.totalHits = response.data.response.meta.hits;
+          return response.data.response.docs;
         }
       });
       return news;
@@ -57,6 +61,7 @@ class nytNewsApi {
         .then(response => {
           if ((response.statusText = 'OK')) {
             console.log(response.data.results);
+            return response.data.results;
           }
         });
       return categories;
@@ -72,12 +77,19 @@ class nytNewsApi {
         .then(response => {
           if ((response.statusText = 'OK')) {
             console.log(response.data.results);
+            this.totalHits = response.data.num_results;
+            return response.data.results;
           }
         });
       return news;
     } catch (error) {
       console.log(error.message);
     }
+  }
+
+  getTotalHits() {
+    console.log(this.totalHits);
+    return this.totalHits;
   }
 }
 
