@@ -16,7 +16,6 @@
   margin: 0;
 
   display: flex;
-  gap: 2px;
 }
 
 .page-item {
@@ -29,7 +28,9 @@
   justify-content: center;
   align-items: center;
   padding: 0;
-  margin: 0;
+  &:not(:first-child) {
+    margin-left: 8px;
+  }
 }
 
 .current--page {
@@ -61,6 +62,8 @@
   margin: 0;
   &.pre-dots,
   &.post-dots {
+    margin-left: -8px;
+    margin-right: -8px;
     border: none;
     background: transparent;
   }
