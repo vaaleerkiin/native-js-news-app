@@ -1,0 +1,45 @@
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal">
+    <button class="modal__close-button" type="button" data-modal-close>
+      <svg class="modal__close-icon" width="18px" height="18px">
+        <use href="./images/icon/symbol-defs.svg#icon-close-black"></use>
+      </svg>
+    </button>
+    <p class="modal__title">Log In</p>
+    <form class="order-form">
+      <label class="order-form__lable" for="name">User name</label>
+      <div class="order-form__block">
+        <svg class="order-form__icon" width="18px" height="18px">
+          <use href="./images/icon/symbol-defs.svg#icon-user"></use>
+        </svg>
+        <input
+          class="order-form__input"
+          type="text"
+          name="username"
+          id="name"
+          placeholder="Enter name"
+          autofocus
+          required
+        />
+      </div>
+      <label class="order-form__lable" for="userPassword">Password</label>
+      <div class="order-form__block">
+        <svg class="order-form__icon" width="18px" height="18px">
+          <use href="./images/icon/symbol-defs.svg#icon-key"></use>
+        </svg>
+        <input
+          class="order-form__input"
+          type="password"
+          id="userPassword"
+          placeholder="Enter password"
+          autofocus
+          required
+        />
+      </div>
+      <div class="block-button">
+        <button class="modal-button" type="submit">Sing Up</button>
+        <button class="modal-button" type="submit">Sing In</button>
+      </div>
+    </form>
+  </div>
+</div>
