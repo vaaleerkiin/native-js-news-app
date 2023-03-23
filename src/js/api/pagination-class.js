@@ -14,7 +14,7 @@ export default class Pagination {
       if (currentPage <= 3) {
         startPage = 1;
         endPage = 4;
-      } else if (currentPage + 4 >= totalPages) {
+      } else if (currentPage + 2 >= totalPages) {
         startPage = totalPages - 5;
         endPage = totalPages;
       } else {
@@ -69,5 +69,8 @@ export default class Pagination {
 
       this.paginationContainer.appendChild(listItem);
     }
+  }
+  genCurrentPage() {
+    return this.currentPage;
   }
 }
