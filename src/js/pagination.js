@@ -1,17 +1,7 @@
 import Pagination from './api/pagination-class';
-let pagination = new Pagination();
+export let pagination = new Pagination();
 
-pagination.renderPagination(pagination.createPagination(50, 1));
-
-document
-  .getElementById('pagination-container')
-  .addEventListener('click', ev => {
-    if (ev.target.nodeName === 'BUTTON') {
-      onChangePage(ev.target);
-    }
-  });
-
-async function onChangePage(ev) {
+export async function onChangePage(ev) {
   if (ev.textContent == '<') {
     pagination.currentPage = +pagination.currentPage - 1;
 
