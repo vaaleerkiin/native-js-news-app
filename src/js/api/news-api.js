@@ -1,5 +1,5 @@
 import axios from 'axios';
-const axiosInstance = axios.create();
+export const axiosInstance = axios.create();
 
 class nytNewsApi {
   constructor() {
@@ -81,13 +81,14 @@ class nytNewsApi {
   }
 }
 
-const newsApi = new nytNewsApi();
+export const newsApi = new nytNewsApi();
+
+/* TMP Section to delete */
+
 // newsApi.getMostPopularNews();
 // newsApi.getNewsBySearchQuery();
 // newsApi.getCategories();
 // newsApi.getNewsByCategory();
-
-/* TMP */
 
 // const API_KEY = '73zrfLwsQvyOL4F8B4EmM5lidJ3O3t7Z';
 // const BASE_URL = 'https://api.nytimes.com/svc/';
