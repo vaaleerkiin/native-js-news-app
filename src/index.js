@@ -1,5 +1,6 @@
 import { axiosInstance, newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
+import './js/modal';
 // newsApi.getCategories(); // Returns list of 50 categories
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
