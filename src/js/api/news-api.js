@@ -91,6 +91,14 @@ class nytNewsApi {
     console.log(this.totalHits);
     return this.totalHits;
   }
+
+  setPage(page) {
+    this.page = page;
+  }
+
+  resetPage() {
+    this.page = 1;
+  }
 }
 
 export const newsApi = new nytNewsApi();
