@@ -27,8 +27,11 @@ searchQuery.addEventListener('submit', onSearchSubmit);
 
 function onSearchSubmit(e) {
   e.preventDefault();
-  const query = searchQuery.query.value;
+  const query = searchQuery.query.value.trim();
   console.log(query);
+  if (!query) {
+    return;
+  }
   newsApi.resetPage();
   let news = [];
   newsApi.getNewsBySearchQuery(query).then(res => {
