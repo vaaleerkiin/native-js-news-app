@@ -1,12 +1,24 @@
 import { axiosInstance, newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 import { filtrBtnClickHandler } from './js/filter-categories';
+import { auth } from './js/ui/firebase';
+import { monitorAuthState } from './js/ui/ui';
 import './js/modal';
 
 // newsApi.getCategories(); // Returns list of 50 categories
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
+
+/* Firebase auth*/
+
+monitorAuthState();
+// const logoutButton = document.getElementById('logout');
+// logoutButton.addEventListener('click', onLogout);
+
+async function onLogout() {
+  const userSignOut = await auth.signOut();
+}
 
 /* Search by word */
 
