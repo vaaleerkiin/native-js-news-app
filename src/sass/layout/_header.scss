@@ -1,22 +1,32 @@
 .header {
+  position: relative;
   padding: 24px 0;
 
-  width: 1280px;
+  width: 320px;
   margin: 0 auto;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
   @media screen and (min-width: 768px) {
     padding: 32px 0 30px 0;
+    width: 768px;
   }
 
   @media screen and (min-width: 1280px) {
     padding: 28px 0;
+    width: 1280px;
   }
 }
-.container {
+.header-container {
   margin: 0 auto;
-  width: 1248px;
+  width: 320px;
   padding: 0 16px;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
 }
 
 .header-menu {
@@ -48,25 +58,23 @@
   }
 }
 
-// @media screen and (min-width: 320px) and (max-width: 767px) {
-//   .header__logo {
-//     font-size: 24px;
-//     line-height: 33px;
-//   }
-// }
-
 .nav {
   display: flex;
   align-items: baseline;
+  margin-right: 25px;
+  @media screen and (min-width: 1280px) {
+    margin-right: 142px;
+  }
 }
 .nav__list {
   display: flex;
-
-  margin-right: 142px;
 }
 
 .nav__item:not(:last-child) {
-  margin-right: 59px;
+  margin-right: 25px;
+  @media screen and (min-width: 1280px) {
+    margin-right: 59px;
+  }
 }
 
 .nav__link {
@@ -75,9 +83,14 @@
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 22px;
   color: #111321;
+
+  @media screen and (min-width: 1280px) {
+    font-weight: 700;
+    font-size: 18px;
+  }
 }
 
 .nav__link:hover {
@@ -113,15 +126,20 @@
 
 .search-form {
   position: relative;
-  width: 300px;
 }
 .search-form__input {
   width: 288px;
   height: 31px;
-  padding-left: 48px;
+  padding: 5px 0 8px 48px;
   border: 1px solid #111321;
   outline: none;
   border-radius: 20px;
+  @media screen and (min-width: 768px) {
+    width: 213px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 288px;
+  }
 }
 
 .search-form__input::placeholder {
@@ -158,6 +176,12 @@
   fill: currentColor;
 }
 
-.theme-switcher {
+.user-settings {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin-left: auto;
 }
