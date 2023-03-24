@@ -6,6 +6,9 @@ import { monitorAuthState, userLogIn } from './js/ui/ui';
 import './js/modal';
 import { onThemeChange } from './js/switcher';
 import { getPosition } from './js/weather';
+import AirDatepicker from 'air-datepicker';
+import 'air-datepicker/air-datepicker.css';
+// import CalendarDates from 'calendar-dates';
 
 // newsApi.getCategories(); // Returns list of 50 categories
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
@@ -60,3 +63,32 @@ document
 const filtrButtonsContainerRef = document.querySelector('ul.news__filtr-menu');
 
 filtrButtonsContainerRef.addEventListener('click', filtrBtnClickHandler);
+
+// ===============date form filter===================
+
+const dateForm = document.querySelector('.date-form__input');
+const dateFormButton = document.querySelector('.date-form__input');
+
+dateForm.addEventListener('click', dateFilterOpen);
+
+function dateFilterOpen() {
+  new AirDatepicker('.date-form__input', {
+    autoClose: true,
+    position: 'bottom center',
+    dateFormat: 'dd/MM/yyyy',
+  });
+}
+
+// const calendarDates = new CalendarDates();
+
+// const main = async () => {
+//   for (const meta of await calendarDates.getDates(new Date())) {
+//     console.log(meta);
+//   }
+
+//   for (const meta of await calendarDates.getMatrix(new Date())) {
+//     console.log(meta);
+//   }
+// };
+
+// main();

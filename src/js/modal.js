@@ -9,7 +9,7 @@ const refs = {
 refs.openModalBtn.addEventListener('click', loginLogout);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
-export function toggleModal() {
+function toggleModal() {
   refs.modal.classList.toggle('is-hidden');
 }
 
@@ -24,3 +24,4 @@ function loginLogout() {
 async function onLogout() {
   const userSignOut = await auth.signOut();
 }
+//1233
