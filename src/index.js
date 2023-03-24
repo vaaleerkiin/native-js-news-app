@@ -1,6 +1,7 @@
 import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 import { filtrBtnClickHandler } from './js/filter-categories';
+import { renderMarkup } from './js/rendermarkup';
 import { monitorAuthState, userLogIn } from './js/ui/ui';
 import './js/modal';
 import { onThemeChange } from './js/switcher';
@@ -32,6 +33,7 @@ function onSearchSubmit(e) {
     news = res;
     console.log(news);
     newsApi.getTotalHits();
+    renderMarkup(news);
   });
 }
 
