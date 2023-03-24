@@ -1,11 +1,10 @@
 import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 import { filtrBtnClickHandler } from './js/filter-categories';
-// import { auth } from './js/ui/firebase';
 import { monitorAuthState, userLogIn } from './js/ui/ui';
 import './js/modal';
 import { onThemeChange } from './js/switcher';
-import {getPosition} from'./js/weather';
+import { getPosition } from './js/weather';
 
 // newsApi.getCategories(); // Returns list of 50 categories
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
@@ -17,8 +16,6 @@ import {getPosition} from'./js/weather';
 const logInFormEl = document.querySelector('.order-form');
 logInFormEl.addEventListener('submit', userLogIn);
 monitorAuthState();
-// const logoutButton = document.getElementById('logout');
-// logoutButton.addEventListener('click', onLogout);
 
 /* Search by word */
 
