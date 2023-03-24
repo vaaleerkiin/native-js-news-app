@@ -10,18 +10,6 @@ const modalErrorMessageAreaEl = document.getElementById(
   'modal-error-message-area'
 );
 
-// const loginLogoutButtonEl = document.querySelector('.button-authorization');
-// loginLogoutButtonEl.addEventListener('click', onLoginLogoutButtonClick);
-
-// function onLoginLogoutButtonClick(e) {
-//   e.preventDefault();
-//   if (loginLogoutButtonEl.textContent === 'Logout') {
-//     onLogout();
-//   }
-// }
-
-// const logoutButtonEl = document.getElementById('logout');
-
 export async function userLogIn(e) {
   e.preventDefault();
   const email = e.target.email.value;
