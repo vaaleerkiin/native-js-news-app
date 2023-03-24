@@ -1,7 +1,11 @@
-import { axiosInstance, newsApi } from './js/api/news-api';
+import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 import { filtrBtnClickHandler } from './js/filter-categories';
-import { toggleModal } from './js/modal';
+import { renderMarkup } from './js/rendermarkup';
+import { monitorAuthState, userLogIn } from './js/ui/ui';
+import './js/modal';
+import { onThemeChange } from './js/switcher';
+import { getPosition } from './js/weather';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 // import CalendarDates from 'calendar-dates';
@@ -10,6 +14,12 @@ import 'air-datepicker/air-datepicker.css';
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
+
+/* Firebase auth*/
+
+const logInFormEl = document.querySelector('.order-form');
+logInFormEl.addEventListener('submit', userLogIn);
+monitorAuthState();
 
 /* Search by word */
 
@@ -26,6 +36,7 @@ function onSearchSubmit(e) {
     news = res;
     console.log(news);
     newsApi.getTotalHits();
+    renderMarkup(news);
   });
 }
 

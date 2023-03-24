@@ -29,10 +29,21 @@
           </svg>
         </button>
       </form>
+      <div class="loginState"></div>
+      <button
+        type="button"
+        class="button-authorization button-login"
+        data-modal-open
+      >
+        Log In
+      </button>
 
-      <button type="button" class="button-login" data-modal-open>Log In</button>
-
-      <div class="theme-switcher">Light/Dark</div>
+      <div class="switcher">
+        <span class="switcher__text-light">Light</span>
+        <input type="checkbox" class="switcher__input" id="theme" />
+        <label for="theme" class="switcher__label"></label>
+        <span class="switcher__text-dark">Dark</span>
+      </div>
     </div>
   </div>
 </header>
