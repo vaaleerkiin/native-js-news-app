@@ -17,23 +17,31 @@
       </nav>
 
       <form class="search-form">
-        <input class="search-form__input" type="text" placeholder="Search |" name="query" />
+        <input
+          class="search-form__input"
+          type="text"
+          placeholder="Search |"
+          name="query"
+        />
         <button class="search-form__button" type="submit">
           <svg class="search-form__icon">
             <use href="./images/icons.svg#icon-bx_search"></use>
           </svg>
         </button>
       </form>
-      <div class="loginState"></div>
-      <button type="button" class="button-authorization" data-modal-open>
-        Log In
-      </button>
 
-      <div class="switcher">
-        <span class="switcher__text-light">Light</span>
-        <input type="checkbox" class="switcher__input" id="theme" />
-        <label for="theme" class="switcher__label"></label>
-        <span class="switcher__text-dark">Dark</span>
+      <div class="user-settings">
+        <div class="loginState"><p>Default Username</p></div>
+        <button type="button" class="button-authorization" data-modal-open>
+          Log In
+        </button>
+
+        <div class="switcher">
+          <span class="switcher__text-light">Light</span>
+          <input type="checkbox" class="switcher__input" id="theme" />
+          <label for="theme" class="switcher__label"></label>
+          <span class="switcher__text-dark">Dark</span>
+        </div>
       </div>
     </div>
   </div>
