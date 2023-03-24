@@ -2,8 +2,8 @@ import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 import { filtrBtnClickHandler } from './js/filter-categories';
 import { renderMarkup } from './js/rendermarkup';
-import { monitorAuthState, userLogIn } from './js/ui/ui';
-import { auth } from './js/ui/firebase';
+import { monitorAuthState } from './js/ui/ui';
+// import { auth } from './js/ui/firebase';
 import './js/modal';
 import { onThemeChange } from './js/switcher';
 import { getPosition } from './js/weather';
@@ -18,8 +18,6 @@ import 'air-datepicker/air-datepicker.css';
 
 /* Firebase auth*/
 
-const logInFormEl = document.querySelector('.order-form');
-logInFormEl.addEventListener('submit', userLogIn);
 monitorAuthState();
 
 /* Search by word */

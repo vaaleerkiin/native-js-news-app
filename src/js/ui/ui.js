@@ -4,6 +4,9 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { toggleModal } from '../modal';
 import { async } from '@firebase/util';
 
+const logInFormEl = document.querySelector('.order-form');
+logInFormEl.addEventListener('submit', userLogIn);
+
 const loginStateEl = document.querySelector('.loginState');
 const loginSignupEl = document.querySelector('.button-authorization');
 const modalErrorMessageAreaEl = document.getElementById(
@@ -23,6 +26,7 @@ export async function userLogIn(e) {
     ).then(res => {
       if (res.user) {
         toggleModal();
+        logInFormEl.reset();
       }
     });
     // console.log(userCredential.user);
