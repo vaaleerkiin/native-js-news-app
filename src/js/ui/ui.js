@@ -1,14 +1,55 @@
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from 'firebase/auth';
 import { toggleModal } from '../modal';
 import { async } from '@firebase/util';
+
+const logInFormEl = document.querySelector('.order-form');
+logInFormEl.addEventListener('submit', userLogIn);
+
+const registerButtonEl = document.getElementById('register-button');
+registerButtonEl.addEventListener('click', newUserRegistration);
 
 const loginStateEl = document.querySelector('.loginState');
 const loginSignupEl = document.querySelector('.button-authorization');
 const modalErrorMessageAreaEl = document.getElementById(
   'modal-error-message-area'
 );
+
+async function newUserRegistration() {
+  const email = logInFormEl.email.value.trim();
+  const password = logInFormEl.password.value;
+  const validator = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+  if (!password.match(validator)) {
+    modalErrorMessageAreaEl.textContent =
+      'A password must be between 6 to 20 characters and contain at least one numeric digit, one uppercase and one lowercase letter';
+    return;
+  }
+  // console.log(email, password);
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(userCredential => {
+      // Signed in
+      const user = userCredential.user;
+      if (user) {
+        // console.log(user);
+        sendEmailVerification(auth.currentUser).then(() => {
+          modalErrorMessageAreaEl.textContent = 'Email verification sent!';
+          console.log('Email verification sent!');
+        });
+      }
+    })
+    .catch(error => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+      modalErrorMessageAreaEl.textContent = errorMessage;
+    });
+}
 
 export async function userLogIn(e) {
   e.preventDefault();
@@ -23,6 +64,8 @@ export async function userLogIn(e) {
     ).then(res => {
       if (res.user) {
         toggleModal();
+        logInFormEl.reset();
+        modalErrorMessageAreaEl.textContent = '';
       }
     });
     // console.log(userCredential.user);
