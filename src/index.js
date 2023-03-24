@@ -3,6 +3,7 @@ import { pagination, onChangePage } from './js/pagination';
 import { filtrBtnClickHandler } from './js/filter-categories';
 import './js/modal';
 import { onThemeChange } from './js/switcher';
+import {getPosition} from'./js/weather';
 
 // newsApi.getCategories(); // Returns list of 50 categories
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
