@@ -1,0 +1,137 @@
+// Слайдер
+
+.switcher {
+  display: flex;
+  align-items: center;
+}
+.switcher__input {
+  display: none;
+}
+
+.switcher__label {
+  position: relative;
+  cursor: pointer;
+}
+.switcher__label:before {
+  display: block;
+  content: '';
+  width: 40px;
+  height: 20px;
+  border: 1px solid #4b48db;
+  border-radius: 50px;
+  transition: border-color 250ms linear background-color 250ms linear;
+}
+.switcher__label:after {
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  content: '';
+  width: 16px;
+  height: 16px;
+  background-color: #4b48db;
+  border-radius: 50%;
+  transition: transform 250ms linear, background-color 250ms linear;
+}
+
+.switcher__input:checked + .switcher__label::after {
+  transform: translateX(20px);
+  background-color: #ffffff;
+}
+
+.switcher__input:checked + .switcher__label::before {
+  border-color: #ffffff;
+  background-color: #4b48db;
+}
+
+.switcher__input input {
+  display: none;
+}
+
+.switcher__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.switcher__slider:before {
+  position: absolute;
+  content: '';
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  right: 2px;
+  bottom: 1px;
+  background-color: #4b48db;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 100px;
+}
+
+input:checked + .switcher__slider {
+  background-color: #4b48db;
+  border-color: white;
+}
+input:checked + .switcher__slider:before {
+  background-color: white;
+}
+
+input:focus + .switcher__slider {
+  box-shadow: 0 0 1px #4b48db;
+}
+
+input:checked + .switcher__slider:before {
+  transform: translateX(20px);
+}
+
+.switcher__text-light {
+  color: #4b48db;
+  font-weight: 400;
+  font-size: 18;
+  line-height: 1.33;
+  margin-right: 12px;
+}
+.switcher__text-dark {
+  font-weight: 400;
+  font-size: 18;
+  line-height: 1.33;
+  margin-left: 12px;
+  color: #5f6775;
+}
+.switcher-light {
+  color: #4b48db;
+}
+.switcher-dark {
+  color: #5f6775;
+}
+
+// Теми для перемикання
+
+.dark-mode {
+  background-color: #2e2e2e;
+  color: #ffffff;
+}
+.light-text {
+  color: #ffffff;
+}
+
+.dark-text {
+  color: black;
+}
+.search-form__input--dark {
+  border: 1px solid white;
+  background-color: #2e2e2e;
+}
+.search-form__icon--dark {
+  fill: white;
+}
+.dark-mode .search-form__icon {
+  fill: #fff; /* change the fill color to white */
+}
