@@ -3,6 +3,7 @@ import { pagination, onChangePage } from './js/pagination';
 import { filtrBtnClickHandler } from './js/filter-categories';
 import { renderMarkup } from './js/rendermarkup';
 import { monitorAuthState, userLogIn } from './js/ui/ui';
+import { auth } from './js/ui/firebase';
 import './js/modal';
 import { onThemeChange } from './js/switcher';
 import { getPosition } from './js/weather';
