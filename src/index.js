@@ -4,6 +4,8 @@ import { filtrBtnClickHandler } from './js/filter-categories';
 // import { auth } from './js/ui/firebase';
 import { monitorAuthState, userLogIn } from './js/ui/ui';
 import './js/modal';
+import { onThemeChange } from './js/switcher';
+import {getPosition} from'./js/weather';
 
 // newsApi.getCategories(); // Returns list of 50 categories
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
