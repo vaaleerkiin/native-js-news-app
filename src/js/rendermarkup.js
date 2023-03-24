@@ -9,7 +9,7 @@ function renderMarkup (searchedNews) {
 
             <div class="card-photo">
             <div class="photo"><a href="" alt=""></a>
-      		<img src="https://www.nytimes.com/${multimedia.url}" alt="${keywords.value}" width = "30" height = "220" loading="lazy" />
+      		<img src="https://www.nytimes.com/${multimedia[0].url}" alt="${keywords.value}" width = "300" height = "220" loading="lazy" />
 		
             <div class="card-category"></div>
             <button type="button" class="add-to-favorite">Add to favorite</button>
