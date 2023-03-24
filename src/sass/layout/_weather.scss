@@ -31,22 +31,28 @@
     
     color: #FFFFFF
     }
-    .weather-city {
-    
-    width: 177px;
-    height: 42px;
-    padding: 8px 7px 7px 7px;
-    
-    background: rgba(254, 254, 255, 0.3);
-    border-radius: 10px;
-    border: none;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 23px;
-    color: #FFFFFF;
-    }
+    .weather-city_box {
+      display: flex;
+      justify-items: center;
+      
+      width: 177px;
+      height: 42px;
+      padding: 7px;
+      
+      background: rgba(254, 254, 255, 0.3);
+      border-radius: 10px;
+      border: none;
+      }
+      
+      .weather-city {
+       
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 23px;
+        color: #FFFFFF;
+        }
     
     .location-icon {
       fill: #FFFFFF;
