@@ -1,10 +1,24 @@
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { toggleModal } from '../modal';
 import { async } from '@firebase/util';
 
 const loginStateEl = document.querySelector('.loginState');
 const loginSignupEl = document.querySelector('.button-authorization');
+const modalErrorMessageAreaEl = document.getElementById(
+  'modal-error-message-area'
+);
+
+// const loginLogoutButtonEl = document.querySelector('.button-authorization');
+// loginLogoutButtonEl.addEventListener('click', onLoginLogoutButtonClick);
+
+// function onLoginLogoutButtonClick(e) {
+//   e.preventDefault();
+//   if (loginLogoutButtonEl.textContent === 'Logout') {
+//     onLogout();
+//   }
+// }
 
 // const logoutButtonEl = document.getElementById('logout');
 
@@ -18,9 +32,15 @@ export async function userLogIn(e) {
       auth,
       email,
       password
-    );
-    console.log(userCredential.user);
+    ).then(res => {
+      if (res.user) {
+        toggleModal();
+      }
+    });
+    // console.log(userCredential.user);
   } catch (error) {
+    modalErrorMessageAreaEl.textContent =
+      'Wrong email or password. Please, try again.';
     console.log(error.message);
   }
 }
@@ -35,15 +55,11 @@ function showLoginState(user) {
 export async function monitorAuthState() {
   onAuthStateChanged(auth, user => {
     if (user) {
-      // console.log(user);
-      // loginSignupEl.classList.add('hidden');
-      // logoutButtonEl.classList.remove('hidden');
       loginSignupEl.textContent = 'Logout';
       showLoginState(user);
     } else {
-      // loginSignupEl.classList.remove('hidden');
-      // logoutButtonEl.classList.add('hidden');
-      loginStateEl.innerHTML = '<p><b>You are not logged in.</b></p>';
+      loginSignupEl.textContent = 'Log In';
+      loginStateEl.innerHTML = '';
     }
   });
 }
