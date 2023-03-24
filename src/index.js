@@ -1,6 +1,7 @@
 import { axiosInstance, newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 import { filtrBtnClickHandler } from './js/filter-categories';
+import { renderMarkup } from './js/rendermarkup';
 import './js/modal';
 
 // newsApi.getCategories(); // Returns list of 50 categories
@@ -23,6 +24,7 @@ function onSearchSubmit(e) {
     news = res;
     console.log(news);
     newsApi.getTotalHits();
+    renderMarkup(news);
   });
 }
 
