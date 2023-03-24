@@ -7,7 +7,7 @@
     </button>
     <p class="modal__title">Log In</p>
     <form class="order-form">
-      <label class="order-form__lable" for="name">User name</label>
+      <label class="order-form__lable" for="name">Email</label>
       <div class="order-form__block">
         <svg class="order-form__icon" width="18px" height="18px">
           <use href="./images/icon/symbol-defs.svg#icon-user"></use>
@@ -15,9 +15,9 @@
         <input
           class="order-form__input"
           type="text"
-          name="username"
-          id="name"
-          placeholder="Enter name"
+          name="email"
+          id="email"
+          placeholder="Enter email"
           autofocus
           required
         />
@@ -30,12 +30,14 @@
         <input
           class="order-form__input"
           type="password"
+          name="password"
           id="userPassword"
           placeholder="Enter password"
           autofocus
           required
         />
       </div>
+      <div id="modal-error-message-area"></div>
       <div class="block-button">
         <button class="modal-button" type="submit">Sing Up</button>
         <button class="modal-button" type="submit">Sing In</button>
