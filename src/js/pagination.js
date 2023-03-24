@@ -1,15 +1,16 @@
 import Pagination from './api/pagination-class';
+import {renderMarkup} from './rendermarkup.js';
 export let pagination = new Pagination();
 
 export async function onChangePage(ev) {
   if (ev.classList.contains('arrow-left')) {
     pagination.currentPage = +pagination.currentPage - 1;
 
-    // const response = await fetchNewData.makeRequest(queryValue);
+    const response = await fetchNewData.makeRequest(queryValue);
     pagination.paginationContainer.innerHTML = '';
     // clearAMarkup();
 
-    // renderMarkup(response.hits);
+    renderMarkup(response.hits);
 
     const pag = pagination.createPagination(
       pagination.totalPages,
@@ -20,11 +21,11 @@ export async function onChangePage(ev) {
   } else if (ev.classList.contains('arrow-right')) {
     pagination.currentPage = +pagination.currentPage + 1;
 
-    // const response = await fetchNewData.makeRequest(queryValue);
+    const response = await fetchNewData.makeRequest(queryValue);
     pagination.paginationContainer.innerHTML = '';
     // clearAMarkup();
 
-    // renderMarkup(response.hits);
+    renderMarkup(response.hits);
 
     const pag = pagination.createPagination(
       pagination.totalPages,
@@ -37,11 +38,11 @@ export async function onChangePage(ev) {
       (+pagination.currentPage + +pagination.totalPages) / 2
     );
 
-    // const response = await fetchNewData.makeRequest(queryValue);
+    const response = await fetchNewData.makeRequest(queryValue);
     pagination.paginationContainer.innerHTML = '';
     // clearAMarkup();
 
-    // renderMarkup(response.hits);
+    renderMarkup(response.hits);
 
     const pag = pagination.createPagination(
       pagination.totalPages,
@@ -52,11 +53,11 @@ export async function onChangePage(ev) {
   } else if (ev.classList.contains('pre-dots')) {
     pagination.currentPage = Math.ceil(+pagination.currentPage / 2);
 
-    // const response = await fetchNewData.makeRequest(queryValue);
+    const response = await fetchNewData.makeRequest(queryValue);
     pagination.paginationContainer.innerHTML = '';
     // clearAMarkup();
 
-    // renderMarkup(response.hits);
+    renderMarkup(response.hits);
 
     const pag = pagination.createPagination(
       pagination.totalPages,
@@ -67,11 +68,11 @@ export async function onChangePage(ev) {
   } else {
     ev = ev.textContent;
     pagination.currentPage = +ev;
-    // const response = await fetchNewData.makeRequest(queryValue);
+    const response = await fetchNewData.makeRequest(queryValue);
     pagination.paginationContainer.innerHTML = '';
     // clearAMarkup();
 
-    // renderMarkup(response.hits);
+    renderMarkup(response.hits);
 
     const pag = pagination.createPagination(
       pagination.totalPages,
