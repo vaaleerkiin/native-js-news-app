@@ -1,8 +1,8 @@
-import { axiosInstance, newsApi } from './js/api/news-api';
+import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 import { filtrBtnClickHandler } from './js/filter-categories';
 import { auth } from './js/ui/firebase';
-import { monitorAuthState } from './js/ui/ui';
+import { monitorAuthState, userLogIn } from './js/ui/ui';
 import './js/modal';
 
 // newsApi.getCategories(); // Returns list of 50 categories
@@ -11,7 +11,8 @@ import './js/modal';
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
 /* Firebase auth*/
-
+const logInFormEl = document.querySelector('.order-form');
+logInFormEl.addEventListener('submit', userLogIn);
 monitorAuthState();
 // const logoutButton = document.getElementById('logout');
 // logoutButton.addEventListener('click', onLogout);
