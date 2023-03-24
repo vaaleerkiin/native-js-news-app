@@ -30,23 +30,29 @@ export default class Pagination {
 
     let pagination = [];
     if (startPage > 1) {
-      pagination.push(`<button class="page__btn arrow-left"></button>`);
-      pagination.push('<button class="page__btn">1</button>');
-      pagination.push('<button class="page__btn pre-dots">...</button>');
+      pagination.push(
+        `<button class="pagination__btn pagination__arrow-left"></button>`
+      );
+      pagination.push('<button class="pagination__btn">1</button>');
+      pagination.push('<button class="pagination__btn pre-dots">...</button>');
     }
 
     for (let i of pages) {
       if (i === currentPage) {
-        pagination.push(`<button class="current--page">${i}</button>`);
+        pagination.push(
+          `<button class="pagination__current-page">${i}</button>`
+        );
       } else {
         pagination.push(i);
       }
     }
 
     if (endPage < totalPages) {
-      pagination.push('<button class="page__btn post-dots">...</button>');
-      pagination.push(`<button class="page__btn">${totalPages}</button>`);
-      pagination.push(`<button class="page__btn arrow-right"></button>`);
+      pagination.push('<button class="pagination__btn post-dots">...</button>');
+      pagination.push(`<button class="pagination__btn">${totalPages}</button>`);
+      pagination.push(
+        `<button class="pagination__btn pagination__arrow-right"></button>`
+      );
     }
 
     return pagination;
@@ -54,10 +60,10 @@ export default class Pagination {
   renderPagination(pag) {
     for (let item of pag) {
       const listItem = document.createElement('li');
-      listItem.classList.add('page-item');
+      listItem.classList.add('pagination__item');
 
       if (typeof item === 'number') {
-        listItem.innerHTML = `<button class="page__btn page__num">${item}</button>`;
+        listItem.innerHTML = `<button class="pagination__btn pagination__num">${item}</button>`;
       } else {
         listItem.innerHTML = item;
       }

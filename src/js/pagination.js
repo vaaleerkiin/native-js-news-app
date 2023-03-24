@@ -2,7 +2,7 @@ import Pagination from './api/pagination-class';
 export let pagination = new Pagination();
 
 export async function onChangePage(ev) {
-  if (ev.classList.contains('arrow-left')) {
+  if (ev.classList.contains('pagination__arrow-left')) {
     pagination.currentPage = +pagination.currentPage - 1;
 
     // const response = await fetchNewData.makeRequest(queryValue);
@@ -17,7 +17,7 @@ export async function onChangePage(ev) {
     );
 
     pagination.renderPagination(pag);
-  } else if (ev.classList.contains('arrow-right')) {
+  } else if (ev.classList.contains('pagination__arrow-right')) {
     pagination.currentPage = +pagination.currentPage + 1;
 
     // const response = await fetchNewData.makeRequest(queryValue);
