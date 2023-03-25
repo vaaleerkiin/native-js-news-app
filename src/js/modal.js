@@ -7,7 +7,7 @@ const refs = {
 };
 
 refs.openModalBtn.addEventListener('click', loginLogout);
-refs.closeModalBtn.addEventListener('click', toggleModal);
+refs.closeModalBtn.addEventListener('click', onCloseModal);
 
 export function toggleModal() {
   refs.modal.classList.toggle('is-hidden');
@@ -19,6 +19,12 @@ function loginLogout() {
   } else {
     toggleModal();
   }
+}
+
+function onCloseModal() {
+  toggleModal();
+  document.getElementById('modal-error-message-area').textContent = '';
+  document.querySelector('.order-form').reset();
 }
 
 async function onLogout() {

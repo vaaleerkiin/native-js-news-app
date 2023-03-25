@@ -4,10 +4,14 @@ import { filtrBtnClickHandler } from './js/filter-categories';
 import { searchInputAnimation } from './js/search-input-animation';
 import { oNmobileMenu } from './js/mobile-menu';
 import { renderMarkup } from './js/rendermarkup';
-import { monitorAuthState, userLogIn } from './js/ui/ui';
+import { monitorAuthState } from './js/ui/ui';
+// import { auth } from './js/ui/firebase';
 import './js/modal';
 import { onThemeChange } from './js/switcher';
 import { getPosition } from './js/weather';
+import AirDatepicker from 'air-datepicker';
+import 'air-datepicker/air-datepicker.css';
+// import CalendarDates from 'calendar-dates';
 
 // newsApi.getCategories(); // Returns list of 50 categories
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
@@ -15,10 +19,14 @@ import { getPosition } from './js/weather';
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
 /* Firebase auth*/
+
 oNmobileMenu();
 searchInputAnimation();
 const logInFormEl = document.querySelector('.order-form');
 logInFormEl.addEventListener('submit', userLogIn);
+
+
+
 monitorAuthState();
 
 /* Search by word */
@@ -28,8 +36,11 @@ searchQuery.addEventListener('submit', onSearchSubmit);
 
 function onSearchSubmit(e) {
   e.preventDefault();
-  const query = searchQuery.query.value;
+  const query = searchQuery.query.value.trim();
   console.log(query);
+  if (!query) {
+    return;
+  }
   newsApi.resetPage();
   let news = [];
   newsApi.getNewsBySearchQuery(query).then(res => {
@@ -63,3 +74,32 @@ document
 const filtrButtonsContainerRef = document.querySelector('ul.news__filtr-menu');
 
 filtrButtonsContainerRef.addEventListener('click', filtrBtnClickHandler);
+
+// ===============date form filter===================
+
+const dateForm = document.querySelector('.date-form__input');
+const dateFormButton = document.querySelector('.date-form__input');
+
+dateForm.addEventListener('click', dateFilterOpen);
+
+function dateFilterOpen() {
+  new AirDatepicker('.date-form__input', {
+    autoClose: true,
+    position: 'bottom center',
+    dateFormat: 'dd/MM/yyyy',
+  });
+}
+
+// const calendarDates = new CalendarDates();
+
+// const main = async () => {
+//   for (const meta of await calendarDates.getDates(new Date())) {
+//     console.log(meta);
+//   }
+
+//   for (const meta of await calendarDates.getMatrix(new Date())) {
+//     console.log(meta);
+//   }
+// };
+
+// main();

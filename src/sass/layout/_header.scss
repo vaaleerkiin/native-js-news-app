@@ -223,6 +223,7 @@
   fill: currentColor;
 }
 
+
 .search-form__icon-search {
   cursor: pointer;
   pointer-events: all;
@@ -369,4 +370,35 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+.theme-switcher {
+  // margin-left: auto;
+}
+
+.button-login {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 1px 21px;
+  border-radius: 20px;
+  background-color: var(--background-color-white);
+  border: 1px solid #111321;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-family: var(--primary-font);
+  outline: none;
+
+  &:hover,
+  &:focus {
+    box-sizing: border-box;
+    border-color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--text-color-white);
+  }
+
 }
