@@ -9,6 +9,7 @@
 .news__filtr-menu {
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .news__filtr-menu-button {
