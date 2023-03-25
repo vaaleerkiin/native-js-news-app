@@ -1,6 +1,7 @@
 import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 import { filtrBtnClickHandler } from './js/filter-categories';
+import { searchInputAnimation } from './js/search-input-animation';
 import { oNmobileMenu } from './js/mobile-menu';
 import { renderMarkup } from './js/rendermarkup';
 import { monitorAuthState, userLogIn } from './js/ui/ui';
@@ -15,6 +16,7 @@ import { getPosition } from './js/weather';
 
 /* Firebase auth*/
 oNmobileMenu();
+searchInputAnimation();
 const logInFormEl = document.querySelector('.order-form');
 logInFormEl.addEventListener('submit', userLogIn);
 monitorAuthState();
