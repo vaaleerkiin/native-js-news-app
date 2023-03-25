@@ -14,7 +14,7 @@ export function renderMostPopMarkup(news) {
           } else {
             image = '';
           }
-          return `<li class="card-photo"><a href="" alt=""></a>
+          return `<li class="card-photo">
       		<div class="image-wrapper">
                 <img class="photo" src="${image}" alt="${des_facet
             .map(val => val)
