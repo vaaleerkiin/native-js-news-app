@@ -31,16 +31,20 @@ export default class Pagination {
     let pagination = [];
     if (startPage > 1) {
       pagination.push(
-        `<button class="pagination__btn pagination__arrow-left"></button>`
+        `<button class="pagination__btn pagination__arrow-left"><a class="pagination__link" href="#top">...</a></button>`
       );
-      pagination.push('<button class="pagination__btn">1</button>');
-      pagination.push('<button class="pagination__btn pre-dots">...</button>');
+      pagination.push(
+        '<button class="pagination__btn">1<a class="pagination__link" href="#top">`</a></button>'
+      );
+      pagination.push(
+        '<button class="pagination__btn pre-dots"><a class="pagination__link" href="#top">...</a></button>'
+      );
     }
 
     for (let i of pages) {
       if (i === currentPage) {
         pagination.push(
-          `<button class="pagination__current-page">${i}</button>`
+          `<button class="pagination__current-page"><a class="pagination__link" href="#top">${i}</a></button>`
         );
       } else {
         pagination.push(i);
@@ -48,10 +52,14 @@ export default class Pagination {
     }
 
     if (endPage < totalPages) {
-      pagination.push('<button class="pagination__btn post-dots">...</button>');
-      pagination.push(`<button class="pagination__btn">${totalPages}</button>`);
       pagination.push(
-        `<button class="pagination__btn pagination__arrow-right"></button>`
+        '<button class="pagination__btn post-dots"><a class="pagination__link" href="#top">...</a></button>'
+      );
+      pagination.push(
+        `<button class="pagination__btn"><a class="pagination__link" href="#top">${totalPages}</a></button>`
+      );
+      pagination.push(
+        `<button class="pagination__btn pagination__arrow-right"><a class="pagination__link" href="#top"></a></button>`
       );
     }
 
@@ -64,10 +72,10 @@ export default class Pagination {
 
       if (typeof item === 'number') {
         if (this.currentPage + 2 >= this.totalPages || this.currentPage <= 3) {
-          listItem.innerHTML = `<button class="pagination__btn ">${item}</button>`;
+          listItem.innerHTML = `<button class="pagination__btn "><a class="pagination__link" href="#top">${item}</a></button>`;
         } else {
           listItem.classList.add('pagination__num');
-          listItem.innerHTML = `<button class="pagination__btn pagination__num">${item}</button>`;
+          listItem.innerHTML = `<button class="pagination__btn pagination__num"><a class="pagination__link" href="#top">${item}</a></button>`;
         }
       } else {
         listItem.innerHTML = item;

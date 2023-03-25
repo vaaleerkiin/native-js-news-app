@@ -105,13 +105,15 @@ function onCategoryBtnClock(e) {
 document
   .getElementById('pagination-container')
   .addEventListener('click', ev => {
-    if (ev.target.nodeName === 'BUTTON') {
+    console.log(ev.target.nodeName);
+    if (ev.target.nodeName === 'A') {
       if (stateOfPopular.status) {
         onChangePage(ev.target);
-
+        console.log(pagination.genCurrentPage());
         renderMostPopMarkup(
           stateOfPopular.pages[pagination.genCurrentPage() - 1]
         );
+
         return;
       }
 
