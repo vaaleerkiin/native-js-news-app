@@ -51,8 +51,8 @@ searchQuery.addEventListener('submit', onSearchSubmit);
 
 function onSearchSubmit(e) {
   e.preventDefault();
-  const query = searchQuery.query.value.trim();
-  console.log(query);
+  const query = searchQuery.query.value.trim().toLowerCase();
+  // console.log(query);
   if (!query) {
     return;
   }
@@ -64,6 +64,32 @@ function onSearchSubmit(e) {
     newsApi.getTotalHits();
     renderMarkup(news);
   });
+}
+
+/* Search by category */
+
+const newsNavigationEl = document.querySelector('.news-navigation');
+newsNavigationEl.addEventListener('click', onCategoryBtnClock);
+
+function onCategoryBtnClock(e) {
+  // console.log(e.target);
+  if (e.target.tagName.toLowerCase() !== 'button') {
+    return;
+  } else {
+    // console.log('Click');
+    const categoryBtn = e.target.closest('BUTTON');
+    const category = categoryBtn.textContent.toLowerCase();
+    console.log(category);
+    newsApi.resetPage();
+    newsApi.setCategory(category);
+    let news = [];
+    newsApi.getNewsByCategory(1).then(res => {
+      news = res;
+      console.log(news);
+      newsApi.getTotalHits();
+      // renderMarkup(news);
+    });
+  }
 }
 
 /* Pagination */

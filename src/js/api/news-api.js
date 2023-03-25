@@ -77,13 +77,14 @@ class nytNewsApi {
   async getNewsByCategory(page) {
     this.setPage(page);
     this.setCategorySearchUrl();
+    // console.log(this.categorySearchUrl);
     try {
       const news = await axiosInstance
         .get(this.categorySearchUrl)
         .then(response => {
           if ((response.statusText = 'OK')) {
-            console.log(this.categorySearchUrl);
-            console.log(response.data.results);
+            // console.log(this.categorySearchUrl);
+            // console.log(response.data.results);
             this.totalHits = response.data.num_results;
             return response.data.results;
           }
@@ -117,6 +118,10 @@ class nytNewsApi {
 
   setSearchUrl() {
     this.searchUrl = `${this.BASE_URL}${this.SEARCH_URL}?q=${this.searchQuery}&page=${this.page}&api-key=${this.API_KEY}`;
+  }
+
+  setCategory(category) {
+    this.category = category;
   }
 
   setCategorySearchUrl() {
