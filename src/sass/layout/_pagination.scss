@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 .pagination__wrap {
   position: relative;
   width: 100%;
@@ -78,6 +81,16 @@
   line-height: 22px;
   color: #111321;
   cursor: pointer;
+}
+
+.pagination__link {
+  width: 100%;
+  height: 100%;
+  color: currentColor;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pagination__arrow-right {
