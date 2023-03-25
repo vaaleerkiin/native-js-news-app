@@ -1,27 +1,26 @@
 export {renderMarkup};
 
-const gallery = document.querySelector('.gallery');
+const newsgallery = document.querySelector('.gallery__cards-list');
 
 function renderMarkup (searchedNews) {
     const markup = searchedNews
-    .map(({ abstract, pub_date, multimedia, headline, keywords}) => {
-        return `<div class="card">
-
-            <div class="card-photo">
-            <div class="photo"><a href="" alt=""></a>
-      		<img src="https://www.nytimes.com/${multimedia[0].url}" alt="${keywords.value}" width = "300" height = "220" loading="lazy" />
-		
-            <div class="card-category"></div>
+    .map(({ abstract, pub_date, multimedia, headline, keywords, web_url, section_name }) => {
+        return `<li class="card-photo"><a href="" alt=""></a>
+      		<div class="image-wrapper">
+        <img class="photo" src="https://www.nytimes.com/${multimedia[0].url}" alt="${keywords[0].value}" loading="lazy" />
+		</div>
+            <div class="card-category">${section_name}</div>
             <button type="button" class="add-to-favorite">Add to favorite</button>
-	        </div>
 
             <h2 class="card-title">${headline.main}</h2>
             <p class="card-info">${abstract}</p>
 	        <span class="card-date">${pub_date}</span>
-            <button type="button" class="read-more">Read more</button>
+            <a href="${web_url}" alt="">Read more</a>
  
-            </div>`;
+            </li>`;
 }).join('');    
 
-gallery.innerHTML = markup;
+newsgallery.innerHTML = markup;
 }
+
+
