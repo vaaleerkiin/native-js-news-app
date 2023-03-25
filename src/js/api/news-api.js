@@ -29,7 +29,7 @@ class nytNewsApi {
     try {
       const news = await axiosInstance.get(this.mostPopUrl).then(response => {
         if ((response.statusText = 'OK')) {
-          console.log(response.data.results);
+          // console.log(response.data.results);
           return response.data.results;
         }
       });
