@@ -66,6 +66,9 @@
     margin-right: -8px;
     border: none;
     background: transparent;
+    .dark-mode & {
+      color: white;
+    }
   }
   background: #f4f4f4;
   //   font-family: 'Manrope';
@@ -93,4 +96,12 @@
 .pagination__page-icon {
   width: 16px;
   height: 16px;
+}
+
+.pagination__num {
+  display: block;
+  @media screen and (max-width: 425px) {
+    display: none;
+    margin: 0;
+  }
 }

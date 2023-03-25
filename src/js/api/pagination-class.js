@@ -63,7 +63,12 @@ export default class Pagination {
       listItem.classList.add('pagination__item');
 
       if (typeof item === 'number') {
-        listItem.innerHTML = `<button class="pagination__btn pagination__num">${item}</button>`;
+        if (this.currentPage + 2 >= this.totalPages || this.currentPage <= 3) {
+          listItem.innerHTML = `<button class="pagination__btn ">${item}</button>`;
+        } else {
+          listItem.classList.add('pagination__num');
+          listItem.innerHTML = `<button class="pagination__btn pagination__num">${item}</button>`;
+        }
       } else {
         listItem.innerHTML = item;
       }

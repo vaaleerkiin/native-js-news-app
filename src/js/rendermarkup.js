@@ -1,10 +1,19 @@
-export {renderMarkup};
+export { renderMarkup };
 
 const newsgallery = document.querySelector('.gallery__cards-list');
 
-function renderMarkup (searchedNews) {
-    const markup = searchedNews
-    .map(({ abstract, pub_date, multimedia, headline, keywords, web_url, section_name }) => {
+function renderMarkup(searchedNews) {
+  const markup = searchedNews
+    .map(
+      ({
+        abstract,
+        pub_date,
+        multimedia,
+        headline,
+        keywords,
+        web_url,
+        section_name,
+      }) => {
         return `<li class="card-photo"><a href="" alt=""></a>
       		<div class="image-wrapper">
         <img class="photo" src="https://www.nytimes.com/${multimedia[0].url}" alt="${keywords[0].value}" loading="lazy" />
@@ -18,9 +27,9 @@ function renderMarkup (searchedNews) {
             <a href="${web_url}" alt="">Read more</a>
  
             </li>`;
-}).join('');    
+      }
+    )
+    .join('');
 
-newsgallery.innerHTML = markup;
+  newsgallery.innerHTML = markup;
 }
-
-
