@@ -12,7 +12,7 @@ export function renderMostPopMarkup(news) {
           if (media[0]) {
             image = media[0]['media-metadata'][2].url;
           } else {
-            image = '';
+            image = `https://source.unsplash.com/random/300x300/?${des_facet[0]}`;
           }
           return `<li class="card-photo">
       		<div class="image-wrapper">
