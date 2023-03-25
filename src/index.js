@@ -18,14 +18,12 @@ import 'air-datepicker/air-datepicker.css';
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
-/* Firebase auth*/
+// burger menu
 
 oNmobileMenu();
 searchInputAnimation();
-const logInFormEl = document.querySelector('.order-form');
-logInFormEl.addEventListener('submit', userLogIn);
 
-
+/* Firebase auth*/
 
 monitorAuthState();
 
