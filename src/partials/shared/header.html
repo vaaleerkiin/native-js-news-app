@@ -44,6 +44,63 @@
           <span class="switcher__text-dark">Dark</span>
         </div>
       </div>
+      <button
+        class="mobile-menu__button-open js-open-menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg class="mobile-menu-button__icon">
+          <use href="./images/icons.svg#burger-menu"></use>
+        </svg>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- ==================burger===================== -->
+
+<div class="mobile-menu-container js-menu-container" id="mobile-menu">
+  <button class="mobile-menu__button-close js-close-menu">
+    <svg class="mobile-menu-button__icon">
+      <use href="./images/icons.svg#x-close-btn"></use>
+    </svg>
+  </button>
+  <div class="mobile-menu">
+    <a class="mobile-logo" href="">News</a>
+    <ul class="mobile-menu__list">
+      <li class="mobile-menu__item">
+        <a class="mobile-menu__link" href="">
+          <svg class="mobile-menu__icon">
+            <use href="./images/icons.svg#home"></use>
+          </svg>
+          Home
+          <svg class="mobile-menu__right-arrow">
+            <use href="./images/icons.svg#right-chevron"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="mobile-menu__item">
+        <a class="mobile-menu__link" href="">
+          <svg class="mobile-menu__icon">
+            <use href="./images/icons.svg#heart"></use>
+          </svg>
+          Favorite
+          <svg class="mobile-menu__right-arrow">
+            <use href="./images/icons.svg#right-chevron"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="mobile-menu__item">
+        <a class="mobile-menu__link" href="">
+          <svg class="mobile-menu__icon">
+            <use href="./images/icons.svg#book"></use>
+          </svg>
+          Read
+          <svg class="mobile-menu__right-arrow">
+            <use href="./images/icons.svg#right-chevron"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

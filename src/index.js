@@ -1,6 +1,7 @@
 import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 import { filtrBtnClickHandler } from './js/filter-categories';
+import { oNmobileMenu } from './js/mobile-menu';
 import { renderMarkup } from './js/rendermarkup';
 import { monitorAuthState, userLogIn } from './js/ui/ui';
 import './js/modal';
@@ -13,7 +14,7 @@ import { getPosition } from './js/weather';
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
 /* Firebase auth*/
-
+oNmobileMenu();
 const logInFormEl = document.querySelector('.order-form');
 logInFormEl.addEventListener('submit', userLogIn);
 monitorAuthState();
