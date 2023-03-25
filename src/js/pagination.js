@@ -80,4 +80,9 @@ export async function onChangePage(ev) {
 
     pagination.renderPagination(pag);
   }
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }

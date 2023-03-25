@@ -12,7 +12,7 @@ import { getPosition } from './js/weather';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 // import CalendarDates from 'calendar-dates';
-
+const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
 // newsApi.getCategories(); // Returns list of 50 categories
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
@@ -28,10 +28,16 @@ function onLoad() {
   newsApi.resetPage();
   let news = [];
   newsApi.getMostPopularNews().then(res => {
-    news = res;
+    for (let i = 0; i < res.length; i += 8) {
+      const chunk = res.slice(i, i + 8);
+      news.push(chunk);
+    }
     console.log(news);
     newsApi.getTotalHits();
-    renderMostPopMarkup(news);
+    renderMostPopMarkup(news[0]);
+    stateOfPopular.pages = news;
+
+    pagination.renderPagination(pagination.createPagination(3, 1));
   });
 }
 
@@ -68,12 +74,21 @@ function onSearchSubmit(e) {
 
 /* Pagination */
 
-pagination.renderPagination(pagination.createPagination(50, 1));
+// pagination.renderPagination(pagination.createPagination(50, 1));
 
 document
   .getElementById('pagination-container')
   .addEventListener('click', ev => {
     if (ev.target.nodeName === 'BUTTON') {
+      if (stateOfPopular.status) {
+        onChangePage(ev.target);
+
+        renderMostPopMarkup(
+          stateOfPopular.pages[pagination.genCurrentPage() - 1]
+        );
+        return;
+      }
+
       onChangePage(ev.target);
       let news = [];
       newsApi.getNewsByCategory(pagination.genCurrentPage()).then(res => {
