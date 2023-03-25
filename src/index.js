@@ -18,6 +18,23 @@ import 'air-datepicker/air-datepicker.css';
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
+/* On page load */
+
+import { renderMostPopMarkup } from './js/render_pop_news';
+
+onLoad();
+
+function onLoad() {
+  newsApi.resetPage();
+  let news = [];
+  newsApi.getMostPopularNews().then(res => {
+    news = res;
+    console.log(news);
+    newsApi.getTotalHits();
+    renderMostPopMarkup(news);
+  });
+}
+
 // burger menu
 
 oNmobileMenu();
