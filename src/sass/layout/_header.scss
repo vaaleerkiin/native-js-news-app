@@ -1,27 +1,39 @@
 .header {
+  position: relative;
   padding: 24px 0;
 
-  width: 1280px;
+  width: 320px;
   margin: 0 auto;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
   @media screen and (min-width: 768px) {
     padding: 32px 0 30px 0;
+    width: 768px;
   }
 
   @media screen and (min-width: 1280px) {
     padding: 28px 0;
+    width: 1280px;
   }
 }
-.container {
+.header-container {
   margin: 0 auto;
-  width: 1248px;
+  width: 320px;
   padding: 0 16px;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
 }
 
 .header-menu {
   display: flex;
-  align-items: baseline;
+  @media screen and (min-width: 768px) {
+    align-items: baseline;
+  }
 }
 
 .header__logo {
@@ -34,11 +46,10 @@
 
   color: #111321;
 
-  margin-right: 97px;
-
   @media screen and (min-width: 1280px) {
     font-size: 42px;
     line-height: 57px;
+    margin-right: 93px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -48,25 +59,30 @@
   }
 }
 
-// @media screen and (min-width: 320px) and (max-width: 767px) {
-//   .header__logo {
-//     font-size: 24px;
-//     line-height: 33px;
-//   }
-// }
-
 .nav {
   display: flex;
   align-items: baseline;
+  margin-right: 14px;
+  @media screen and (min-width: 768px) {
+    margin-right: 25px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 142px;
+  }
 }
 .nav__list {
   display: flex;
-
-  margin-right: 142px;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 }
 
 .nav__item:not(:last-child) {
-  margin-right: 59px;
+  margin-right: 25px;
+  @media screen and (min-width: 1280px) {
+    margin-right: 59px;
+  }
 }
 
 .nav__link {
@@ -75,9 +91,14 @@
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 22px;
   color: #111321;
+
+  @media screen and (min-width: 1280px) {
+    font-weight: 700;
+    font-size: 18px;
+  }
 }
 
 .nav__link:hover {
@@ -110,18 +131,57 @@
     transform: scaleX(1);
   }
 }
-
+// ===================================search form==========================
 .search-form {
   position: relative;
-  width: 300px;
+  @media screen and (max-width: 767px) {
+  }
 }
+
+.search {
+  overflow: hidden;
+}
+
+.search--active {
+  .search-form__input {
+    @media screen and (max-width: 767px) {
+      pointer-events: auto;
+      opacity: 1;
+      transition: opacity 250ms ease-in-out;
+    }
+  }
+
+  .search-form__button {
+    @media screen and (max-width: 767px) {
+      opacity: 1;
+      display: block;
+    }
+  }
+  .search-form__icon-search {
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
 .search-form__input {
-  width: 288px;
+  width: 173px;
   height: 31px;
-  padding-left: 48px;
+  padding: 5px 0 8px 48px;
   border: 1px solid #111321;
   outline: none;
   border-radius: 20px;
+
+  @media screen and (max-width: 767px) {
+    // display: none;
+    pointer-events: none;
+    opacity: 0;
+  }
+  @media screen and (min-width: 768px) {
+    width: 213px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 288px;
+  }
 }
 
 .search-form__input::placeholder {
@@ -146,6 +206,11 @@
   align-items: center;
   justify-content: center;
   color: #111321;
+  @media screen and (max-width: 767px) {
+    transition: opacity 350ms ease-in-out;
+    opacity: 0;
+    display: none;
+  }
 }
 
 .search-form__button:hover {
@@ -157,6 +222,154 @@
   height: 20px;
   fill: currentColor;
 }
+
+
+.search-form__icon-search {
+  cursor: pointer;
+  pointer-events: all;
+  opacity: 1;
+  transition: opacity 350ms ease-in-out;
+  position: absolute;
+  top: 7px;
+  right: 0;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+// ==================================================================
+
+.user-settings {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: auto;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+// ========================burger-menu=========================
+
+.mobile-menu-container {
+  position: fixed;
+  padding: 24px 0 18px 0px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #ffffff;
+  z-index: 999;
+
+  transform: translateY(-300%);
+  transition: transform 250ms ease-in-out;
+
+  &.is-open {
+    transform: translateY(0);
+  }
+}
+
+.mobile-menu__button-open {
+  padding: 0;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.mobile-menu__button-close {
+  top: 24px;
+  right: 16px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.mobile-menu-button__icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.mobile-menu {
+  width: 320px;
+  margin: 0 auto;
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 160px;
+}
+.mobile-logo {
+  display: block;
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  color: #111321;
+  margin-bottom: 68px;
+  margin-left: 16px;
+}
+
+.mobile-menu__link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 25px 6px 0;
+  width: 100%;
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #111321;
+  &:hover {
+    background-color: #4440f6;
+    color: #f4f4f4;
+  }
+}
+
+.mobile-menu__icon {
+  border-radius: 50%;
+  border-color: #4440f6;
+  width: 32px;
+  height: 32px;
+  margin-left: 16px;
+  fill: #4440f6;
+  stroke: #f4f4f4;
+}
+
+.mobile-menu__right-arrow {
+  margin-left: auto;
+
+  width: 15px;
+  height: 15px;
+  fill: #ffffff;
+}
+
+.user-settings--mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
 .theme-switcher {
   // margin-left: auto;
@@ -187,4 +400,5 @@
     background-color: var(--accent-color);
     color: var(--text-color-white);
   }
+
 }

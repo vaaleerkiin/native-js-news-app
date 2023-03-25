@@ -1,6 +1,8 @@
 import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 import { filtrBtnClickHandler } from './js/filter-categories';
+import { searchInputAnimation } from './js/search-input-animation';
+import { oNmobileMenu } from './js/mobile-menu';
 import { renderMarkup } from './js/rendermarkup';
 import { monitorAuthState } from './js/ui/ui';
 // import { auth } from './js/ui/firebase';
@@ -17,6 +19,13 @@ import 'air-datepicker/air-datepicker.css';
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
 /* Firebase auth*/
+
+oNmobileMenu();
+searchInputAnimation();
+const logInFormEl = document.querySelector('.order-form');
+logInFormEl.addEventListener('submit', userLogIn);
+
+
 
 monitorAuthState();
 
