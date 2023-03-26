@@ -32,7 +32,6 @@ import { onMobileThemeChange } from './js/switcher-mobile';
 import CalendarDates from 'calendar-dates';
 import moment from 'moment';
 
-
 const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
 const typeOfSearch = { searchStatus: false, categoriesStatus: false };
 // newsApi.getCategories(); // Returns list of 50 categories
@@ -100,6 +99,7 @@ function onSearchSubmit(e) {
       typeOfSearch.categoriesStatus = false;
       typeOfSearch.searchStatus = true;
       loadWeather();
+      pagination.setCurrentPage(1);
       pagination.renderPagination(
         pagination.createPagination(newsApi.getTotalHits(), 1)
       );
@@ -146,6 +146,7 @@ function onCategoryBtnClick(e) {
         stateOfPopular.status = false;
         typeOfSearch.categoriesStatus = true;
         typeOfSearch.searchStatus = false;
+        pagination.setCurrentPage(1);
         pagination.renderPagination(
           pagination.createPagination(Math.ceil(newsApi.getTotalHits() / 8), 1)
         );
@@ -183,6 +184,7 @@ document
           .getNewsBySearchQuery(query)
           .then(res => {
             stateOfPopular.status = false;
+
             pagination.renderPagination(
               pagination.createPagination(
                 newsApi.getTotalHits(),
