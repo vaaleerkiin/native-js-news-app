@@ -215,7 +215,6 @@ dateForm.addEventListener('click', e => {
   e.stopPropagation();
 });
 dateFormButton.addEventListener('click', dateFilterOpenClose);
-// document.addEventListener('click', dateFilterClose);
 
 const airDateOption = {
   autoClose: true,
@@ -248,9 +247,3 @@ function dateFilterOpenClose(e) {
     airDate.show();
   }
 }
-
-// function dateFilterClose(e) {
-//   if (airDate.visible) {
-//     airDate.hide();
-//   }
-// }
