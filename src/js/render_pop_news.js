@@ -25,7 +25,8 @@ export function renderMostPopMarkup(news) {
             <h2 class="card-title">${title}</h2>
             <p class="card-info">${abstract}</p>
 	        <span class="card-date">${published_date}</span>
-            <a href="${url}" alt="">Read more</a>
+            <a href="${url}" alt="" target="_blank"
+                rel="noopener noreferrer nofollow">Read more</a>
             </li>`;
         }
       }
