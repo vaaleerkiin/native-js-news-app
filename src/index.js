@@ -1,8 +1,19 @@
 import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
+
+// ===============filtr-menu===================
 import { filtrBtnClickHandler } from './js/filter-categories';
+import { closeOtherBtnsMenu } from './js/filter-categories';
+import { categoriesList } from './js/filter-categories';
+
+// =====================search form=================
 import { searchInputAnimation } from './js/search-input-animation';
+
+// ==================mobile menu open===================
 import { oNmobileMenu } from './js/mobile-menu';
+
+// ==================================================
+
 import { renderMarkup } from './js/rendermarkup';
 import { monitorAuthState } from './js/ui/ui';
 // import { auth } from './js/ui/firebase';
@@ -129,9 +140,13 @@ document
 
 // ===============filter===================
 
-const filtrButtonsContainerRef = document.querySelector('ul.news__filtr-menu');
+const filtrButtonsContainerRef = document.querySelector(
+  'div.filtr-buttons-container'
+);
 
 filtrButtonsContainerRef.addEventListener('click', filtrBtnClickHandler);
+
+document.addEventListener('click', closeOtherBtnsMenu);
 
 // ===============date form filter===================
 
