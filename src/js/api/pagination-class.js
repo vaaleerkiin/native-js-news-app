@@ -31,7 +31,7 @@ export default class Pagination {
     let pagination = [];
     if (startPage > 1) {
       pagination.push(
-        `<a class="pagination__btn pagination__arrow-left" href="#top"></a>`
+        `<a class="pagination__btn pagination__arrow-left" href="#top"><span class="pagination__icon pagination__arrow-left"></span> Prew</a>`
       );
       pagination.push('<a class="pagination__btn" href="#top">1</a>');
       pagination.push(
@@ -57,7 +57,7 @@ export default class Pagination {
         `<a class="pagination__btn" href="#top">${totalPages}</a>`
       );
       pagination.push(
-        `<a class="pagination__btn pagination__arrow-right" href="#top"></a>`
+        `<a class="pagination__btn pagination__arrow-right" href="#top">Next <span class="pagination__icon pagination__arrow-right"></span></a>`
       );
     }
 

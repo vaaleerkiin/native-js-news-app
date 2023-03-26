@@ -105,17 +105,22 @@ html {
   }
 }
 
-.pagination__arrow-right {
+.pagination__arrow-right .pagination__icon {
+  width: 18px;
+  height: 18px;
   background-image: url(../images/arrow-right.png);
+  background-size: contain;
 }
-.pagination__arrow-left {
-  background-image: url(../images/arrow-left.png);
+.pagination__arrow-left .pagination__icon {
+  width: 18px;
+  height: 18px;
+  background-image: url(../images/arrow-right.png);
+  transform: rotate(180deg);
+  background-size: contain;
 }
 .pagination__arrow-left,
 .pagination__arrow-right {
-  background-size: 65%;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: 72px;
 }
 
 .pagination__page-icon {

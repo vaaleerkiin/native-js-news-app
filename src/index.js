@@ -86,6 +86,7 @@ function onSearchSubmit(e) {
     stateOfPopular.status = false;
     typeOfSearch.categoriesStatus = false;
     typeOfSearch.searchStatus = true;
+    loadWeather();
     pagination.renderPagination(
       pagination.createPagination(newsApi.getTotalHits(), 1)
     );
@@ -141,13 +142,13 @@ function onCategoryBtnClick(e) {
 document
   .getElementById('pagination-container')
   .addEventListener('click', ev => {
-    if (ev.target.nodeName === 'A') {
+    if (ev.target.nodeName !== 'UL') {
       onChangePage(ev.target);
       if (stateOfPopular.status) {
         renderMostPopMarkup(
           stateOfPopular.pages[pagination.getCurrentPage() - 1]
         );
-
+        loadWeather();
         return;
       }
       if (typeOfSearch.searchStatus) {
@@ -163,6 +164,7 @@ document
           );
 
           renderMarkup(res);
+          loadWeather();
           return;
         });
       }
