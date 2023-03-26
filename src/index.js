@@ -21,8 +21,11 @@ import './js/modal';
 import { onThemeChange } from './js/switcher';
 import { getPosition } from './js/weather';
 import AirDatepicker from 'air-datepicker';
+import localeEn from 'air-datepicker/locale/en';
 import 'air-datepicker/air-datepicker.css';
-// import CalendarDates from 'calendar-dates';
+import CalendarDates from 'calendar-dates';
+import moment from 'moment';
+
 const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
 // newsApi.getCategories(); // Returns list of 50 categories
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
@@ -152,29 +155,29 @@ document.addEventListener('click', closeOtherBtnsMenu);
 
 // ===============date form filter===================
 
-const dateForm = document.querySelector('.date-form__input');
-const dateFormButton = document.querySelector('.date-form__input');
+const dateForm = document.querySelector('.date-form');
+const dateFormInput = document.querySelector('.date-form__input');
+
+const currentDate = moment().format('DD/MM/YYYY');
+dateFormInput.value = currentDate;
+
+var selectedDate;
 
 dateForm.addEventListener('click', dateFilterOpen);
 
+const airDateOption = {
+  autoClose: true,
+  position: 'bottom center',
+  dateFormat: 'dd/MM/yyyy',
+  locale: localeEn,
+  onSelect: ({ date, formattedDate, datepicker }) => {
+    selectedDate = formattedDate;
+    console.log(formattedDate);
+  },
+};
+
+const airDate = new AirDatepicker('.date-form__input', airDateOption);
+
 function dateFilterOpen() {
-  new AirDatepicker('.date-form__input', {
-    autoClose: true,
-    position: 'bottom center',
-    dateFormat: 'dd/MM/yyyy',
-  });
+  airDate.show();
 }
-
-// const calendarDates = new CalendarDates();
-
-// const main = async () => {
-//   for (const meta of await calendarDates.getDates(new Date())) {
-//     console.log(meta);
-//   }
-
-//   for (const meta of await calendarDates.getMatrix(new Date())) {
-//     console.log(meta);
-//   }
-// };
-
-// main();
