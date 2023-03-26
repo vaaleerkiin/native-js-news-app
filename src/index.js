@@ -80,7 +80,11 @@ function onSearchSubmit(e) {
   newsApi.getNewsBySearchQuery(query).then(res => {
     news = res;
     console.log(news);
-    newsApi.getTotalHits();
+    stateOfPopular.status = false;
+    pagination.renderPagination(
+      pagination.createPagination(newsApi.getTotalHits(), 1)
+    );
+
     renderMarkup(news);
   });
 }
@@ -113,6 +117,7 @@ function onCategoryBtnClick(e) {
       newsApi.getTotalHits();
       renderCategoryMarkup(news);
       loadWeather();
+      console.log(newsApi.getTotalHits());
     });
   }
 }
@@ -141,7 +146,6 @@ document
       newsApi.getNewsByCategory(pagination.genCurrentPage()).then(res => {
         news = res;
         // console.log(news);
-        newsApi.getTotalHits();
       });
     }
   });
