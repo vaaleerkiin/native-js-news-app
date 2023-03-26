@@ -20,12 +20,7 @@
 
       <div class="search">
         <form class="search-form">
-          <input
-            class="search-form__input"
-            type="text"
-            placeholder="Search |"
-            name="query"
-          />
+          <input class="search-form__input" type="text" placeholder="Search" name="query" autocomplete="off" />
           <button class="search-form__button" type="submit">
             <svg class="search-form__icon">
               <use href="./images/icons.svg#icon-bx_search"></use>
@@ -46,16 +41,18 @@
 
         <div class="switcher">
           <span class="switcher__text-light">Light</span>
+          <svg class="icon-sun" width="21" height="21">
+            <use xlink:href='./images/icon/symbol-defs.svg#sun'></use>
+          </svg>
           <input type="checkbox" class="switcher__input" id="theme" />
           <label for="theme" class="switcher__label"></label>
           <span class="switcher__text-dark">Dark</span>
+          <svg class="icon-moon" width="21" height="21">
+            <use xlink:href='./images/icon/symbol-defs.svg#icon-moon'></use>
+          </svg>
         </div>
       </div>
-      <button
-        class="mobile-menu__button-open js-open-menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
+      <button class="mobile-menu__button-open js-open-menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="mobile-menu-button__icon">
           <use href="./images/icons.svg#burger-menu"></use>
         </svg>
@@ -117,12 +114,20 @@
         Log In
       </button>
 
-      <div class="switcher">
-        <span class="switcher__text-light">Light</span>
-        <input type="checkbox" class="switcher__input" id="theme" />
-        <label for="theme" class="switcher__label"></label>
-        <span class="switcher__text-dark">Dark</span>
+      <div class="switcher-burger">
+        <span class="switcher-burger__text-light">Light</span>
+        <svg class="icon-moon" width="21" height="21">
+          <use xlink:href='./images/icons.svg#icon-sun'></use>
+        </svg>
+
+        <input type="checkbox" class="switcher-burger__input" id="theme-burger" />
+        <label for="theme-burger" class="switcher-burger__label"></label>
+        <svg class="icon-moon" width="21" height="21">
+          <use xlink:href='./images/icons.svg#icon-moon'></use>
+        </svg>
+        <span class="switcher-burger__text-dark">Dark</span>
       </div>
     </div>
   </div>
+</div>
 </div>
