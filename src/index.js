@@ -125,7 +125,7 @@ function onCategoryBtnClick(e) {
       typeOfSearch.categoriesStatus = true;
       typeOfSearch.searchStatus = false;
       pagination.renderPagination(
-        pagination.createPagination(newsApi.getTotalHits(), 1)
+        pagination.createPagination(Math.ceil(newsApi.getTotalHits() / 8), 1)
       );
     });
   }
