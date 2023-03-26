@@ -109,6 +109,7 @@ function onCategoryBtnClick(e) {
       console.log(news);
       newsApi.getTotalHits();
       renderCategoryMarkup(news);
+      loadWeather();
     });
   }
 }
