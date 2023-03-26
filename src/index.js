@@ -47,7 +47,7 @@ function onLoad() {
       const chunk = res.slice(i, i + 8);
       news.push(chunk);
     }
-    console.log(news);
+
     newsApi.getTotalHits();
     renderMostPopMarkup(news[0]);
     loadWeather();
@@ -82,7 +82,7 @@ function onSearchSubmit(e) {
   let news = [];
   newsApi.getNewsBySearchQuery(query).then(res => {
     news = res;
-    console.log(news);
+
     stateOfPopular.status = false;
     typeOfSearch.categoriesStatus = false;
     typeOfSearch.searchStatus = true;
@@ -113,17 +113,16 @@ function onCategoryBtnClick(e) {
     if (category === 'others') {
       return;
     }
-    console.log(category);
+
     newsApi.resetPage();
     newsApi.setCategory(category);
     let news = [];
     newsApi.getNewsByCategory(0).then(res => {
       news = res;
-      console.log(news);
+
       newsApi.getTotalHits();
       renderCategoryMarkup(news);
       loadWeather();
-      console.log(newsApi.getTotalHits());
 
       stateOfPopular.status = false;
       typeOfSearch.categoriesStatus = true;
@@ -175,7 +174,7 @@ document
             newsApi.getTotalHits();
             renderCategoryMarkup(res);
             loadWeather();
-            console.log(newsApi.getTotalHits());
+
             pagination.renderPagination(
               pagination.createPagination(
                 pagination.getTotalPage(),
@@ -222,7 +221,6 @@ const airDateOption = {
   locale: localeEn,
   onSelect: ({ date, formattedDate, datepicker }) => {
     selectedDate = formattedDate;
-    console.log(formattedDate);
   },
 };
 
