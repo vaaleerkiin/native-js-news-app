@@ -12,7 +12,7 @@
 }
 
 .card-photo {
-    position: relative;
+  position: relative;
 }
 
 .image-wrapper {
@@ -47,85 +47,85 @@
 }
 
 .add-to-favorite {
-    position: absolute;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
-    text-align: center;
-    color: #111321;
-    width: 126px;
-    height: 28px;
-    left: 256px;
-    top: 355px;
-    background: #FFFFFF;
-    border-radius: 20px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  color: #111321;
+  width: 126px;
+  height: 28px;
+  left: 256px;
+  top: 355px;
+  background: #ffffff;
+  border-radius: 20px;
 }
 
 .add-to-favorite__icon {
-    // fill: #4440F6;
-    width: 16px;
-    height: 14px;
-    stroke: #4440F6;
-    color: #4440F6;
+  // fill: #4440F6;
+  width: 16px;
+  height: 14px;
+  stroke: #4440f6;
+  color: #4440f6;
 }
 
 .card-title {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 1.38;
-    letter-spacing: -0.01em;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.38;
+  letter-spacing: -0.01em;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .card-info {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.38;
-    margin-bottom: 20px;
-    
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.38;
+  margin-bottom: 20px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .card-date {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.38;
-    text-align: right;
-    color: #A8A8A8;
-    margin-right: 205px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.38;
+  text-align: right;
+  color: #a8a8a8;
+  margin-right: 205px;
 
-    position: absolute;
-    width: 85px;
-    height: 22px;
-    left: 0px;
-    top: 653px;
+  position: absolute;
+  width: 85px;
+  height: 22px;
+  left: 0px;
+  top: 653px;
 }
 
-.read-more {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.38;
-    color: #4440F7;
+.card-url {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.38;
+  color: #4440f7;
 
-    position: absolute;
-    // width: 79px;
-    // height: 22px;
-    left: 290px;
-    top: 653px;
+  position: absolute;
+  // width: 79px;
+  // height: 22px;
+  left: 290px;
+  top: 653px;
 }
