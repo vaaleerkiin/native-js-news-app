@@ -14,14 +14,21 @@
   &.loading__hidden {
     opacity: 0;
     pointer-events: none;
+    transition: opacity cubic-bezier(0.075, 0.82, 0.165, 1) 1000ms;
   }
 
   background-color: #2e2e2e5d;
 }
 .loading__icon {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   background-position: center;
   background-size: contain;
   background-image: url(../images/loading.gif);
+  opacity: 1;
+  .loading__hidden & {
+    opacity: 0;
+
+    transition: opacity cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+  }
 }
