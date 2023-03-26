@@ -31,16 +31,18 @@ export default class Pagination {
     let pagination = [];
     if (startPage > 1) {
       pagination.push(
-        `<button class="pagination__btn pagination__arrow-left"></button>`
+        `<a class="pagination__btn pagination__arrow-left" href="#top"></a>`
       );
-      pagination.push('<button class="pagination__btn">1</button>');
-      pagination.push('<button class="pagination__btn pre-dots">...</button>');
+      pagination.push('<a class="pagination__btn" href="#top">1</a>');
+      pagination.push(
+        '<a class="pagination__btn pre-dots" href="#top">...</a>'
+      );
     }
 
     for (let i of pages) {
       if (i === currentPage) {
         pagination.push(
-          `<button class="pagination__current-page">${i}</button>`
+          `<a class="pagination__btn pagination__current-page" href="#top">${i}</a>`
         );
       } else {
         pagination.push(i);
@@ -48,22 +50,32 @@ export default class Pagination {
     }
 
     if (endPage < totalPages) {
-      pagination.push('<button class="pagination__btn post-dots">...</button>');
-      pagination.push(`<button class="pagination__btn">${totalPages}</button>`);
       pagination.push(
-        `<button class="pagination__btn pagination__arrow-right"></button>`
+        '<a class="pagination__btn post-dots" href="#top">...</a>'
+      );
+      pagination.push(
+        `<a class="pagination__btn" href="#top">${totalPages}</a>`
+      );
+      pagination.push(
+        `<a class="pagination__btn pagination__arrow-right" href="#top"></a>`
       );
     }
 
     return pagination;
   }
   renderPagination(pag) {
+    this.paginationContainer.innerHTML = '';
     for (let item of pag) {
       const listItem = document.createElement('li');
       listItem.classList.add('pagination__item');
 
       if (typeof item === 'number') {
-        listItem.innerHTML = `<button class="pagination__btn pagination__num">${item}</button>`;
+        if (this.currentPage + 2 >= this.totalPages || this.currentPage <= 3) {
+          listItem.innerHTML = `<a class="pagination__btn" href="#top">${item}</a>`;
+        } else {
+          listItem.classList.add('pagination__num');
+          listItem.innerHTML = `<a class="pagination__btn pagination__num" href="#top">${item}</a>`;
+        }
       } else {
         listItem.innerHTML = item;
       }
@@ -71,7 +83,10 @@ export default class Pagination {
       this.paginationContainer.appendChild(listItem);
     }
   }
-  genCurrentPage() {
+  getCurrentPage() {
     return this.currentPage;
+  }
+  getTotalPage() {
+    return this.totalPages;
   }
 }
