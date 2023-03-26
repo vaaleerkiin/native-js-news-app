@@ -31,7 +31,7 @@ const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
 
 /* On page load */
 
-import { renderMostPopMarkup } from './js/render_pop_news';
+import { renderMostPopMarkup } from './js/render/render_pop_news';
 
 onLoad();
 
@@ -85,10 +85,12 @@ function onSearchSubmit(e) {
 
 /* Search by category */
 
-const newsNavigationEl = document.querySelector('.news-navigation');
-newsNavigationEl.addEventListener('click', onCategoryBtnClock);
+import { renderCategoryMarkup } from './js/render/render_category_news';
 
-function onCategoryBtnClock(e) {
+const newsNavigationEl = document.querySelector('.news-navigation');
+newsNavigationEl.addEventListener('click', onCategoryBtnClick);
+
+function onCategoryBtnClick(e) {
   // console.log(e.target);
   if (e.target.tagName.toLowerCase() !== 'button') {
     return;
@@ -104,7 +106,7 @@ function onCategoryBtnClock(e) {
       news = res;
       console.log(news);
       newsApi.getTotalHits();
-      // renderMarkup(news);
+      renderCategoryMarkup(news);
     });
   }
 }
