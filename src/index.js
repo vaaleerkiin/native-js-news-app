@@ -164,7 +164,7 @@ document
         });
       }
       if (typeOfSearch.categoriesStatus) {
-        newsApi.getNewsByCategory(pagination.getCurrentPage()).then(res => {
+        newsApi.getNewsByCategory(pagination.getCurrentPage() * 8).then(res => {
           newsApi.getTotalHits();
           renderCategoryMarkup(res);
           loadWeather();
