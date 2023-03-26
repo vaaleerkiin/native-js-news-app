@@ -22,7 +22,7 @@ export function renderCategoryMarkup(news) {
           } else if (des_facet) {
             image = `https://source.unsplash.com/random/300x300/?${des_facet[0]}`;
           } else {
-            image = `https://source.unsplash.com/random/300x300`;
+            image = `https://source.unsplash.com/random/300x300?noimage`;
           }
           let alt;
           if (des_facet) {
