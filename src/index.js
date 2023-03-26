@@ -213,26 +213,46 @@ document.addEventListener('click', closeOtherBtnsMenu);
 
 const dateForm = document.querySelector('.date-form');
 const dateFormInput = document.querySelector('.date-form__input');
+const dateFormButton = document.querySelector('.date-form__button');
+const dateFormInputIcon = document.querySelector('.date-form__button-icon use');
 
-const currentDate = moment().format('DD/MM/YYYY');
-dateFormInput.value = currentDate;
+// const currentDate = moment().format('DD/MM/YYYY');
+// dateFormInput.value = currentDate;
 
 var selectedDate;
 
-dateForm.addEventListener('click', dateFilterOpen);
+dateForm.addEventListener('click', e => {
+  e.stopPropagation();
+});
+dateFormButton.addEventListener('click', dateFilterOpenClose);
 
 const airDateOption = {
   autoClose: true,
+  firstDay: 1,
   position: 'bottom center',
   dateFormat: 'dd/MM/yyyy',
   locale: localeEn,
+  buttons: ['today', 'clear'],
+  // visible: true,
   onSelect: ({ date, formattedDate, datepicker }) => {
     selectedDate = formattedDate;
+  },
+  onShow: isFinished => {
+    dateFormInputIcon.href.baseVal = '/symbol-defs.ec292798.svg#icon-arrow-up';
+  },
+  onHide: isFinished => {
+    dateFormInputIcon.href.baseVal =
+      '/symbol-defs.ec292798.svg#icon-arrow-down';
   },
 };
 
 const airDate = new AirDatepicker('.date-form__input', airDateOption);
 
-function dateFilterOpen() {
-  airDate.show();
+function dateFilterOpenClose(e) {
+  e.stopPropagation();
+  if (airDate.visible) {
+    airDate.hide();
+  } else {
+    airDate.show();
+  }
 }
