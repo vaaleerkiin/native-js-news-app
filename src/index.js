@@ -138,9 +138,8 @@ function onCategoryBtnClick(e) {
 document
   .getElementById('pagination-container')
   .addEventListener('click', ev => {
-    onChangePage(ev.target);
-
     if (ev.target.nodeName === 'A') {
+      onChangePage(ev.target);
       if (stateOfPopular.status) {
         renderMostPopMarkup(
           stateOfPopular.pages[pagination.getCurrentPage() - 1]
