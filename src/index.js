@@ -99,7 +99,7 @@ function onCategoryBtnClick(e) {
   } else {
     // console.log('Click');
     const categoryBtn = e.target.closest('BUTTON');
-    const category = categoryBtn.textContent.toLowerCase();
+    const category = categoryBtn.textContent.trim().toLowerCase();
     console.log(category);
     newsApi.resetPage();
     newsApi.setCategory(category);
