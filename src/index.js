@@ -8,9 +8,7 @@ import { monitorAuthState } from './js/ui/ui';
 // import { auth } from './js/ui/firebase';
 import './js/modal';
 import { onThemeChange } from './js/switcher';
-import { getPosition } from './js/weather';
 import { loadWeather } from './js/weather';
-import {renderWeather} from './js/weather';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 // import CalendarDates from 'calendar-dates';
@@ -26,9 +24,7 @@ const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
 import { renderMostPopMarkup } from './js/render_pop_news';
 
 onLoad();
-// loadWeather();
-// getPosition();
-// renderWeather();
+
 
 function onLoad() {
   newsApi.resetPage();

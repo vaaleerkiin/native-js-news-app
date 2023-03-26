@@ -1,9 +1,7 @@
 import moment from "moment/moment";
 import Notiflix from "notiflix";
 import imgLocation from "../images/location.svg";
-// export {getPosition};
 export {loadWeather};
-export {renderWeather};
 
 const weatherBlock = document.querySelector('#weather');
 const positionForWeather = document.querySelector('.gallery__cards-list');
