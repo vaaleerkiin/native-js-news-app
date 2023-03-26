@@ -33,15 +33,21 @@ export function renderCategoryMarkup(news) {
           activeClass = 'add-to-favorite';
         }
         if (index < 8) {
+          let image;
+          if (multimedia) {
+            image = multimedia[2].url;
+          } else if (des_facet) {
+            image = `https://source.unsplash.com/random/300x300/?${des_facet[0]}`;
+          } else {
+            image = `https://source.unsplash.com/random/300x300?noimage`;
+          }
           let alt;
           if (des_facet) {
             alt = des_facet.map(val => val).join(', ');
           }
           return `<li class="card-photo">
       		<div class="image-wrapper">
-                <img class="photo" src="${
-                  multimedia[2].url
-                }" alt="${alt}" loading="lazy" />
+                <img class="photo" src="${image}" alt="${alt}" loading="lazy" />
 		    </div>
             <div class="card-category">${section.toLowerCase()}</div>
             <button type="button" class="${activeClass}">Add to favorite</button>
