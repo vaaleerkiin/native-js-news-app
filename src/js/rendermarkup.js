@@ -71,29 +71,29 @@ function onCardClick(e) {
     const webUrl = newsCard.querySelector('.card-url').getAttribute('href');
 
     const data = {
-      multimedia: [{ url: multimediaSrc }],
-      headline: {
-        main: headline,
-      },
-      web_url: webUrl,
-      abstract: info,
-      pub_date: date,
-      keywords: { value: multimediaAlt },
-      section_name: category,
+      src: multimediaSrc,
+      title: headline,
+      url: webUrl,
+      info: info,
+      published_date: date,
+      alt: multimediaAlt,
+      section: category,
     };
     console.log(data);
-    if (favoriteBtn.classList.contains('favorite-button__activ')) {
+    if (favoriteStorage.hasNews(data)) {
       favoriteStorage.removeNews(data);
       favoriteBtn.classList.replace(
         'favorite-button__activ',
         'add-to-favorite'
       );
+      favoriteBtn.textContent = 'Add to favorite';
     } else {
       favoriteStorage.addNews(data);
       favoriteBtn.classList.replace(
         'add-to-favorite',
         'favorite-button__activ'
       );
+      favoriteBtn.textContent = 'Remove';
     }
     return data;
   }
@@ -124,19 +124,16 @@ function onReadClick(e) {
     const webUrl = newsCard.querySelector('.card-url').getAttribute('href');
 
     const data = {
-      multimedia: [{ url: multimediaSrc }],
-      headline: {
-        main: headline,
-      },
-      web_url: webUrl,
-      abstract: info,
-      pub_date: date,
-      keywords: { value: multimediaAlt },
-      section_name: category,
+      src: multimediaSrc,
+      title: headline,
+      url: webUrl,
+      info: info,
+      published_date: date,
+      alt: multimediaAlt,
+      section: category,
     };
     console.log(data);
 
     readStorage.addNews(data);
-    return data;
   }
 }
