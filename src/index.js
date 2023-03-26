@@ -203,6 +203,7 @@ document.addEventListener('click', closeOtherBtnsMenu);
 
 const dateForm = document.querySelector('.date-form');
 const dateFormInput = document.querySelector('.date-form__input');
+const dateFormInputIcon = document.querySelector('.date-form__button-icon use');
 
 const currentDate = moment().format('DD/MM/YYYY');
 dateFormInput.value = currentDate;
@@ -219,6 +220,13 @@ const airDateOption = {
   onSelect: ({ date, formattedDate, datepicker }) => {
     selectedDate = formattedDate;
     console.log(formattedDate);
+  },
+  onShow: isFinished => {
+    dateFormInputIcon.href.baseVal = '/symbol-defs.ec292798.svg#icon-arrow-up';
+  },
+  onHide: isFinished => {
+    dateFormInputIcon.href.baseVal =
+      '/symbol-defs.ec292798.svg#icon-arrow-down';
   },
 };
 
