@@ -13,8 +13,6 @@
 
 .card-photo {
     position: relative;
-    // width: 395px;
-    // height: 675px;
 }
 
 .image-wrapper {
@@ -24,7 +22,7 @@
 
 .photo {
     border-radius: 4px;
-    width: auto;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     overflow: hidden;
@@ -48,7 +46,6 @@
 }
 
 .add-to-favorite {
-    // display: block;
     position: absolute;
     font-style: normal;
     font-weight: 500;
@@ -64,6 +61,14 @@
     border-radius: 20px;
 }
 
+.add-to-favorite__icon {
+    // fill: #4440F6;
+    width: 16px;
+    height: 14px;
+    stroke: #4440F6;
+    color: #4440F6;
+}
+
 .card-title {
     font-style: normal;
     font-weight: 700;
@@ -72,6 +77,12 @@
     letter-spacing: -0.01em;
     margin-top: 20px;
     margin-bottom: 20px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .card-info {
@@ -80,6 +91,12 @@
     font-size: 16px;
     line-height: 1.38;
     margin-bottom: 20px;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .card-date {
@@ -90,6 +107,12 @@
     text-align: right;
     color: #A8A8A8;
     margin-right: 205px;
+
+    position: absolute;
+    width: 85px;
+    height: 22px;
+    left: 0px;
+    top: 653px;
 }
 
 .read-more {
@@ -98,4 +121,10 @@
     font-size: 16px;
     line-height: 1.38;
     color: #4440F7;
+
+    position: absolute;
+    // width: 79px;
+    // height: 22px;
+    left: 290px;
+    top: 653px;
 }
