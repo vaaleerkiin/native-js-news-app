@@ -8,7 +8,9 @@ export function setLoadingFrame() {
     document
       .querySelector('.loading__frame')
       .classList.remove('loading__hidden');
+  document.querySelector('body').style.overflow = 'hidden';
 }
 export function resetLoadingFrame() {
   document.querySelector('.loading__frame').classList.add('loading__hidden');
+  document.querySelector('body').style.overflow = 'auto';
 }
