@@ -1,7 +1,7 @@
 import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 
-// ===============filtr-menu===================
+// ===============filter-menu===================
 import { filtrBtnClickHandler } from './js/filter-categories';
 import { closeOtherBtnsMenu } from './js/filter-categories';
 import { categoriesList } from './js/filter-categories';
@@ -24,6 +24,7 @@ import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 // import CalendarDates from 'calendar-dates';
 const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
+
 // newsApi.getCategories(); // Returns list of 50 categories
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
@@ -108,6 +109,7 @@ function onCategoryBtnClick(e) {
       console.log(news);
       newsApi.getTotalHits();
       renderCategoryMarkup(news);
+      loadWeather();
     });
   }
 }
