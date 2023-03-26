@@ -36,7 +36,7 @@ function onLoad() {
     newsApi.getTotalHits();
     renderMostPopMarkup(news[0]);
     stateOfPopular.pages = news;
-
+  
     pagination.renderPagination(pagination.createPagination(3, 1));
   });
 }
