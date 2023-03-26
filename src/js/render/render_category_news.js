@@ -1,6 +1,10 @@
 const newsGalleryEl = document.querySelector('.gallery__cards-list');
+import { FavoriteStorage, ReadStorage } from '../localStorage';
+const favoriteStorage = new FavoriteStorage();
+const readStorage = new ReadStorage();
 
 export function renderCategoryMarkup(news) {
+  console.log(news);
   const markup = news
     .map(
       (
@@ -15,6 +19,19 @@ export function renderCategoryMarkup(news) {
         },
         index
       ) => {
+        let activeClass = '';
+        let activeText = '';
+        if (
+          favoriteStorage.hasNews({
+            url,
+          })
+        ) {
+          activeText = 'Remove from favorite';
+          activeClass = 'favorite-button__activ';
+        } else {
+          activeText = 'Add to favorite';
+          activeClass = 'add-to-favorite';
+        }
         if (index < 8) {
           let image;
           if (multimedia) {
@@ -33,11 +50,11 @@ export function renderCategoryMarkup(news) {
                 <img class="photo" src="${image}" alt="${alt}" loading="lazy" />
 		    </div>
             <div class="card-category">${section.toLowerCase()}</div>
-            <button type="button" class="add-to-favorite">Add to favorite</button>
+            <button type="button" class="${activeClass}">Add to favorite</button>
             <h2 class="card-title">${title}</h2>
             <p class="card-info">${abstract}</p>
 	        <span class="card-date">${published_date}</span>
-            <a href="${url}" alt="" target="_blank"
+            <a class="card-url" href="${url}" alt="" target="_blank"
                 rel="noopener noreferrer nofollow">Read more</a>
             </li>`;
         }
