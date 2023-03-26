@@ -108,13 +108,13 @@ html {
 .pagination__arrow-right .pagination__icon {
   width: 18px;
   height: 18px;
-  background-image: url(../images/arrow-right.png);
+  background-image: url(../images/pagination__arrow.png);
   background-size: contain;
 }
 .pagination__arrow-left .pagination__icon {
   width: 18px;
   height: 18px;
-  background-image: url(../images/arrow-right.png);
+  background-image: url(../images/pagination__arrow.png);
   transform: rotate(180deg);
   background-size: contain;
 }
