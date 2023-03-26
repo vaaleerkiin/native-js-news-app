@@ -17,13 +17,16 @@ function renderMarkup(searchedNews) {
         section_name,
       }) => {
         let activeClass = '';
+        let activeText = '';
         if (
           favoriteStorage.hasNews({
             web_url,
           })
         ) {
+          activeText = 'Remove from favorite';
           activeClass = 'favorite-button__activ';
         } else {
+          activeText = 'Add to favorite';
           activeClass = 'add-to-favorite';
         }
 

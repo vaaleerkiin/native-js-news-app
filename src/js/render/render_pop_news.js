@@ -17,7 +17,7 @@ export function renderMostPopMarkup(news) {
             url,
           })
         ) {
-          activeText = 'Remove';
+          activeText = 'Remove from favorite';
           activeClass = 'favorite-button__activ';
         } else {
           activeText = 'Add to favorite';

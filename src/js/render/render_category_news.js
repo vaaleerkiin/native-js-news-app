@@ -20,13 +20,16 @@ export function renderCategoryMarkup(news) {
         index
       ) => {
         let activeClass = '';
+        let activeText = '';
         if (
           favoriteStorage.hasNews({
             url,
           })
         ) {
+          activeText = 'Remove from favorite';
           activeClass = 'favorite-button__activ';
         } else {
+          activeText = 'Add to favorite';
           activeClass = 'add-to-favorite';
         }
         if (index < 8) {
