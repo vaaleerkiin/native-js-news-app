@@ -1,7 +1,7 @@
 import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 
-// ===============filtr-menu===================
+// ===============filter-menu===================
 import { filtrBtnClickHandler } from './js/filter-categories';
 import { closeOtherBtnsMenu } from './js/filter-categories';
 import { categoriesList } from './js/filter-categories';
@@ -30,13 +30,11 @@ const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
-/* On page load*/
+/* On page load */
 
-import { renderMostPopMarkup } from './js/render_pop_news';
 import { renderMostPopMarkup } from './js/render/render_pop_news';
 
 onLoad();
-
 
 function onLoad() {
   newsApi.resetPage();
@@ -51,7 +49,7 @@ function onLoad() {
     renderMostPopMarkup(news[0]);
     loadWeather();
     stateOfPopular.pages = news;
-  
+
     pagination.renderPagination(pagination.createPagination(3, 1));
   });
 }
