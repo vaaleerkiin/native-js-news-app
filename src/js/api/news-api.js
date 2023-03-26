@@ -48,8 +48,8 @@ class nytNewsApi {
         if ((response.statusText = 'OK')) {
           console.log(this.searchUrl);
           // console.log(response.data.response.docs);
-          if (Math.ceil(response.data.response.meta.hits / 10) > 200) {
-            this.totalHits = 200;
+          if (Math.ceil(response.data.response.meta.hits / 10) > 100) {
+            this.totalHits = 100;
           } else {
             this.totalHits = Math.ceil(response.data.response.meta.hits / 10);
           }

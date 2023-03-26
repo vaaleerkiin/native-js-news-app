@@ -20,6 +20,13 @@ function renderMarkup(searchedNews) {
         },
         index
       ) => {
+        const image = () => {
+          try {
+            return `https://www.nytimes.com/${multimedia[0].url}`;
+          } catch {
+            return 'https://source.unsplash.com/random/300x300?noimage';
+          }
+        };
         if (index < 8) {
           const cardDate = moment(pub_date).format('DD/MM/YYYY');
           let activeClass = '';
@@ -38,7 +45,9 @@ function renderMarkup(searchedNews) {
 
           return `<li class="card-photo">
       		<div class="image-wrapper">
-        <img class="photo" src="https://www.nytimes.com/${multimedia[0].url}" alt="${keywords[0].value}" loading="lazy" />
+        <img class="photo" src="${image()}" alt="${
+            keywords[0].value
+          }" loading="lazy" />
 		</div>
             <div class="card-category">${section_name}</div>
             <button type="button" class="${activeClass}">Add to favorite</button>
