@@ -19,7 +19,7 @@ import { monitorAuthState } from './js/ui/ui';
 // import { auth } from './js/ui/firebase';
 import './js/modal';
 import { onThemeChange } from './js/switcher';
-import { getPosition } from './js/weather';
+import { loadWeather } from './js/weather';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 // import CalendarDates from 'calendar-dates';
@@ -46,6 +46,7 @@ function onLoad() {
     console.log(news);
     newsApi.getTotalHits();
     renderMostPopMarkup(news[0]);
+    loadWeather();
     stateOfPopular.pages = news;
 
     pagination.renderPagination(pagination.createPagination(3, 1));
