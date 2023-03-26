@@ -29,7 +29,7 @@ const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
-/* On page load
+/* On page load*/
 
 import { renderMostPopMarkup } from './js/render_pop_news';
 import { renderMostPopMarkup } from './js/render/render_pop_news';
