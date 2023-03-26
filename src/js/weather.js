@@ -1,6 +1,9 @@
 import moment from "moment/moment";
 import Notiflix from "notiflix";
 import imgLocation from "../images/location.svg";
+// export {getPosition};
+export {loadWeather};
+export {renderWeather};
 
 const weatherBlock = document.querySelector('#weather');
 const positionForWeather = document.querySelector('.gallery__cards-list');
@@ -40,7 +43,7 @@ async function loadWeather () {
         renderWeather(responseResult);
     } catch (error) {
         console.log(error.message);
-    }
+    }}
 
 function renderWeather(data) {
 
@@ -70,6 +73,7 @@ const markup = `<div class="weather">
 </ul>
 </div>`
 weatherBlock.innerHTML = markup;
-positionForWeather.prepend(weatherBlock)
+// positionForWeather.prepend(weatherBlock)
+positionForWeather.insertBefore(weatherBlock, positionForWeather.children[2]);
 // positionForWeather.insertAdjacentHTML('afterbegin', markup);
 };
