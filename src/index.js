@@ -116,7 +116,7 @@ function onCategoryBtnClick(e) {
     newsApi.resetPage();
     newsApi.setCategory(category);
     let news = [];
-    newsApi.getNewsByCategory(1).then(res => {
+    newsApi.getNewsByCategory(0).then(res => {
       news = res;
       console.log(news);
       newsApi.getTotalHits();
@@ -128,7 +128,7 @@ function onCategoryBtnClick(e) {
       typeOfSearch.categoriesStatus = true;
       typeOfSearch.searchStatus = false;
       pagination.renderPagination(
-        pagination.createPagination(newsApi.getTotalHits(), 1)
+        pagination.createPagination(Math.ceil(newsApi.getTotalHits() / 8), 1)
       );
     });
   }
@@ -167,18 +167,20 @@ document
         });
       }
       if (typeOfSearch.categoriesStatus) {
-        newsApi.getNewsByCategory(pagination.getCurrentPage()).then(res => {
-          newsApi.getTotalHits();
-          renderCategoryMarkup(res);
-          loadWeather();
-          console.log(newsApi.getTotalHits());
-          pagination.renderPagination(
-            pagination.createPagination(
-              pagination.getTotalPage(),
-              pagination.getCurrentPage()
-            )
-          );
-        });
+        newsApi
+          .getNewsByCategory((pagination.getCurrentPage() - 1) * 8)
+          .then(res => {
+            newsApi.getTotalHits();
+            renderCategoryMarkup(res);
+            loadWeather();
+            console.log(newsApi.getTotalHits());
+            pagination.renderPagination(
+              pagination.createPagination(
+                pagination.getTotalPage(),
+                pagination.getCurrentPage()
+              )
+            );
+          });
       }
 
       // let news = [];
