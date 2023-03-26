@@ -10,6 +10,13 @@ export function renderMostPopMarkup(news) {
         { abstract, published_date, media, title, des_facet, url, section },
         index
       ) => {
+        const image = () => {
+          try {
+            return media[0]['media-metadata'][2].url;
+          } catch {
+            return 'https://source.unsplash.com/random/300x300?noimage';
+          }
+        };
         let activeClass = '';
         let activeText = '';
         if (
@@ -25,9 +32,7 @@ export function renderMostPopMarkup(news) {
         }
         return `<li class="card-photo">
       		<div class="image-wrapper">
-                <img class="photo" src="${
-                  media[0]['media-metadata'][2].url
-                }" alt="${des_facet
+                <img class="photo" src="${image()}" alt="${des_facet
           .map(val => val)
           .join(', ')}" loading="lazy" />
 		    </div>
