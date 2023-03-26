@@ -9,7 +9,11 @@ const refs = {
   logoEl: document.querySelector('.header__logo'),
   searchInputEl: document.querySelector('.search-form__input'),
   searchIconEl: document.querySelector('.search-form__icon'),
+  modalEl: document.querySelector('.modal'),
 };
+console.log(refs.modalEl);
+console.log(refs.labelEl);
+console.log(refs.modalBtnEL);
 
 // set the initial theme based on the value from localStorage
 if (localStorage.getItem(themeKey) === 'dark') {
@@ -31,6 +35,7 @@ export function onThemeChange() {
     'fill',
     refs.bodyEl.classList.contains('dark-mode') ? '#fff' : ''
   );
+  refs.modalEl.classList.toggle('dark-text'); // добавлено
   localStorage.setItem(
     themeKey,
     refs.bodyEl.classList.contains('dark-mode') ? 'dark' : 'light'

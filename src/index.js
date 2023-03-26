@@ -11,6 +11,8 @@ import { onThemeChange } from './js/switcher';
 import { getPosition } from './js/weather';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
+import { onMobileThemeChange } from './js/switcher-mobile';
+
 // import CalendarDates from 'calendar-dates';
 
 // newsApi.getCategories(); // Returns list of 50 categories
@@ -22,6 +24,7 @@ import 'air-datepicker/air-datepicker.css';
 
 oNmobileMenu();
 searchInputAnimation();
+// onThemeChange();
 
 /* Firebase auth*/
 
