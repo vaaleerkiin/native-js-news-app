@@ -20,7 +20,11 @@ export function renderCategoryMarkup(news) {
           if (multimedia[2]) {
             image = multimedia[2].url;
           } else {
-            image = `https://source.unsplash.com/random/300x300/?${des_facet[0]}`;
+            if (des_facet) {
+              image = `https://source.unsplash.com/random/300x300/?${des_facet[0]}`;
+            } else {
+              image = `https://source.unsplash.com/random/300x300/?${section}`;
+            }
           }
           let alt;
           if (des_facet) {
