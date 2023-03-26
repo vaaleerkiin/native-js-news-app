@@ -83,7 +83,10 @@ export default class Pagination {
       this.paginationContainer.appendChild(listItem);
     }
   }
-  genCurrentPage() {
+  getCurrentPage() {
     return this.currentPage;
+  }
+  getTotalPage() {
+    return this.totalPages;
   }
 }

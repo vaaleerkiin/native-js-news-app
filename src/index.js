@@ -24,7 +24,7 @@ import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 // import CalendarDates from 'calendar-dates';
 const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
-
+const typeOfSearch = { searchStatus: false, categoriesStatus: false };
 // newsApi.getCategories(); // Returns list of 50 categories
 // newsApi.getMostPopularNews(); // Returns array of Most popular news
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
@@ -81,6 +81,8 @@ function onSearchSubmit(e) {
     news = res;
     console.log(news);
     stateOfPopular.status = false;
+    typeOfSearch.categoriesStatus = false;
+    typeOfSearch.searchStatus = true;
     pagination.renderPagination(
       pagination.createPagination(newsApi.getTotalHits(), 1)
     );
@@ -118,6 +120,13 @@ function onCategoryBtnClick(e) {
       renderCategoryMarkup(news);
       loadWeather();
       console.log(newsApi.getTotalHits());
+
+      stateOfPopular.status = false;
+      typeOfSearch.categoriesStatus = true;
+      typeOfSearch.searchStatus = false;
+      pagination.renderPagination(
+        pagination.createPagination(newsApi.getTotalHits(), 1)
+      );
     });
   }
 }
@@ -129,24 +138,52 @@ function onCategoryBtnClick(e) {
 document
   .getElementById('pagination-container')
   .addEventListener('click', ev => {
-    console.log(ev.target.nodeName);
+    onChangePage(ev.target);
+
     if (ev.target.nodeName === 'A') {
       if (stateOfPopular.status) {
-        onChangePage(ev.target);
-        console.log(pagination.genCurrentPage());
         renderMostPopMarkup(
-          stateOfPopular.pages[pagination.genCurrentPage() - 1]
+          stateOfPopular.pages[pagination.getCurrentPage() - 1]
         );
 
         return;
       }
+      if (typeOfSearch.searchStatus) {
+        newsApi.setPage(pagination.getCurrentPage());
+        const query = searchQuery.query.value.trim().toLowerCase();
+        newsApi.getNewsBySearchQuery(query).then(res => {
+          stateOfPopular.status = false;
+          pagination.renderPagination(
+            pagination.createPagination(
+              newsApi.getTotalHits(),
+              pagination.getCurrentPage()
+            )
+          );
 
-      onChangePage(ev.target);
-      let news = [];
-      newsApi.getNewsByCategory(pagination.genCurrentPage()).then(res => {
-        news = res;
-        // console.log(news);
-      });
+          renderMarkup(res);
+          return;
+        });
+      }
+      if (typeOfSearch.categoriesStatus) {
+        newsApi.getNewsByCategory(pagination.getCurrentPage()).then(res => {
+          newsApi.getTotalHits();
+          renderCategoryMarkup(res);
+          loadWeather();
+          console.log(newsApi.getTotalHits());
+          pagination.renderPagination(
+            pagination.createPagination(
+              pagination.getTotalPage(),
+              pagination.getCurrentPage()
+            )
+          );
+        });
+      }
+
+      // let news = [];
+      // newsApi.getNewsByCategory(pagination.getCurrentPage()).then(res => {
+      //   news = res;
+      // console.log(news);
+      // });
     }
   });
 
