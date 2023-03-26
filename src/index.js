@@ -100,6 +100,9 @@ function onCategoryBtnClick(e) {
     // console.log('Click');
     const categoryBtn = e.target.closest('BUTTON');
     const category = categoryBtn.textContent.trim().toLowerCase();
+    if (category === 'others') {
+      return;
+    }
     console.log(category);
     newsApi.resetPage();
     newsApi.setCategory(category);
