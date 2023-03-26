@@ -48,7 +48,11 @@ class nytNewsApi {
         if ((response.statusText = 'OK')) {
           console.log(this.searchUrl);
           // console.log(response.data.response.docs);
-          this.totalHits = Math.ceil(response.data.response.meta.hits / 10);
+          if (Math.ceil(response.data.response.meta.hits / 10) > 200) {
+            this.totalHits = 200;
+          } else {
+            this.totalHits = Math.ceil(response.data.response.meta.hits / 10);
+          }
           return response.data.response.docs;
         }
       });

@@ -4,7 +4,7 @@ html {
 .pagination__wrap {
   position: relative;
   width: 100%;
-  height: 30px;
+  height: 300px;
   overflow: hidden;
 }
 
@@ -34,22 +34,6 @@ html {
   &:not(:first-child) {
     margin-left: 8px;
   }
-}
-
-.pagination__current-page {
-  border-color: #4440f6;
-  background-color: #4440f6;
-  color: #f4f4f4;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  width: 30px;
-  height: 30px;
 }
 
 .pagination__btn {
@@ -92,6 +76,34 @@ html {
   justify-content: center;
   align-items: center;
 }
+.pagination__current-page {
+  border-color: #4440f6;
+  background-color: #4440f6;
+  color: #f4f4f4;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.pagination__btn {
+  &.pre-dots,
+  &.post-dots {
+    margin-left: -8px;
+    margin-right: -8px;
+    border: none;
+    background: transparent;
+    .dark-mode & {
+      color: white;
+    }
+  }
+}
 
 .pagination__arrow-right {
   background-image: url(../images/arrow-right.png);
@@ -112,7 +124,7 @@ html {
 }
 
 .pagination__num {
-  display: block;
+  display: flex;
   @media screen and (max-width: 425px) {
     display: none;
     margin: 0;
