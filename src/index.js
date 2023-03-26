@@ -19,7 +19,7 @@ import { monitorAuthState } from './js/ui/ui';
 // import { auth } from './js/ui/firebase';
 import './js/modal';
 import { onThemeChange } from './js/switcher';
-import { getPosition } from './js/weather';
+import { loadWeather } from './js/weather';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 // import CalendarDates from 'calendar-dates';
@@ -30,11 +30,13 @@ const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
-/* On page load */
+/* On page load*/
 
+import { renderMostPopMarkup } from './js/render_pop_news';
 import { renderMostPopMarkup } from './js/render/render_pop_news';
 
 onLoad();
+
 
 function onLoad() {
   newsApi.resetPage();
@@ -47,8 +49,9 @@ function onLoad() {
     console.log(news);
     newsApi.getTotalHits();
     renderMostPopMarkup(news[0]);
+    loadWeather();
     stateOfPopular.pages = news;
-
+  
     pagination.renderPagination(pagination.createPagination(3, 1));
   });
 }
