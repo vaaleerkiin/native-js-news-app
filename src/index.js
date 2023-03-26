@@ -1,6 +1,6 @@
 import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
-
+import { Report } from 'notiflix/build/notiflix-report-aio';
 // ===============filter-menu===================
 import { filtrBtnClickHandler } from './js/filter-categories';
 import { closeOtherBtnsMenu } from './js/filter-categories';
@@ -15,6 +15,7 @@ import { oNmobileMenu } from './js/mobile-menu';
 // ==================================================
 
 import { renderMarkup } from './js/rendermarkup';
+import { setLoadingFrame, resetLoadingFrame } from './js/main_loading_frame';
 import { monitorAuthState } from './js/ui/ui';
 // import { auth } from './js/ui/firebase';
 import './js/modal';
@@ -47,6 +48,7 @@ onLoad();
 
 function onLoad() {
   newsApi.resetPage();
+  setLoadingFrame();
   let news = [];
   newsApi.getMostPopularNews().then(res => {
     for (let i = 0; i < res.length; i += 8) {
@@ -61,6 +63,7 @@ function onLoad() {
 
     pagination.renderPagination(pagination.createPagination(3, 1));
   });
+  resetLoadingFrame();
 }
 
 // burger menu
@@ -85,21 +88,28 @@ function onSearchSubmit(e) {
   if (!query) {
     return;
   }
+  setLoadingFrame();
   newsApi.resetPage();
   let news = [];
-  newsApi.getNewsBySearchQuery(query).then(res => {
-    news = res;
+  newsApi
+    .getNewsBySearchQuery(query)
+    .then(res => {
+      news = res;
 
-    stateOfPopular.status = false;
-    typeOfSearch.categoriesStatus = false;
-    typeOfSearch.searchStatus = true;
-    loadWeather();
-    pagination.renderPagination(
-      pagination.createPagination(newsApi.getTotalHits(), 1)
-    );
+      stateOfPopular.status = false;
+      typeOfSearch.categoriesStatus = false;
+      typeOfSearch.searchStatus = true;
+      loadWeather();
+      pagination.renderPagination(
+        pagination.createPagination(newsApi.getTotalHits(), 1)
+      );
 
-    renderMarkup(news);
-  });
+      renderMarkup(news);
+    })
+    .catch(er => {
+      Report.failure('Failure', `Try again later or reload the page`, 'Okay');
+    })
+    .finally(res => resetLoadingFrame());
 }
 
 /* Search by category */
@@ -120,24 +130,31 @@ function onCategoryBtnClick(e) {
     if (category === 'others') {
       return;
     }
-
+    setLoadingFrame();
     newsApi.resetPage();
     newsApi.setCategory(category);
     let news = [];
-    newsApi.getNewsByCategory(0).then(res => {
-      news = res;
+    newsApi
+      .getNewsByCategory(0)
+      .then(res => {
+        news = res;
 
-      newsApi.getTotalHits();
-      renderCategoryMarkup(news);
-      loadWeather();
+        newsApi.getTotalHits();
+        renderCategoryMarkup(news);
+        loadWeather();
 
-      stateOfPopular.status = false;
-      typeOfSearch.categoriesStatus = true;
-      typeOfSearch.searchStatus = false;
-      pagination.renderPagination(
-        pagination.createPagination(Math.ceil(newsApi.getTotalHits() / 8), 1)
-      );
-    });
+        stateOfPopular.status = false;
+        typeOfSearch.categoriesStatus = true;
+        typeOfSearch.searchStatus = false;
+        pagination.renderPagination(
+          pagination.createPagination(Math.ceil(newsApi.getTotalHits() / 8), 1)
+        );
+        resetLoadingFrame();
+      })
+      .catch(er => {
+        Report.failure('Failure', `Try again later or reload the page`, 'Okay');
+      })
+      .finally(res => resetLoadingFrame());
   }
 }
 
@@ -150,29 +167,42 @@ document
   .addEventListener('click', ev => {
     if (ev.target.nodeName !== 'UL') {
       onChangePage(ev.target);
+      setLoadingFrame();
       if (stateOfPopular.status) {
         renderMostPopMarkup(
           stateOfPopular.pages[pagination.getCurrentPage() - 1]
         );
         loadWeather();
+        resetLoadingFrame();
         return;
       }
       if (typeOfSearch.searchStatus) {
         newsApi.setPage(pagination.getCurrentPage());
         const query = searchQuery.query.value.trim().toLowerCase();
-        newsApi.getNewsBySearchQuery(query).then(res => {
-          stateOfPopular.status = false;
-          pagination.renderPagination(
-            pagination.createPagination(
-              newsApi.getTotalHits(),
-              pagination.getCurrentPage()
-            )
-          );
+        newsApi
+          .getNewsBySearchQuery(query)
+          .then(res => {
+            stateOfPopular.status = false;
+            pagination.renderPagination(
+              pagination.createPagination(
+                newsApi.getTotalHits(),
+                pagination.getCurrentPage()
+              )
+            );
 
-          renderMarkup(res);
-          loadWeather();
-          return;
-        });
+            renderMarkup(res);
+            loadWeather();
+            resetLoadingFrame();
+            return;
+          })
+          .catch(er => {
+            Report.failure(
+              'Failure',
+              `Try again later or reload the page`,
+              'Okay'
+            );
+          })
+          .finally(res => resetLoadingFrame());
       }
       if (typeOfSearch.categoriesStatus) {
         newsApi
@@ -188,7 +218,15 @@ document
                 pagination.getCurrentPage()
               )
             );
-          });
+          })
+          .catch(er => {
+            Report.failure(
+              'Failure',
+              `Try again later or reload the page`,
+              'Okay'
+            );
+          })
+          .finally(res => resetLoadingFrame());
       }
 
       // let news = [];
