@@ -3,6 +3,7 @@ import Notiflix from "notiflix";
 import imgLocation from "../images/location.svg";
 
 const weatherBlock = document.querySelector('#weather');
+const positionForWeather = document.querySelector('.gallery__cards-list');
 
 const apiWeather = '92b7ae078a5ceba812c34c84b6f882cb';
 let server;
@@ -69,4 +70,6 @@ const markup = `<div class="weather">
 </ul>
 </div>`
 weatherBlock.innerHTML = markup;
+positionForWeather.prepend(weatherBlock)
+// positionForWeather.insertAdjacentHTML('afterbegin', markup);
 };
