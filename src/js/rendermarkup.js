@@ -1,3 +1,4 @@
+import moment from 'moment/moment';
 export { renderMarkup };
 import { FavoriteStorage, ReadStorage } from './localStorage';
 const favoriteStorage = new FavoriteStorage();
@@ -7,30 +8,35 @@ const newsgallery = document.querySelector('.gallery__cards-list');
 function renderMarkup(searchedNews) {
   const markup = searchedNews
     .map(
-      ({
-        abstract,
-        pub_date,
-        multimedia,
-        headline,
-        keywords,
-        web_url,
-        section_name,
-      }) => {
-        let activeClass = '';
-        let activeText = '';
-        if (
-          favoriteStorage.hasNews({
-            web_url,
-          })
-        ) {
-          activeText = 'Remove from favorite';
-          activeClass = 'favorite-button__activ';
-        } else {
-          activeText = 'Add to favorite';
-          activeClass = 'add-to-favorite';
-        }
+      (
+        {
+          abstract,
+          pub_date,
+          multimedia,
+          headline,
+          keywords,
+          web_url,
+          section_name,
+        },
+        index
+      ) => {
+        if (index < 8) {
+          const cardDate = moment(pub_date).format('DD/MM/YYYY');
+          let activeClass = '';
+          let activeText = '';
+          if (
+            favoriteStorage.hasNews({
+              web_url,
+            })
+          ) {
+            activeText = 'Remove from favorite';
+            activeClass = 'favorite-button__activ';
+          } else {
+            activeText = 'Add to favorite';
+            activeClass = 'add-to-favorite';
+          }
 
-        return `<li class="card-photo">
+          return `<li class="card-photo">
       		<div class="image-wrapper">
         <img class="photo" src="https://www.nytimes.com/${multimedia[0].url}" alt="${keywords[0].value}" loading="lazy" />
 		</div>
@@ -38,10 +44,11 @@ function renderMarkup(searchedNews) {
             <button type="button" class="${activeClass}">Add to favorite</button>
             <h2 class="card-title">${headline.main}</h2>
             <p class="card-info">${abstract}</p>
-	        <span class="card-date">${pub_date}</span>
+	        <span class="card-date">${cardDate}</span>
             <a href="${web_url}" class="card-url">Read more</a>
  
             </li>`;
+        }
       }
     )
     .join('');
