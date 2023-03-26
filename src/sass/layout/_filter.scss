@@ -1,3 +1,16 @@
+.news-container {
+  margin: 0 auto;
+  width: 320px;
+  padding: 0 16px;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+}
+
 .news {
   padding: 28px 0;
 }
@@ -13,6 +26,7 @@
 }
 
 .news__filtr-menu-button {
+  cursor: pointer;
   padding: 8px 23px;
   border: 1px solid #4b48db;
   color: #4440f6;
@@ -34,6 +48,51 @@
   background-color: #4b48db;
   color: #ffffff;
 }
+
+.filtr-buttons-container {
+  position: relative;
+}
+
+.other-buttons-container {
+  z-index: 10;
+  position: absolute;
+  top: 34px;
+  right: -88px;
+  width: 168px;
+  height: 380px;
+  padding: 8px 0;
+  overflow-y: scroll;
+
+  background-color: #f8f8f8;
+  border-radius: 20px;
+}
+
+.btns-are-hidden {
+  display: none;
+}
+
+.other-button {
+  padding: 6px 24px;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+
+  background-color: transparent;
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: left;
+  letter-spacing: 0.01em;
+  color: #4440f7;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// =====================================================================
 
 .date-picker {
   display: flex;

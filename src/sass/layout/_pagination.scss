@@ -1,7 +1,10 @@
+html {
+  scroll-behavior: smooth;
+}
 .pagination__wrap {
   position: relative;
   width: 100%;
-  height: 30px;
+  height: 300px;
   overflow: hidden;
 }
 
@@ -33,22 +36,6 @@
   }
 }
 
-.pagination__current-page {
-  border-color: #4440f6;
-  background-color: #4440f6;
-  color: #f4f4f4;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  width: 30px;
-  height: 30px;
-}
-
 .pagination__btn {
   background: #f4f4f4;
   border: 1px solid #4440f6;
@@ -66,6 +53,9 @@
     margin-right: -8px;
     border: none;
     background: transparent;
+    .dark-mode & {
+      color: white;
+    }
   }
   background: #f4f4f4;
   //   font-family: 'Manrope';
@@ -77,20 +67,71 @@
   cursor: pointer;
 }
 
-.pagination__arrow-right {
-  background-image: url(../images/arrow-right.png);
+.pagination__link {
+  width: 100%;
+  height: 100%;
+  color: currentColor;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.pagination__arrow-left {
-  background-image: url(../images/arrow-left.png);
+.pagination__current-page {
+  border-color: #4440f6;
+  background-color: #4440f6;
+  color: #f4f4f4;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.pagination__btn {
+  &.pre-dots,
+  &.post-dots {
+    margin-left: -8px;
+    margin-right: -8px;
+    border: none;
+    background: transparent;
+    .dark-mode & {
+      color: white;
+    }
+  }
+}
+
+.pagination__arrow-right .pagination__icon {
+  width: 18px;
+  height: 18px;
+  background-image: url(../images/pagination__arrow.png);
+  background-size: contain;
+}
+.pagination__arrow-left .pagination__icon {
+  width: 18px;
+  height: 18px;
+  background-image: url(../images/pagination__arrow.png);
+  transform: rotate(180deg);
+  background-size: contain;
 }
 .pagination__arrow-left,
 .pagination__arrow-right {
-  background-size: 65%;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: 72px;
 }
 
 .pagination__page-icon {
   width: 16px;
   height: 16px;
+}
+
+.pagination__num {
+  display: flex;
+  @media screen and (max-width: 425px) {
+    display: none;
+    margin: 0;
+  }
 }
