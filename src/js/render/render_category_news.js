@@ -17,24 +17,25 @@ export function renderCategoryMarkup(news) {
       ) => {
         if (index < 8) {
           let image;
-          if (multimedia[2]) {
+          if (multimedia) {
             image = multimedia[2].url;
+          } else if (des_facet) {
+            image = `https://source.unsplash.com/random/300x300/?${des_facet[0]}`;
           } else {
-            if (des_facet) {
-              image = `https://source.unsplash.com/random/300x300/?${des_facet[0]}`;
-            } else {
-              image = `https://source.unsplash.com/random/300x300/?${section}`;
-            }
+            image = null;
           }
+
           let alt;
           if (des_facet) {
             alt = des_facet.map(val => val).join(', ');
           }
           return `<li class="card-photo">
       		<div class="image-wrapper">
-                <img class="photo" src="${image}" alt="${alt}" loading="lazy" />
+                <img class="photo" src="${
+                  image || 'https://source.unsplash.com/random/300x300'
+                }" alt="${alt}" loading="lazy" />
 		    </div>
-            <div class="card-category">${section}</div>
+            <div class="card-category">${section.toLowerCase()}</div>
             <button type="button" class="add-to-favorite">Add to favorite</button>
             <h2 class="card-title">${title}</h2>
             <p class="card-info">${abstract}</p>
