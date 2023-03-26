@@ -1,8 +1,19 @@
 import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
+
+// ===============filtr-menu===================
 import { filtrBtnClickHandler } from './js/filter-categories';
+import { closeOtherBtnsMenu } from './js/filter-categories';
+import { categoriesList } from './js/filter-categories';
+
+// =====================search form=================
 import { searchInputAnimation } from './js/search-input-animation';
+
+// ==================mobile menu open===================
 import { oNmobileMenu } from './js/mobile-menu';
+
+// ==================================================
+
 import { renderMarkup } from './js/rendermarkup';
 import { monitorAuthState } from './js/ui/ui';
 // import { auth } from './js/ui/firebase';
@@ -18,10 +29,10 @@ const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
 // newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
 // newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
-/* On page load */
-
+/* On page load
 
 import { renderMostPopMarkup } from './js/render_pop_news';
+import { renderMostPopMarkup } from './js/render/render_pop_news';
 
 onLoad();
 
@@ -77,10 +88,12 @@ function onSearchSubmit(e) {
 
 /* Search by category */
 
-const newsNavigationEl = document.querySelector('.news-navigation');
-newsNavigationEl.addEventListener('click', onCategoryBtnClock);
+import { renderCategoryMarkup } from './js/render/render_category_news';
 
-function onCategoryBtnClock(e) {
+const newsNavigationEl = document.querySelector('.news-navigation');
+newsNavigationEl.addEventListener('click', onCategoryBtnClick);
+
+function onCategoryBtnClick(e) {
   // console.log(e.target);
   if (e.target.tagName.toLowerCase() !== 'button') {
     return;
@@ -96,7 +109,7 @@ function onCategoryBtnClock(e) {
       news = res;
       console.log(news);
       newsApi.getTotalHits();
-      // renderMarkup(news);
+      renderCategoryMarkup(news);
     });
   }
 }
@@ -132,9 +145,13 @@ document
 
 // ===============filter===================
 
-const filtrButtonsContainerRef = document.querySelector('ul.news__filtr-menu');
+const filtrButtonsContainerRef = document.querySelector(
+  'div.filtr-buttons-container'
+);
 
 filtrButtonsContainerRef.addEventListener('click', filtrBtnClickHandler);
+
+document.addEventListener('click', closeOtherBtnsMenu);
 
 // ===============date form filter===================
 
