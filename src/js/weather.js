@@ -75,9 +75,27 @@ const markup = `<div class="weather">
 </div>`
 weatherBlock.innerHTML = markup;
 
-
+let x = document.documentElement.clientWidth;
 // positionForWeather.prepend(weatherBlock)
-positionForWeather.insertBefore(weatherBlock, positionForWeather.children[2]);
+// positionForWeather.insertBefore(weatherBlock, positionForWeather.children[2]);
 // positionForWeather.insertAdjacentHTML('afterbegin', markup);
 
+// if(window.innerWidth <= 320) {
+//     positionForWeather.prepend(weatherBlock)
+// } else if(window.innerWidth > 320 && window.innerWidth <= 768) {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[1]);
+// } else {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[2]);}
+
+if(x <= 490) {
+    positionForWeather.insertBefore(weatherBlock, positionForWeather.children[0]);
+} else if(x > 320 && x <= 768) {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[1]);
+} else {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[2]);}
+
+
+// if (window.matchMedia("screen and (min-width: 320px)").matches) {
+//     positionForWeather.insertBefore(weatherBlock, positionForWeather.children[0])
+// } else if (window.matchMedia("screen and (min-width: 768px)").matches) {
+//     positionForWeather.insertBefore(weatherBlock, positionForWeather.children[1]);
+// } else {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[2]);}
+
 };
+
