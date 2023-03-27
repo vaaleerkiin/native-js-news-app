@@ -11,7 +11,6 @@ export function filtrBtnClickHandler(evt) {
     return;
   }
 
-  console.log(evt.target.nodeName);
   const previousActiveBtn = document.querySelector(
     '.news__filtr-menu-button--active'
   );
@@ -66,11 +65,24 @@ export function createCategoriesFilter(categories, amount) {
 
   const verticalMenuBauttons = categories
     .map(({ display_name }) => {
-      return `<li class="other-button-item"><button type="button" class="other-button">${display_name}</button></li>`;
+      return `<li class="other-button-item"><button type="button" class="other-button" data-value="other-category">${display_name}</button></li>`;
     })
     .join('');
 
   verticalMenu.insertAdjacentHTML('beforeend', verticalMenuBauttons);
 
   filtrButtonsContainerRef.append(horizontalMenu, verticalMenu);
+}
+
+export function otherCategoryBtnClickHandler(evt) {
+  const otherBtn = document.querySelector('a[data-value="Others"]');
+
+  if (
+    evt.target.nodeName !== 'BUTTON' ||
+    evt.target.dataset.value !== 'other-category'
+  ) {
+    return;
+  }
+  otherBtn.textContent = evt.target.textContent;
+  otherBtn.classList.add('news__filtr-menu-button--active');
 }

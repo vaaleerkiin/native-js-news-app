@@ -8,6 +8,7 @@ import {
   filtrBtnClickHandler,
   closeOtherBtnsMenu,
   filtrButtonsContainerRef,
+  otherCategoryBtnClickHandler,
 } from './js/filter-categories';
 
 import { categoriesList } from './js/categories-list';
@@ -51,11 +52,17 @@ if (forDesktop.matches) {
   createCategoriesFilter(categoriesList, 6);
 }
 
-// createCategoriesFilter(categoriesList);
+// ==============================
 
 filtrButtonsContainerRef.addEventListener('click', filtrBtnClickHandler);
+filtrButtonsContainerRef.addEventListener(
+  'click',
+  otherCategoryBtnClickHandler
+);
 
 document.addEventListener('click', closeOtherBtnsMenu);
+
+// ==================================
 
 const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
 const typeOfSearch = { searchStatus: false, categoriesStatus: false };
