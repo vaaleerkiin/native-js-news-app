@@ -126,7 +126,7 @@ searchQuery.addEventListener('submit', onSearchSubmit);
 function onSearchSubmit(e) {
   e.preventDefault();
   const query = searchQuery.query.value.trim().toLowerCase();
-  // console.log(query);
+
   if (!query) {
     return;
   }
@@ -137,7 +137,15 @@ function onSearchSubmit(e) {
     .getNewsBySearchQuery(query)
     .then(res => {
       news = res;
-
+      const chunkSize = () => {
+        if (clientWidth <= 425) {
+          return 4;
+        } else if (clientWidth > 425 && clientWidth <= 768) {
+          return 7;
+        } else {
+          return 8;
+        }
+      };
       stateOfPopular.status = false;
       typeOfSearch.categoriesStatus = false;
       typeOfSearch.searchStatus = true;
@@ -147,7 +155,7 @@ function onSearchSubmit(e) {
         pagination.createPagination(newsApi.getTotalHits(), 1)
       );
 
-      renderMarkup(news);
+      renderMarkup(news.slice(0, chunkSize()));
     })
     .catch(er => {
       Report.failure('Failure', `Try again later or reload the page`, 'Okay');
@@ -221,6 +229,15 @@ function onCategoryBtnClick(e) {
 document
   .getElementById('pagination-container')
   .addEventListener('click', ev => {
+    const chunkSize = () => {
+      if (clientWidth <= 425) {
+        return 4;
+      } else if (clientWidth > 425 && clientWidth <= 768) {
+        return 7;
+      } else {
+        return 8;
+      }
+    };
     if (ev.target.nodeName !== 'UL') {
       onChangePage(ev.target);
       setLoadingFrame();
@@ -247,7 +264,7 @@ document
               )
             );
 
-            renderMarkup(res);
+            renderMarkup(res.slice(0, chunkSize()));
             loadWeather();
             resetLoadingFrame();
             return;
@@ -262,15 +279,6 @@ document
           .finally(res => resetLoadingFrame());
       }
       if (typeOfSearch.categoriesStatus) {
-        const chunkSize = () => {
-          if (clientWidth <= 425) {
-            return 4;
-          } else if (clientWidth > 425 && clientWidth <= 768) {
-            return 7;
-          } else {
-            return 8;
-          }
-        };
         newsApi
           .getNewsByCategory((pagination.getCurrentPage() - 1) * chunkSize())
           .then(res => {
