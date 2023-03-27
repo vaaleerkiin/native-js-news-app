@@ -160,7 +160,7 @@ function createCategoriesFilter(categories, amount) {
 function createCategoriesFilterMobile(categories) {
   const arrowIcon =
     '<svg class="menu-button-others__icon" viewBox="0 0 32 32"> <path d="M8.538 12.23c-4.090 3.789-7.43 6.908-7.426 6.929s0.663 0.644 1.461 1.382c0.8 0.738 1.577 1.459 1.726 1.604l0.271 0.26 5.692-5.257c1.557-1.455 3.425-3.17 5.306-4.872l0.432-0.385c0.026 0 2.607 2.366 5.739 5.257l5.692 5.257 0.271-0.26c0.235-0.226 3.177-2.944 3.221-2.976 0.017-0.013-14.914-13.839-14.935-13.833-0.009 0.002-3.36 3.104-7.45 6.893z"></path></svg>';
-  const categoriesBtn = `<a class="news__filtr-menu-button menu-button-others" data-value="Others"><span data-value="Others">Categories</span>${arrowIcon}</a>`;
+  const categoriesBtn = `<a class="news__filtr-menu-button menu-button-others" data-value="Others"><span data-value="Others">Categories</span><span class="menu-button-others__icon" data-value="Others"></span></a>`;
 
   const verticalMenu = document.createElement('ul');
   verticalMenu.classList.add('other-buttons-container', 'btns-are-hidden');
