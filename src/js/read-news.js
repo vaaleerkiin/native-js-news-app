@@ -169,6 +169,7 @@ function renderAccordionNews(arr) {
     document
       .querySelector('.gallery__cards-list')
       .classList.toggle('visually-hidden');
+    document.querySelector('.accordion-arrow').classList.toggle('active');
   } catch (error) {
     console.log(error);
   }
@@ -182,12 +183,12 @@ for (let i = 0; i < accordion.length; i++) {
     this.classList.toggle('active');
     const currentGallery = this.querySelector('.gallery__cards-list');
     currentGallery.classList.toggle('visually-hidden');
+    this.querySelector('.accordion-arrow').classList.toggle('active');
+    console.log(this);
   });
 }
 
 accordionEl.addEventListener('click', onCardClick);
-
-
 
 if (accordionEl.innerHTML == '') {
   accordionEl.insertAdjacentHTML('afterend', `<div class="news__plug"></div>`);
