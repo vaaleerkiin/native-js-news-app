@@ -21,6 +21,7 @@ export function renderCategoryMarkup(news) {
       ) => {
         let activeClass = '';
         let activeText = '';
+        let backdropRead = '';
         if (
           favoriteStorage.hasNews({
             url,
@@ -31,6 +32,11 @@ export function renderCategoryMarkup(news) {
         } else {
           activeText = 'Add to favorite';
           activeClass = 'add-to-favorite';
+        }
+        if (readStorage.hasNews({ url })) {
+          backdropRead = ' opacity';
+        } else {
+          backdropRead = '';
         }
         if (index < 8) {
           let image;
@@ -45,7 +51,7 @@ export function renderCategoryMarkup(news) {
           if (des_facet) {
             alt = des_facet.map(val => val).join(', ');
           }
-          return `<li class="card-photo">
+          return `<li class="card-photo${backdropRead}">
       		<div class="image-wrapper">
                 <img class="photo" src="${image}" alt="${alt}" loading="lazy" />
 		    </div>
