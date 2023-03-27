@@ -8,7 +8,7 @@
 
 .accordion .container {
     position: relative;
-    margin: 10px 10px;
+    // margin: 10px 10px;
 }
 
 /* Positions the labels relative to the .container. Adds padding to the top and bottom and increases font size. Also makes its cursor a pointer */
@@ -37,12 +37,10 @@
 
 .accordion .gallery__cards-list {
     position: relative;
-    // background: white;
     height: 0;
     font-size: 20px;
     text-align: justify;
-    width: 100%;
-    overflow: hidden;
+    // width: 100%;
     transition: 0.5s;
 }
 
