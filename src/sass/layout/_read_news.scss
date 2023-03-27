@@ -7,7 +7,7 @@
 }
 
 .accordion .container {
-    position: relative;
+    // position: relative;
     // margin: 10px 10px;
 }
 
@@ -35,14 +35,14 @@
 
 /* Hides the content (height: 0), decreases font size, justifies text and adds transition */
 
-.accordion .gallery__cards-list {
-    position: relative;
-    height: 0;
-    font-size: 20px;
-    text-align: justify;
-    // width: 100%;
-    transition: 0.5s;
-}
+// .accordion .gallery__cards-list {
+//     position: relative;
+//     height: 0;
+//     font-size: 20px;
+//     text-align: justify;
+//     // width: 100%;
+//     // transition: 0.5s;
+// }
 
 /* Adds a horizontal line between the contents */
 
@@ -54,13 +54,30 @@
 
 /* Unhides the content part when active. Sets the height */
 
-.accordion .container.active .gallery__cards-list {
-    height: 100%;
-}
+// .accordion .container.active .gallery__cards-list {
+//     height: 100%;
+// }
+
+// .gallery__cards-list.active {
+//     height: 100%;
+// }
 
 /* Changes from plus sign to negative sign once active */
 
 .accordion .container.active .accordion-date::before {
     content: '-';
     font-size: 30px;
+}
+
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
 }

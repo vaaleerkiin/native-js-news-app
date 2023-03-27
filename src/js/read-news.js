@@ -84,7 +84,7 @@ function renderAccordion() {
         <div class="accordion-date">${date}
         <hr />
             <div class="newsgallery">
-                <ul class="gallery__cards-list"></ul>
+                <ul class="gallery__cards-list visually-hidden"></ul>
             </div>
         </div>
       </div>`;
@@ -94,19 +94,22 @@ function renderAccordion() {
 }
 
 accordionEl.innerHTML = renderAccordion();
-const accordion = document.getElementsByClassName('container');
-const labels = document.querySelectorAll('.accordion-date');
+const accordionContainer = document.getElementsByClassName('container');
+const accordion = document.querySelectorAll('.accordion-date');
 
 // console.log(`News: `);
 // console.log(news);
 
-labels.forEach(element => {
-  const accordionElDate = element.innerText;
-  console.log(`Checking for ${accordionElDate}`);
-  news.map(
-    ({ readDate, src, title, url, info, published_date, alt, section }) => {
-      if (readDate === accordionElDate) {
-        const favoriteIcon = `<span>
+renderAccordionNews(accordion);
+
+function renderAccordionNews(arr) {
+  arr.forEach(element => {
+    const accordionElDate = element.innerText;
+    console.log(`Checking for ${accordionElDate}`);
+    news.map(
+      ({ readDate, src, title, url, info, published_date, alt, section }) => {
+        if (readDate === accordionElDate) {
+          const favoriteIcon = `<span>
                                 <svg
                                     class="item-news__block-icon active-news-icon"
                                     width="16"
@@ -124,20 +127,20 @@ labels.forEach(element => {
                                 </svg>
                             </span>`;
 
-        let activeClass = '';
-        let activeText = '';
-        if (
-          favoriteStorage.hasNews({
-            url,
-          })
-        ) {
-          activeText = 'Remove from favorite';
-          activeClass = 'favorite-button__activ';
-        } else {
-          activeText = 'Add to favorite';
-          activeClass = 'add-to-favorite';
-        }
-        const markup = `<li class="card-photo">
+          let activeClass = '';
+          let activeText = '';
+          if (
+            favoriteStorage.hasNews({
+              url,
+            })
+          ) {
+            activeText = 'Remove from favorite';
+            activeClass = 'favorite-button__activ';
+          } else {
+            activeText = 'Add to favorite';
+            activeClass = 'add-to-favorite';
+          }
+          const markup = `<li class="card-photo">
                             <div class="image-wrapper">
                                 <img class="photo" src="${src}" alt="${alt}" loading="lazy" />
                             </div>
@@ -148,22 +151,26 @@ labels.forEach(element => {
                             <span class="card-date">${published_date}</span>
                             <a href="${url}" class="card-url">Read more</a>
                         </li>`;
-        const contentEl = element.querySelector('.gallery__cards-list');
-        contentEl.insertAdjacentHTML('beforeend', markup);
+          const contentEl = element.querySelector('.gallery__cards-list');
+          contentEl.insertAdjacentHTML('beforeend', markup);
+        }
       }
-    }
-  );
-});
-
-for (let i = 0; i < accordion.length; i++) {
-  accordion[i].addEventListener('click', function () {
-    this.classList.toggle('active');
+    );
   });
+  document.querySelector('.container').classList.toggle('active');
+  document
+    .querySelector('.gallery__cards-list')
+    .classList.toggle('visually-hidden');
 }
 
-//
-//
-//
+for (let i = 0; i < accordionContainer.length; i++) {
+  accordionContainer[i].addEventListener('click', function () {
+    this.classList.toggle('active');
+    const currentGallery = this.querySelector('.gallery__cards-list');
+    // console.log(currentGallery);
+    currentGallery.classList.toggle('visually-hidden');
+  });
+}
 
 // import { onCardClick } from './rendermarkup';
 accordionEl.addEventListener('click', onCardClick);
