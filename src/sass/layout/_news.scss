@@ -51,7 +51,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  text-align: center;
+  text-align: left;
   color: #111321;
   width: 126px;
   height: 28px;
@@ -59,6 +59,7 @@
   top: 355px;
   background: #ffffff;
   border-radius: 20px;
+  position: absolute;
 }
 
 .add-to-favorite__icon {
@@ -134,7 +135,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  text-align: center;
+  text-align: left;
   color: #111321;
   width: 168px;
   height: 28px;
@@ -145,4 +146,21 @@
 }
 .opacity {
   opacity: 0.5;
+}
+.active-news-icon {
+  fill: transparent;
+  stroke: #4440f7;
+  position: absolute;
+  right: 12px;
+}
+.news-icon {
+  fill: #4440f7;
+  position: absolute;
+  right: 12px;
+}
+.news__read-status {
+  color: #00dd73;
+  position: absolute;
+  top: 10px;
+  right: 30px;
 }
