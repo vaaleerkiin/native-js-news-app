@@ -51,13 +51,18 @@
 
 .menu-button-others {
   display: inline-flex;
+  z-index: 5;
   &__icon {
     display: inline-block;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
-    fill: #4b48db;
+    width: 14px;
+    height: 14px;
+    margin-left: 10px;
+    fill: currentColor;
+    &--rotated {
+      transform: rotate(180deg);
+    }
   }
 }
 .filtr-buttons-container {
@@ -68,7 +73,7 @@
   z-index: 10;
   position: absolute;
   top: 34px;
-  left: 612px;
+  left: 0;
   width: 168px;
   height: 380px;
   padding: 8px 0;
@@ -76,6 +81,14 @@
 
   background-color: #f8f8f8;
   border-radius: 20px;
+  @media screen and (min-width: 768px) {
+    top: 34px;
+    left: 400px;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 34px;
+    left: 612px;
+  }
 }
 
 .btns-are-hidden {
