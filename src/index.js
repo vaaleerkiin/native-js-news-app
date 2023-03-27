@@ -4,14 +4,12 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 // ===============filter-menu===================
 
 import {
-  createCategoriesFilter,
+  addCategoriesFilter,
   filtrBtnClickHandler,
   closeOtherBtnsMenu,
   filtrButtonsContainerRef,
   otherCategoryBtnClickHandler,
 } from './js/filter-categories';
-
-import { categoriesList } from './js/categories-list';
 
 // =====================search form=================
 import { searchInputAnimation } from './js/search-input-animation';
@@ -41,16 +39,22 @@ import moment from 'moment';
 
 // ===============filter===================
 
-const forTablet = window.matchMedia('(max-width: 1279px)');
-if (forTablet.matches) {
-  createCategoriesFilter(categoriesList, 4);
-}
+addCategoriesFilter();
 
-const forDesktop = window.matchMedia('(min-width: 1280px)');
+// Наблюдаем за изменениями размеров окна
+// const windowWidth = document.documentElement.clientWidth;
+// console.log(windowWidth);
+// const forTablet = window.matchMedia('(max-width: 1279px)');
+// console.log(forTablet);
+// if (forTablet.matches) {
+//   createCategoriesFilter(categoriesList, 4);
+// }
 
-if (forDesktop.matches) {
-  createCategoriesFilter(categoriesList, 6);
-}
+// const forDesktop = window.matchMedia('(min-width: 1280px)');
+
+// if (forDesktop.matches) {
+//   createCategoriesFilter(categoriesList, 6);
+// }
 
 // ==============================
 
