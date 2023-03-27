@@ -306,6 +306,15 @@ dateForm.addEventListener('click', e => {
 });
 dateFormButton.addEventListener('click', dateFilterOpenClose);
 
+// let button = {
+//   content: 'Clear',
+//   className: 'custom-button-classname',
+//   onClick: dp => {
+//     airDate.hide();
+//     airDate.clear(opts);
+//   },
+// };
+
 const airDateOption = {
   autoClose: true,
   firstDay: 1,

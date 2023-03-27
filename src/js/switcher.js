@@ -12,7 +12,9 @@ const refs = {
   iconSun: document.querySelector('.icon-sun'),
   iconMoon: document.querySelector('.icon-moon'),
   calendarEl: document.querySelector('.date-form__input'),
+  calendarButton: document.querySelector('.date-form__button-icon'),
   headerEl: document.querySelector('.header'),
+  buttonAuthorization: document.querySelector('.button-authorization'),
 };
 
 if (localStorage.getItem(themeKey) === 'dark') {
@@ -38,12 +40,13 @@ export function onThemeChange() {
   refs.modalEl.classList.toggle('dark-text');
   refs.iconSun.classList.toggle('icon-sun-night');
   refs.iconMoon.classList.toggle('icon-moon-night');
-  refs.calendarEl.classList.toggle('calendar');
+  refs.calendarEl.classList.toggle('input-dark-mode');
+  refs.calendarButton.classList.toggle('button-dark-mode');
   refs.calendarEl.classList.toggle(
     'light-text',
     !refs.bodyEl.classList.contains('dark-mode')
   );
-
+  refs.buttonAuthorization.classList.toggle('buttonAuthorization-dark');
   localStorage.setItem(
     themeKey,
     refs.bodyEl.classList.contains('dark-mode') ? 'dark' : 'light'

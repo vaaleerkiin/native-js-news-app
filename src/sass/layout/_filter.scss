@@ -139,7 +139,15 @@
   color: #111321;
 }
 
-.date-form__icon {
+.input-dark-mode {
+  color: #f4f4f4;
+  background-color: #2e2e2e;
+  border: 1px solid #f4f4f4;
+}
+
+.input-dark-mode::placeholder {
+  color: #f4f4f4;
+  opacity: 0.4;
 }
 
 .date-form__icon:hover {
@@ -172,7 +180,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #111321;
+  fill: #111321;
 }
 
 .date-form__button:hover {
@@ -183,4 +191,8 @@
   width: 20px;
   height: 20px;
   // fill: #4440f6;
+}
+
+.button-dark-mode {
+  fill: #f4f4f4;
 }
