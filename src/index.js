@@ -2,7 +2,7 @@ import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 // ===============filter-menu===================
-
+const clientWidth = document.documentElement.clientWidth;
 import {
   createCategoriesFilter,
   filtrBtnClickHandler,
@@ -84,17 +84,26 @@ function onLoad() {
   newsApi
     .getMostPopularNews()
     .then(res => {
-      for (let i = 0; i < res.length; i += 8) {
-        const chunk = res.slice(i, i + 8);
+      const chunkSize = () => {
+        if (clientWidth <= 425) {
+          return 4;
+        } else if (clientWidth > 425 && clientWidth <= 768) {
+          return 7;
+        } else {
+          return 8;
+        }
+      };
+      for (let i = 0; i < res.length; i += chunkSize()) {
+        const chunk = res.slice(i, i + chunkSize());
         news.push(chunk);
       }
-
       newsApi.getTotalHits();
       renderMostPopMarkup(news[0]);
       loadWeather();
       stateOfPopular.pages = news;
-
-      pagination.renderPagination(pagination.createPagination(3, 1));
+      pagination.renderPagination(
+        pagination.createPagination(stateOfPopular.pages.length, 1)
+      );
     })
     .finally(res => resetLoadingFrame());
 }
@@ -172,9 +181,18 @@ function onCategoryBtnClick(e) {
       .getNewsByCategory(0)
       .then(res => {
         news = res;
-
+        const chunkSize = () => {
+          if (clientWidth <= 425) {
+            return 4;
+          } else if (clientWidth > 425 && clientWidth <= 768) {
+            return 7;
+          } else {
+            return 8;
+          }
+        };
+        console.log(news);
         newsApi.getTotalHits();
-        renderCategoryMarkup(news);
+        renderCategoryMarkup(news.slice(0, chunkSize()));
         loadWeather();
 
         stateOfPopular.status = false;
@@ -182,7 +200,10 @@ function onCategoryBtnClick(e) {
         typeOfSearch.searchStatus = false;
         pagination.setCurrentPage(1);
         pagination.renderPagination(
-          pagination.createPagination(Math.ceil(newsApi.getTotalHits() / 8), 1)
+          pagination.createPagination(
+            Math.ceil(newsApi.getTotalHits() / chunkSize()),
+            1
+          )
         );
         resetLoadingFrame();
       })
@@ -241,11 +262,20 @@ document
           .finally(res => resetLoadingFrame());
       }
       if (typeOfSearch.categoriesStatus) {
+        const chunkSize = () => {
+          if (clientWidth <= 425) {
+            return 4;
+          } else if (clientWidth > 425 && clientWidth <= 768) {
+            return 7;
+          } else {
+            return 8;
+          }
+        };
         newsApi
-          .getNewsByCategory((pagination.getCurrentPage() - 1) * 8)
+          .getNewsByCategory((pagination.getCurrentPage() - 1) * chunkSize())
           .then(res => {
             newsApi.getTotalHits();
-            renderCategoryMarkup(res);
+            renderCategoryMarkup(res.slice(0, chunkSize()));
             loadWeather();
 
             pagination.renderPagination(
