@@ -86,6 +86,10 @@ export default class Pagination {
   getCurrentPage() {
     return this.currentPage;
   }
+  setCurrentPage(num) {
+    this.currentPage = num;
+  }
+
   getTotalPage() {
     return this.totalPages;
   }

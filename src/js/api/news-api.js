@@ -51,7 +51,7 @@ class nytNewsApi {
           if (Math.ceil(response.data.response.meta.hits / 10) > 100) {
             this.totalHits = 100;
           } else {
-            this.totalHits = Math.ceil(response.data.response.meta.hits / 10);
+            this.totalHits = Math.floor(response.data.response.meta.hits / 10);
           }
           return response.data.response.docs;
         }
