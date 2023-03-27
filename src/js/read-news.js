@@ -68,10 +68,10 @@ const news = readStorage.getNews();
 // ];
 
 // Uncomment this
-// const dates = [...new Set(news.map(obj => obj.readDate))];
+const dates = [...new Set(news.map(obj => obj.readDate))];
 
 // Comment this
-dates = ['27/03/2023', '26/03/2023', '25/03/2023'];
+// const dates = ['27/03/2023', '26/03/2023', '25/03/2023'];
 
 const accordionEl = document.querySelector('.accordion');
 // console.log('Dates: ' + dates);
