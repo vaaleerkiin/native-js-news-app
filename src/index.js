@@ -2,9 +2,16 @@ import { newsApi } from './js/api/news-api';
 import { pagination, onChangePage } from './js/pagination';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 // ===============filter-menu===================
-import { filtrBtnClickHandler } from './js/filter-categories';
-import { closeOtherBtnsMenu } from './js/filter-categories';
-import { categoriesList } from './js/filter-categories';
+
+import {
+  createCategoriesFilter,
+  filtrBtnClickHandler,
+  closeOtherBtnsMenu,
+  filtrButtonsContainerRef,
+  otherCategoryBtnClickHandler,
+} from './js/filter-categories';
+
+import { categoriesList } from './js/categories-list';
 
 // =====================search form=================
 import { searchInputAnimation } from './js/search-input-animation';
@@ -31,6 +38,31 @@ import { onMobileThemeChange } from './js/switcher-mobile';
 
 import CalendarDates from 'calendar-dates';
 import moment from 'moment';
+
+// ===============filter===================
+
+const forTablet = window.matchMedia('(max-width: 1279px)');
+if (forTablet.matches) {
+  createCategoriesFilter(categoriesList, 4);
+}
+
+const forDesktop = window.matchMedia('(min-width: 1280px)');
+
+if (forDesktop.matches) {
+  createCategoriesFilter(categoriesList, 6);
+}
+
+// ==============================
+
+filtrButtonsContainerRef.addEventListener('click', filtrBtnClickHandler);
+filtrButtonsContainerRef.addEventListener(
+  'click',
+  otherCategoryBtnClickHandler
+);
+
+document.addEventListener('click', closeOtherBtnsMenu);
+
+// ==================================
 
 const stateOfPopular = { status: true, pages: [], chunkSize: 8 };
 const typeOfSearch = { searchStatus: false, categoriesStatus: false };
@@ -240,16 +272,6 @@ document
       // });
     }
   });
-
-// ===============filter===================
-
-const filtrButtonsContainerRef = document.querySelector(
-  'div.filtr-buttons-container'
-);
-
-filtrButtonsContainerRef.addEventListener('click', filtrBtnClickHandler);
-
-document.addEventListener('click', closeOtherBtnsMenu);
 
 // ===============date form filter===================
 
