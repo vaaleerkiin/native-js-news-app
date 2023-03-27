@@ -11,8 +11,6 @@
 .switcher__label {
   position: relative;
   cursor: pointer;
-  margin-right: 8px;
-  margin-left: 8px;
 }
 .switcher__label:before {
   display: block;
@@ -68,7 +66,7 @@
   font-weight: 400;
   font-size: 18;
   line-height: 1.33;
-
+  margin-right: 8px;
   @media screen and (max-width: 1280px) {
     display: none;
   }
@@ -77,7 +75,7 @@
   font-weight: 400;
   font-size: 18;
   line-height: 1.33;
-
+  margin-left: 8px;
   color: #5f6775;
   @media screen and (max-width: 1280px) {
     display: none;
@@ -94,28 +92,28 @@
 
 .dark-mode {
   background-color: #2e2e2e;
-  color: #ffffff;
+  color: #f4f4f4;
 }
 .light-text {
-  color: #ffffff;
+  color: #f4f4f4;
 }
 
 .dark-text {
   color: black;
 }
 .search-form__input--dark {
-  border: 1px solid white;
+  border: 1px solid #f4f4f4;
   background-color: #2e2e2e;
-  color: #fff;
+  color: #f4f4f4;
 }
 .search-form__icon--dark {
-  fill: white;
+  fill: #f4f4f4;
 }
 .dark-mode .search-form__icon {
-  fill: #fff; /* change the fill color to white */
+  fill: #f4f4f4; /* change the fill color to white */
 }
 .dark-mode .search-form__input::placeholder {
-  color: #fff;
+  color: #f4f4f4;
 }
 .search-form__input:focus {
   background-color: transparent;
@@ -158,11 +156,11 @@
 
 .switcher-burger__input:checked + .switcher-burger__label::after {
   transform: translateX(20px);
-  background-color: #ffffff;
+  background-color: #f4f4f4;
 }
 
 .switcher-burger__input:checked + .switcher-burger__label::before {
-  border-color: #ffffff;
+  border-color: #f4f4f4;
   background-color: #4b48db;
 }
 
@@ -189,22 +187,61 @@
   }
 }
 .white-icon {
-  fill: #fff;
+  fill: #f4f4f4;
 }
 .black-icon {
   fill: #2e2e2e;
 }
 .icon-sun {
   stroke: #4b48db;
+  margin-right: 8px;
+  fill: #4b48db;
   @media screen and (min-width: 1280px) {
     display: none;
-    margin-right: 8px;
-    fill: currentColor;
   }
 }
 .icon-moon {
+  fill: transparent;
+  stroke: #2e2e2e;
+  margin-left: 8px;
   @media screen and (min-width: 1280px) {
     display: none;
-    fill: currentColor;
   }
+}
+.icon-sun-night {
+  stroke: #5f6775;
+  fill: #5f6775;
+}
+.icon-moon-night {
+  stroke: #4b48db;
+}
+.calendar {
+  border-color: #f4f4f4;
+  color: #f4f4f4;
+}
+.icon-sun-burger {
+  fill: transparent;
+  stroke: #4b48db;
+  margin-right: 8px;
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+.icon-moon-burger {
+  fill: transparent;
+  stroke: #2e2e2e;
+  margin-left: 8px;
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+.icon-sun-night-burger {
+  stroke: #5f6775;
+  fill: #5f6775;
+}
+.icon-moon-night-burger {
+  stroke: #4b48db;
+}
+.header-border {
+  border-bottom: 1px solid #f4f4f4;
 }
