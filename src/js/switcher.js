@@ -2,7 +2,6 @@ const themeKey = 'selectedTheme';
 const refs = {
   themeSwitcherEl: document.querySelector('#theme'),
   bodyEl: document.body,
-  // lightTextEls: document.querySelectorAll('.light-text'),
   switcherLightEl: document.querySelector('.switcher__text-light'),
   switcherDarkEl: document.querySelector('.switcher__text-dark'),
   linksEl: document.querySelectorAll('.nav__link'),
@@ -16,7 +15,6 @@ const refs = {
   headerEl: document.querySelector('.header'),
 };
 
-// set the initial theme based on the value from localStorage
 if (localStorage.getItem(themeKey) === 'dark') {
   refs.themeSwitcherEl.checked = true;
   setDarkTheme();
