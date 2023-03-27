@@ -40,6 +40,7 @@ function renderMarkup(searchedNews) {
           let activeClass = '';
           let activeText = '';
           let backdropRead = '';
+          let readText = '';
           if (
             favoriteStorage.hasNews({
               web_url,
@@ -51,8 +52,11 @@ function renderMarkup(searchedNews) {
             activeText = 'Add to favorite';
             activeClass = 'add-to-favorite';
           }
-          if (readStorage.hasNews({ web_url })) {
+          if (readStorage.hasNews({ url })) {
             backdropRead = ' opacity';
+            readText = '<span class="news__read-status">Already read</span>';
+          } else {
+            backdropRead = '';
           }
 
           return `<li class="card-photo${backdropRead}">
@@ -71,7 +75,7 @@ function renderMarkup(searchedNews) {
             <p class="card-info">${abstract}</p>
             <span class="card-date">${cardDate}</span>
             <a href="${web_url}" class="card-url">Read more</a>
- 
+ ${readText}
             </li>`;
         }
       }
