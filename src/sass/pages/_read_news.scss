@@ -26,11 +26,9 @@
 // }
 
 .accordion hr {
-
-    width: 100%;
-    margin: 8px 0px 8px 0px;
-    border: 1px solid #929292;
-
+  width: 100%;
+  margin: 8px 0px 8px 0px;
+  border: 1px solid #929292;
 }
 
 // .accordion .accordion-container .accordion-date.active::before {
@@ -38,15 +36,17 @@
 //     font-size: 30px;
 // }
 
-
 .accordion-arrow {
-    border: solid #111321;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 4px;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+  border: solid #111321;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
 
+.accordion-arrow.active {
+  transform: rotate(225deg);
 }
 
 .up {
