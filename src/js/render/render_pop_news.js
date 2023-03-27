@@ -19,6 +19,7 @@ export function renderMostPopMarkup(news) {
         };
         let activeClass = '';
         let activeText = '';
+        let backdropRead = '';
         if (
           favoriteStorage.hasNews({
             url,
@@ -30,7 +31,10 @@ export function renderMostPopMarkup(news) {
           activeText = 'Add to favorite';
           activeClass = 'add-to-favorite';
         }
-        return `<li class="card-photo">
+        if (readStorage.hasNews({ url })) {
+          backdropRead = ' opacity';
+        }
+        return `<li class="card-photo${backdropRead}">
       		<div class="image-wrapper">
                 <img class="photo" src="${image()}" alt="${des_facet
           .map(val => val)

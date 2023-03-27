@@ -39,6 +39,7 @@ function renderMarkup(searchedNews) {
           const cardDate = moment(pub_date).format('DD/MM/YYYY');
           let activeClass = '';
           let activeText = '';
+          let backdropRead = '';
           if (
             favoriteStorage.hasNews({
               web_url,
@@ -50,8 +51,11 @@ function renderMarkup(searchedNews) {
             activeText = 'Add to favorite';
             activeClass = 'add-to-favorite';
           }
+          if (readStorage.hasNews({ web_url })) {
+            backdropRead = ' opacity';
+          }
 
-          return `<li class="card-photo">
+          return `<li class="card-photo${backdropRead}">
       		<div class="image-wrapper">
          <img class="photo" src="${image()}" alt="${keyword()}" loading="lazy" />
 		 </div>
