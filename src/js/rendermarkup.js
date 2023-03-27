@@ -147,7 +147,10 @@ function onReadClick(e) {
 
     const webUrl = newsCard.querySelector('.card-url').getAttribute('href');
 
+    const readDate = moment(Date.now()).format('DD/MM/YYYY');
+
     const data = {
+      readDate: readDate,
       src: multimediaSrc,
       title: headline,
       url: webUrl,

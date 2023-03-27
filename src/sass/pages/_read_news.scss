@@ -1,0 +1,200 @@
+.accordion {
+    // width: 800px;
+    // margin: 90px 90px;
+    // color: black;
+    // background-color: white;
+    // padding: 45px 45px;
+}
+
+.accordion .container {
+    position: relative;
+    margin: 10px 10px;
+}
+
+/* Positions the labels relative to the .container. Adds padding to the top and bottom and increases font size. Also makes its cursor a pointer */
+
+.accordion .accordion-date {
+    // position: relative;
+    // padding: 10px 0;
+    // font-size: 30px;
+    // color: black;
+    cursor: pointer;
+}
+
+/* Positions the plus sign 5px from the right. Centers it using the transform property. */
+
+.accordion .accordion-date::before {
+    content: '+';
+    color: black;
+    // position: absolute;
+    // top: 50%;
+    // right: -5px;
+    // font-size: 30px;
+    // transform: translateY(-50%);
+}
+
+/* Hides the content (height: 0), decreases font size, justifies text and adds transition */
+
+.accordion .gallery__cards-list {
+    position: relative;
+    // background: white;
+    height: 0;
+    font-size: 20px;
+    text-align: justify;
+    width: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+/* Adds a horizontal line between the contents */
+
+.accordion hr {
+    width: 100%;
+    margin-left: 0;
+    border: 1px solid grey;
+}
+
+/* Unhides the content part when active. Sets the height */
+
+.accordion .container.active .gallery__cards-list {
+    height: 100%;
+}
+
+/* Changes from plus sign to negative sign once active */
+
+.accordion .container.active .accordion-date::before {
+    content: '-';
+    font-size: 30px;
+}
+
+.gallery__cards-list {
+    display: grid;
+    max-width: 1140px;
+    grid-template-columns: repeat(3, minmax(395px, 1fr));
+    grid-auto-rows: 675px;
+    grid-gap: 32px;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-photo {
+    position: relative;
+}
+
+.image-wrapper {
+    width: 395px;
+    height: 395px;
+}
+
+.photo {
+
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.card-category {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: center;
+    color: #ffffff;
+    position: absolute;
+    width: 112px;
+    height: 24px;
+    left: 0px;
+    top: 40px;
+    background: rgba(68, 64, 247, 0.7);
+    border-radius: 0px 4px 4px 0px;
+    padding: 4px 8px 4px 8px;
+}
+
+.add-to-favorite {
+    position: absolute;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: center;
+    color: #111321;
+    width: 126px;
+    height: 28px;
+    left: 256px;
+    top: 355px;
+    background: #ffffff;
+    border-radius: 20px;
+}
+
+.add-to-favorite__icon {
+    // fill: #4440F6;
+    width: 16px;
+    height: 14px;
+    stroke: #4440f6;
+    color: #4440f6;
+}
+
+.card-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.38;
+    letter-spacing: -0.01em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.card-info {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.38;
+    margin-bottom: 20px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.card-date {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.38;
+    text-align: right;
+    color: #a8a8a8;
+    margin-right: 205px;
+
+    position: absolute;
+    width: 85px;
+    height: 22px;
+    left: 0px;
+    top: 653px;
+}
+
+.card-url {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.38;
+    color: #4440f7;
+
+    position: absolute;
+    // width: 79px;
+    // height: 22px;
+    left: 290px;
+    top: 653px;
+}
