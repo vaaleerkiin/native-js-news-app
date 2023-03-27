@@ -1,3 +1,6 @@
+.newsgallery {
+  position: relative;
+}
 .loading__frame {
   position: absolute;
   top: 0;
@@ -5,9 +8,6 @@
   right: 0;
   left: 0;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
   opacity: 1;
   pointer-events: all;
   transition: opacity cubic-bezier(0.075, 0.82, 0.165, 1) 250ms;
@@ -16,10 +16,16 @@
     pointer-events: none;
     transition: opacity cubic-bezier(0.075, 0.82, 0.165, 1) 1000ms;
   }
-
-  background-color: #2e2e2e5d;
+  background-color: white;
+  .dark-mode & {
+    background-color: #2e2e2e;
+  }
 }
 .loading__icon {
+  position: sticky;
+  top: 360px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 70px;
   height: 70px;
   background-position: center;
