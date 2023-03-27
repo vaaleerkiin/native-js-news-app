@@ -85,7 +85,7 @@ let x = document.documentElement.clientWidth;
 // } else if(window.innerWidth > 320 && window.innerWidth <= 768) {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[1]);
 // } else {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[2]);}
 
-if(x <= 490) {
+if(x <= 320) {
     positionForWeather.insertBefore(weatherBlock, positionForWeather.children[0]);
 } else if(x > 320 && x <= 768) {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[1]);
 } else {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[2]);}
