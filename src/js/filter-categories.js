@@ -59,6 +59,8 @@ export const filtrButtonsContainerRef = document.querySelector(
 );
 
 export function filtrBtnClickHandler(evt) {
+  const otherBtn = document.querySelector('a[data-value="Others"]');
+  const arrowIcon = document.querySelector('.menu-button-others__icon');
   const otherBtnsContainerRef = document.querySelector(
     '.other-buttons-container'
   );
@@ -79,18 +81,24 @@ export function filtrBtnClickHandler(evt) {
     previousActiveBtn.classList.remove('news__filtr-menu-button--active');
   }
 
-  const currentActiveBtn = evt.target;
-  currentActiveBtn.classList.add('news__filtr-menu-button--active');
-
   if (evt.target.dataset.value === 'Others') {
     otherBtnsContainerRef.classList.toggle('btns-are-hidden');
-    const arrowIcon = document.querySelector('.menu-button-others__icon');
-    arrowIcon.classList.toggle('menu-button-others__icon--rotated');
+    otherBtn.classList.add('news__filtr-menu-button--active');
+
+    arrowIcon.classList.toggle('icon-is-rotate');
+    arrowIcon.classList.add('icon-is-white');
+    return;
   }
+  console.dir(evt.target);
+
+  const currentActiveBtn = evt.target;
+  currentActiveBtn.classList.add('news__filtr-menu-button--active');
+  arrowIcon.classList.remove('icon-is-white');
 }
 
 export function otherCategoryBtnClickHandler(evt) {
   const otherBtn = document.querySelector('a[data-value="Others"]');
+  const arrowIcon = document.querySelector('.menu-button-others__icon');
 
   if (
     evt.target.nodeName !== 'BUTTON' ||
@@ -100,6 +108,7 @@ export function otherCategoryBtnClickHandler(evt) {
   }
   otherBtn.firstElementChild.textContent = evt.target.textContent;
   otherBtn.classList.add('news__filtr-menu-button--active');
+  arrowIcon.classList.add('icon-is-white');
 }
 
 export function closeOtherBtnsMenu(evt) {
@@ -110,15 +119,14 @@ export function closeOtherBtnsMenu(evt) {
   if (evt.target.dataset.value !== 'Others') {
     otherBtnsContainerRef.classList.add('btns-are-hidden');
     const arrowIcon = document.querySelector('.menu-button-others__icon');
-    arrowIcon.classList.remove('menu-button-others__icon--rotated');
+    arrowIcon.classList.remove('icon-is-rotate');
   }
 }
 
 function createCategoriesFilter(categories, amount) {
   const horizontalCategories = categories.splice(0, amount);
   const horizontalMenu = document.createElement('ul');
-  const arrowIcon =
-    '<svg class="menu-button-others__icon" viewBox="0 0 32 32"> <path d="M8.538 12.23c-4.090 3.789-7.43 6.908-7.426 6.929s0.663 0.644 1.461 1.382c0.8 0.738 1.577 1.459 1.726 1.604l0.271 0.26 5.692-5.257c1.557-1.455 3.425-3.17 5.306-4.872l0.432-0.385c0.026 0 2.607 2.366 5.739 5.257l5.692 5.257 0.271-0.26c0.235-0.226 3.177-2.944 3.221-2.976 0.017-0.013-14.914-13.839-14.935-13.833-0.009 0.002-3.36 3.104-7.45 6.893z"></path></svg>';
+
   horizontalMenu.classList.add('news__filtr-menu');
 
   const horizontalMemuButtons = horizontalCategories
@@ -126,7 +134,7 @@ function createCategoriesFilter(categories, amount) {
       if (index === amount - 1) {
         return (
           `<li class="news__filtr-menu-item"><button class="news__filtr-menu-button">${display_name}</button></li>` +
-          `<li class="news__filtr-menu-item"><a class="news__filtr-menu-button menu-button-others" data-value="Others"><span data-value="Others">Others</span>${arrowIcon}</a></li>`
+          `<li class="news__filtr-menu-item"><a class="news__filtr-menu-button menu-button-others" data-value="Others"><span data-value="Others">Others</span><span class="menu-button-others__icon" data-value="Others"></span></a></li>`
         );
       }
 

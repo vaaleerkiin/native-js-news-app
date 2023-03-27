@@ -51,19 +51,32 @@
 
 .menu-button-others {
   display: inline-flex;
-  z-index: 5;
-  &__icon {
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-    width: 14px;
-    height: 14px;
-    margin-left: 10px;
-    fill: currentColor;
-    &--rotated {
-      transform: rotate(180deg);
-    }
+  justify-content: center;
+  align-items: center;
+
+  &:hover .menu-button-others__icon {
+    border-top: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
   }
+
+  &__icon {
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #4b48db;
+    border-right: 2px solid #4b48db;
+    margin-left: 10px;
+
+    transform: rotate(-45deg);
+  }
+}
+
+.icon-is-white {
+  border-top: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+}
+
+.icon-is-rotate {
+  transform: rotate(135deg);
 }
 .filtr-buttons-container {
   position: relative;

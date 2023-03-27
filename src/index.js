@@ -41,21 +41,6 @@ import moment from 'moment';
 
 addCategoriesFilter();
 
-// Наблюдаем за изменениями размеров окна
-// const windowWidth = document.documentElement.clientWidth;
-// console.log(windowWidth);
-// const forTablet = window.matchMedia('(max-width: 1279px)');
-// console.log(forTablet);
-// if (forTablet.matches) {
-//   createCategoriesFilter(categoriesList, 4);
-// }
-
-// const forDesktop = window.matchMedia('(min-width: 1280px)');
-
-// if (forDesktop.matches) {
-//   createCategoriesFilter(categoriesList, 6);
-// }
-
 // ==============================
 const clientWidth = document.documentElement.clientWidth;
 const numberOfNewsCards = () => {
