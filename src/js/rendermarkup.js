@@ -72,11 +72,11 @@ function renderMarkup(searchedNews) {
 
 newsgallery.addEventListener('click', onCardClick);
 
-function onCardClick(e) {
+export function onCardClick(e) {
   if (e.target.tagName.toLowerCase() !== 'button') {
     return;
   } else {
-    console.log('Click');
+    // console.log('Click');
     const favoriteBtn = e.target.closest('BUTTON');
     console.log(favoriteBtn);
     const newsCard = favoriteBtn.closest('li');
@@ -103,7 +103,7 @@ function onCardClick(e) {
       alt: multimediaAlt,
       section: category,
     };
-    console.log(data);
+    // console.log(data);
     if (favoriteStorage.hasNews(data)) {
       favoriteStorage.removeNews(data);
       favoriteBtn.classList.replace(
@@ -129,11 +129,11 @@ function onReadClick(e) {
   if (e.target.tagName.toLowerCase() !== 'a') {
     return;
   } else {
-    console.log('Click');
+    // console.log('Click');
     const moreBtn = e.target.closest('A');
-    console.log(moreBtn);
+    // console.log(moreBtn);
     const newsCard = moreBtn.closest('li');
-    console.log(newsCard);
+    // console.log(newsCard);
     const headline = newsCard.querySelector('.card-title').textContent;
 
     const multimediaSrc = newsCard.querySelector('img').getAttribute('src');
@@ -155,8 +155,9 @@ function onReadClick(e) {
       published_date: date,
       alt: multimediaAlt,
       section: category,
+      readDate: Date.now(),
     };
-    console.log(data);
+    // console.log(data);
 
     readStorage.addNews(data);
   }
