@@ -49,20 +49,22 @@ function onLoad() {
   newsApi.resetPage();
   setLoadingFrame();
   let news = [];
-  newsApi.getMostPopularNews().then(res => {
-    for (let i = 0; i < res.length; i += 8) {
-      const chunk = res.slice(i, i + 8);
-      news.push(chunk);
-    }
+  newsApi
+    .getMostPopularNews()
+    .then(res => {
+      for (let i = 0; i < res.length; i += 8) {
+        const chunk = res.slice(i, i + 8);
+        news.push(chunk);
+      }
 
-    newsApi.getTotalHits();
-    renderMostPopMarkup(news[0]);
-    loadWeather();
-    stateOfPopular.pages = news;
+      newsApi.getTotalHits();
+      renderMostPopMarkup(news[0]);
+      loadWeather();
+      stateOfPopular.pages = news;
 
-    pagination.renderPagination(pagination.createPagination(3, 1));
-  });
-  resetLoadingFrame();
+      pagination.renderPagination(pagination.createPagination(3, 1));
+    })
+    .finally(res => resetLoadingFrame());
 }
 
 // burger menu
@@ -153,7 +155,7 @@ function onCategoryBtnClick(e) {
         resetLoadingFrame();
       })
       .catch(er => {
-        Report.failure('Failure', `Try again later or reload the page`, 'Okay');
+        Report.failure('Failure', `Nothing found here, please return`, 'Okay');
       })
       .finally(res => resetLoadingFrame());
   }
@@ -224,7 +226,7 @@ document
           .catch(er => {
             Report.failure(
               'Failure',
-              `Try again later or reload the page`,
+              `Nothing found here, please return`,
               'Okay'
             );
           })
