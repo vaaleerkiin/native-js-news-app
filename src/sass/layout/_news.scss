@@ -1,14 +1,30 @@
 .gallery__cards-list {
   display: grid;
-  max-width: 1140px;
-  grid-template-columns: repeat(3, minmax(395px, 1fr));
-  grid-auto-rows: 675px;
-  grid-gap: 32px;
   justify-content: center;
   padding: 0;
   list-style: none;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (max-width: 767px) {
+    max-width: 288px;
+    grid-template-columns: repeat(1, minmax(288px, 1fr));
+    grid-auto-rows: 630px;
+    grid-gap: 28px;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 353px;
+    grid-template-columns: repeat(2, minmax(353px, 1fr));
+    grid-auto-rows: 675px;
+    grid-gap: 30px;
+  }
+  
+  @media screen and (min-width: 1280px) {
+    max-width: 395px;
+    grid-template-columns: repeat(3, minmax(395px, 1fr));
+    grid-gap: 32px;
+  }
 }
 
 .card-photo {
@@ -16,16 +32,27 @@
 }
 
 .image-wrapper {
-  width: 395px;
   height: 395px;
+
+  @media screen and (max-width: 767px) {
+    width: 288px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 353px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  width: 395px;
+  }
 }
 
 .photo {
-  border-radius: 4px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  overflow: hidden;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
 }
 
 .card-category {
@@ -55,42 +82,59 @@
   color: #111321;
   width: 126px;
   height: 28px;
-  left: 256px;
-  top: 355px;
   background: #ffffff;
   border-radius: 20px;
-  position: absolute;
+
+  @media screen and (max-width: 767px) {
+    left: 154px;
+    top: 355px;
+  }
+
+  @media screen and (min-width: 768px) {
+    left: 215px;
+    top: 355px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    left: 256px;
+    top: 355px;
+}
 }
 
 .add-to-favorite__icon {
   // fill: #4440F6;
   width: 16px;
-  height: 14px;
+  height: 16px;
   stroke: #4440f6;
   color: #4440f6;
 }
 
 .card-title {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1.38;
-  letter-spacing: -0.01em;
-  margin-top: 20px;
-  margin-bottom: 20px;
-
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  line-height: 1.38;
+
+  @media screen and (max-width: 767px) {
+    font-size: 24px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+}
 }
 
 .card-info {
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.38;
+  
   margin-bottom: 20px;
 
   overflow: hidden;
@@ -98,36 +142,70 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    line-height: 1.36;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.38;
+  }
 }
 
 .card-date {
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.38;
   text-align: right;
   color: #a8a8a8;
   margin-right: 205px;
-
   position: absolute;
-  width: 85px;
-  height: 22px;
-  left: 0px;
-  top: 653px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    line-height: 1.36;
+    margin-right: 143px;
+    left: 0px;
+    top: 611px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.38;
+    margin-right: 188px;
+    left: 0px;
+    top: 653px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 205px;
+}
 }
 
 .card-url {
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.38;
   color: #4440f7;
-
   position: absolute;
-  // width: 79px;
-  // height: 22px;
-  left: 290px;
-  top: 653px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    line-height: 1.36;
+    left: 218px;
+    top: 611px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.38;
+    left: 273px;
+    top: 653px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    left: 296px;
+}
 }
 .favorite-button__activ {
   position: absolute;
