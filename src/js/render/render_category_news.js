@@ -22,6 +22,7 @@ export function renderCategoryMarkup(news) {
         let activeClass = '';
         let activeText = '';
         let backdropRead = '';
+        let readText = '';
         if (
           favoriteStorage.hasNews({
             url,
@@ -35,6 +36,7 @@ export function renderCategoryMarkup(news) {
         }
         if (readStorage.hasNews({ url })) {
           backdropRead = ' opacity';
+          readText = '<span class="news__read-status">Already read</span>';
         } else {
           backdropRead = '';
         }
@@ -67,6 +69,7 @@ export function renderCategoryMarkup(news) {
 	        <span class="card-date">${published_date}</span>
             <a class="card-url" href="${url}" alt="" target="_blank"
                 rel="noopener noreferrer nofollow">Read more</a>
+                ${readText}
             </li>`;
         }
       }

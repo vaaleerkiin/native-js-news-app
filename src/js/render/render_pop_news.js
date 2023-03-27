@@ -20,6 +20,7 @@ export function renderMostPopMarkup(news) {
         let activeClass = '';
         let activeText = '';
         let backdropRead = '';
+        let readText = '';
         if (
           favoriteStorage.hasNews({
             url,
@@ -33,6 +34,7 @@ export function renderMostPopMarkup(news) {
         }
         if (readStorage.hasNews({ url })) {
           backdropRead = ' opacity';
+          readText = '<span class="news__read-status">Already read</span>';
         }
         return `<li class="card-photo${backdropRead}">
       		<div class="image-wrapper">
@@ -52,6 +54,7 @@ export function renderMostPopMarkup(news) {
 	        <span class="card-date">${published_date}</span>
             <a class="card-url" href="${url}" alt="" target="_blank"
                 rel="noopener noreferrer nofollow">Read more</a>
+                ${readText}
             </li>`;
       }
     )
