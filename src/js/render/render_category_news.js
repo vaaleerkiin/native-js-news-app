@@ -40,7 +40,7 @@ export function renderCategoryMarkup(news) {
         } else {
           backdropRead = '';
         }
-        if (index < 8) {
+        if (index <= 8) {
           let image;
           if (multimedia) {
             image = multimedia[2].url;

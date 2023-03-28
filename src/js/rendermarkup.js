@@ -23,7 +23,7 @@ function renderMarkup(searchedNews) {
         },
         index
       ) => {
-        if (index < 8) {
+        if (index <= 8) {
           const data = normalizeData(
             multimedia,
             headline,
