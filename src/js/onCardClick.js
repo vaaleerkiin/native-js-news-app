@@ -65,9 +65,8 @@ export function onReadClick(e) {
     const headline = newsCard.querySelector('.card-title').textContent;
     newsCard.insertAdjacentHTML(
       'beforeend',
-      '<span class="news__read-status">Already read</span>'
+      '<span class="news__read-status">Already read <span class="card-icon"></span></span>'
     );
-
     const multimediaSrc = newsCard.querySelector('img').getAttribute('src');
     const multimediaAlt = newsCard.querySelector('img').getAttribute('alt');
 
