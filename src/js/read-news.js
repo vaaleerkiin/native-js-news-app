@@ -1,8 +1,14 @@
 import { FavoriteStorage, ReadStorage } from './localStorage';
-
+import { searchInputAnimation } from './search-input-animation';
+import { oNmobileMenu } from './mobile-menu';
+import { currentPage } from './current-page';
 const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
 const news = readStorage.getNews();
+
+oNmobileMenu();
+searchInputAnimation();
+currentPage();
 
 // News array for test
 // const news = [
