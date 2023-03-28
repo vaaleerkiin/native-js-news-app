@@ -369,3 +369,22 @@
   flex-direction: column;
   gap: 20px;
 }
+
+// ========================button-authorization=========================
+
+.button-authorization {
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  border: 1px solid #111321;
+  border-radius: 20px;
+  // background-color: red;
+}
+
+.buttonAuthorization-dark {
+  color: #f4f4f4;
+  background-color: #2e2e2e;
+  border: 1px solid #f4f4f4;
+}
