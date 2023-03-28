@@ -234,6 +234,21 @@
     fill: #4440f7;
   }
 }
+
+.favorite-button__activ {
+  @media screen and (max-width: 767px) {
+    left: 112px;
+  }
+
+  @media screen and (min-width: 768px) {
+    left: 173px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    left: 215px;
+  }
+}
+
 .news-icon {
   fill: #4440f7;
   position: absolute;
