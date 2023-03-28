@@ -1,24 +1,65 @@
 .accordion {
-    width: 1280px;
     margin: 10px auto;
+
+    @media screen and (max-width: 767px) {
+        width: 288px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 736px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 1248px;
+    }
 }
 
 .accordion .accordion-date {
     cursor: pointer;
+    margin-top: 60px;
+    height: 33px;
 }
 
-
-.accordion .accordion-date::before {
-    content: '+';
-    color: black;
-}
+// .accordion .accordion-date::before {
+//     content: '+';
+//     color: black;
+// }
 
 .accordion hr {
-    // width: 100%;
-    // border: 1px solid grey;
+    width: 100%;
+    margin: 0;
+    border: 1px solid #929292;
 }
 
-.accordion .accordion-container .accordion-date.active::before {
-    content: '-';
-    font-size: 30px;
+// .accordion .accordion-container .accordion-date.active::before {
+//     content: '-';
+//     font-size: 30px;
+// }
+
+i {
+    border: solid #111321;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 4px;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.accordion-paragraph {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.71;
+    letter-spacing: 0.02em;
+    color: #111321;
+    margin-right: 8px;
 }
