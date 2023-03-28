@@ -21,18 +21,14 @@ export function renderMostPopMarkup(news) {
         let activeText = '';
         let backdropRead = '';
         let readText = '';
-        if (
-          favoriteStorage.hasNews({
-            url,
-          })
-        ) {
+        if (favoriteStorage.hasNews(url)) {
           activeText = 'Remove from favorite';
           activeClass = 'favorite-button__activ';
         } else {
           activeText = 'Add to favorite';
           activeClass = 'add-to-favorite';
         }
-        if (readStorage.hasNews({ url })) {
+        if (readStorage.hasNews(url)) {
           backdropRead = ' opacity';
           readText = '<span class="news__read-status">Already read</span>';
         }
