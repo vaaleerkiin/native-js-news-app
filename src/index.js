@@ -118,6 +118,9 @@ function onSearchSubmit(e) {
   if (!query) {
     return;
   }
+  if (document.querySelector('.news__plug')) {
+    document.querySelector('.news__plug').remove();
+  }
   setLoadingFrame();
   newsApi.resetPage();
   let news = [];
@@ -134,14 +137,23 @@ function onSearchSubmit(e) {
       pagination.renderPagination(
         pagination.createPagination(newsApi.getTotalHits(), 1)
       );
-
+      if (news.length === 0) {
+        document.querySelector(`.pagination`).remove();
+        document
+          .querySelector(`.newsgallery`)
+          .insertAdjacentHTML('beforeend', `<div class="news__plug"></div>`);
+      }
       renderMarkup(news.slice(0, numberOfNewsCards()));
     })
     .catch(er => {
-      console.log(er);
-      Report.failure('Failure', `Try again later or reload the page`, 'Okay');
+      document.querySelector(`.gallery__cards-list`).innerHTML = '';
+      document
+        .querySelector(`.newsgallery`)
+        .insertAdjacentHTML('beforeend', `<div class="news__plug"></div>`);
     })
-    .finally(res => resetLoadingFrame());
+    .finally(res => {
+      resetLoadingFrame();
+    });
 }
 
 /* Search by category */
@@ -156,6 +168,9 @@ function onCategoryBtnClick(e) {
   if (e.target.tagName.toLowerCase() !== 'button') {
     return;
   } else {
+    if (document.querySelector('.news__plug')) {
+      document.querySelector('.news__plug').remove();
+    }
     // console.log('Click');
     const categoryBtn = e.target.closest('BUTTON');
     const category = categoryBtn.textContent.trim().toLowerCase();
@@ -188,10 +203,14 @@ function onCategoryBtnClick(e) {
         resetLoadingFrame();
       })
       .catch(er => {
-        console.log(er);
-        Report.failure('Failure', `Nothing found here, please return`, 'Okay');
+        document.querySelector(`.gallery__cards-list`).innerHTML = '';
+        document
+          .querySelector(`.newsgallery`)
+          .insertAdjacentHTML('beforeend', `<div class="news__plug"></div>`);
       })
-      .finally(res => resetLoadingFrame());
+      .finally(res => {
+        resetLoadingFrame();
+      });
   }
 }
 
@@ -202,6 +221,9 @@ function onCategoryBtnClick(e) {
 document
   .getElementById('pagination-container')
   .addEventListener('click', ev => {
+    if (document.querySelector('.news__plug')) {
+      document.querySelector('.news__plug').remove();
+    }
     if (ev.target.nodeName !== 'UL') {
       onChangePage(ev.target);
       setLoadingFrame();
@@ -230,17 +252,21 @@ document
 
             renderMarkup(res.slice(0, numberOfNewsCards()));
 
-            resetLoadingFrame();
+            // resetLoadingFrame();
             return;
           })
           .catch(er => {
-            Report.failure(
-              'Failure',
-              `Try again later or reload the page`,
-              'Okay'
-            );
+            document.querySelector(`.gallery__cards-list`).innerHTML = '';
+            document
+              .querySelector(`.newsgallery`)
+              .insertAdjacentHTML(
+                'beforeend',
+                `<div class="news__plug"></div>`
+              );
           })
-          .finally(res => resetLoadingFrame());
+          .finally(res => {
+            resetLoadingFrame();
+          });
       }
       if (typeOfSearch.categoriesStatus) {
         newsApi
@@ -257,15 +283,20 @@ document
                 pagination.getCurrentPage()
               )
             );
+            resetLoadingFrame();
           })
           .catch(er => {
-            Report.failure(
-              'Failure',
-              `Nothing found here, please return`,
-              'Okay'
-            );
+            document.querySelector(`.gallery__cards-list`).innerHTML = '';
+            document
+              .querySelector(`.newsgallery`)
+              .insertAdjacentHTML(
+                'beforeend',
+                `<div class="news__plug"></div>`
+              );
           })
-          .finally(res => resetLoadingFrame());
+          .finally(res => {
+            resetLoadingFrame();
+          });
       }
 
       // let news = [];

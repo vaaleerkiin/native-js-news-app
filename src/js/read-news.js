@@ -182,3 +182,6 @@ for (let i = 0; i < accordion.length; i++) {
 }
 
 accordionEl.addEventListener('click', onCardClick);
+if (accordionEl.innerHTML == '') {
+  accordionEl.insertAdjacentHTML('afterend', `<div class="news__plug"></div>`);
+}
