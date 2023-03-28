@@ -135,12 +135,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
 }
 
 .date-form {
   position: relative;
-  margin-left: auto;
+
   width: 140px;
   @media screen and (min-width: 768px) {
     width: 168px;
@@ -218,6 +217,10 @@
 
 .date-form__button:hover {
   color: #4b48db;
+}
+
+.date-form__button.rotate {
+  transform: rotate(180deg);
 }
 
 .date-form__button-icon {
