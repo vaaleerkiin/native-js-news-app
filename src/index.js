@@ -138,7 +138,7 @@ function onSearchSubmit(e) {
         pagination.createPagination(newsApi.getTotalHits(), 1)
       );
       if (news.length === 0) {
-        document.querySelector(`.pagination`).remove();
+        document.querySelector(`#pagination-container`).innerHTML = '';
         document
           .querySelector(`.newsgallery`)
           .insertAdjacentHTML('beforeend', `<div class="news__plug"></div>`);
