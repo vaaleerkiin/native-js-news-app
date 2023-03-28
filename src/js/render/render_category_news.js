@@ -7,7 +7,7 @@ const readStorage = new ReadStorage();
 const newsgallery = document.querySelector('.gallery__cards-list');
 
 export function renderCategoryMarkup(news) {
-  console.log(news);
+  // console.log(news);
   const markup = news
     .map(
       (

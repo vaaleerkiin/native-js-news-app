@@ -8,7 +8,10 @@ export function normalizeImage(img) {
     try {
       const image = img[2].url;
       // console.log(image.startsWith('https://www.nytimes.com/'));
-      if (image.startsWith('https://www.nytimes.com/')) {
+      if (
+        image.startsWith('https://static01.nyt.com/') ||
+        image.startsWith('https://www.nytimes.com/')
+      ) {
         return img[2].url;
       } else {
         return `https://www.nytimes.com/${image}`;
