@@ -125,7 +125,7 @@ class nytNewsApi {
   }
 
   setCategory(category) {
-    this.category = category;
+    this.category = encodeURIComponent(category);
   }
 
   setCategorySearchUrl() {
