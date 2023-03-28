@@ -5,82 +5,82 @@ import { currentPage } from './current-page';
 import { onCardClick } from './onCardClick';
 const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
-const news = readStorage.getNews();
+// const news = readStorage.getNews();
 import { onThemeChange } from './switcher';
 oNmobileMenu();
 searchInputAnimation();
 currentPage();
 
 // Comment this
-// const dates = ['27/03/2023', '26/03/2023', '25/03/2023'];
+const dates = ['27/03/2023', '26/03/2023', '25/03/2023'];
 
 // News array for test
-// const news = [
-//   {
-//     alt: 'Politics and Government, Speeches and Statements',
-//     info: 'Protests broke out shortly after Prime Minister Benjamin Netanyahu fired the defense minister, who had called for a halt to efforts to weaken the judiciary.',
-//     published_date: '2023-03-26',
-//     readDate: '27/03/2023',
-//     section: 'World',
-//     src: 'https://static01.nyt.com/images/2023/03/26/multimedia/26israel-new-mwcq-promo/26israel-new-mwcq-mediumThreeByTwo440.jpg',
-//     title: 'Israel Boils as Netanyahu Ousts Minister Who Bucked Court Overhaul',
-//     url: 'https://www.nytimes.com/2023/03/26/world/middleeast/judiciary-overhaul-benjamin-netanyahu-israel-parliament.html',
-//   },
-//   {
-//     alt: 'Politics and Government, Speeches and Statements',
-//     info: 'Protests broke out shortly after Prime Minister Benjamin Netanyahu fired the defense minister, who had called for a halt to efforts to weaken the judiciary.',
-//     published_date: '2023-03-26',
-//     readDate: '27/03/2023',
-//     section: 'World',
-//     src: 'https://static01.nyt.com/images/2023/03/26/multimedia/26israel-new-mwcq-promo/26israel-new-mwcq-mediumThreeByTwo440.jpg',
-//     title: 'Israel Boils as Netanyahu Ousts Minister Who Bucked Court Overhaul',
-//     url: 'https://www.nytimes.com/2023/03/26/world/middleeast/judiciary-overhaul-benjamin-netanyahu-israel-parliament.html',
-//   },
-//   {
-//     alt: 'Politics and Government, Speeches and Statements',
-//     info: 'Protests broke out shortly after Prime Minister Benjamin Netanyahu fired the defense minister, who had called for a halt to efforts to weaken the judiciary.',
-//     published_date: '2023-03-26',
-//     readDate: '26/03/2023',
-//     section: 'World',
-//     src: 'https://static01.nyt.com/images/2023/03/26/multimedia/26israel-new-mwcq-promo/26israel-new-mwcq-mediumThreeByTwo440.jpg',
-//     title: 'Israel Boils as Netanyahu Ousts Minister Who Bucked Court Overhaul',
-//     url: 'https://www.nytimes.com/2023/03/26/world/middleeast/judiciary-overhaul-benjamin-netanyahu-israel-parliament.html',
-//   },
-//   {
-//     alt: 'Politics and Government, Speeches and Statements',
-//     info: 'Protests broke out shortly after Prime Minister Benjamin Netanyahu fired the defense minister, who had called for a halt to efforts to weaken the judiciary.',
-//     published_date: '2023-03-26',
-//     readDate: '26/03/2023',
-//     section: 'World',
-//     src: 'https://static01.nyt.com/images/2023/03/26/multimedia/26israel-new-mwcq-promo/26israel-new-mwcq-mediumThreeByTwo440.jpg',
-//     title: 'Israel Boils as Netanyahu Ousts Minister Who Bucked Court Overhaul',
-//     url: 'https://www.nytimes.com/2023/03/26/world/middleeast/judiciary-overhaul-benjamin-netanyahu-israel-parliament.html',
-//   },
-//   {
-//     alt: 'Politics and Government, Speeches and Statements',
-//     info: 'Protests broke out shortly after Prime Minister Benjamin Netanyahu fired the defense minister, who had called for a halt to efforts to weaken the judiciary.',
-//     published_date: '2023-03-26',
-//     readDate: '25/03/2023',
-//     section: 'World',
-//     src: 'https://static01.nyt.com/images/2023/03/26/multimedia/26israel-new-mwcq-promo/26israel-new-mwcq-mediumThreeByTwo440.jpg',
-//     title: 'Israel Boils as Netanyahu Ousts Minister Who Bucked Court Overhaul',
-//     url: 'https://www.nytimes.com/2023/03/26/world/middleeast/judiciary-overhaul-benjamin-netanyahu-israel-parliament.html',
-//   },
-//   {
-//     alt: 'Politics and Government, Speeches and Statements',
-//     info: 'Protests broke out shortly after Prime Minister Benjamin Netanyahu fired the defense minister, who had called for a halt to efforts to weaken the judiciary.',
-//     published_date: '2023-03-26',
-//     readDate: '25/03/2023',
-//     section: 'World',
-//     src: 'https://static01.nyt.com/images/2023/03/26/multimedia/26israel-new-mwcq-promo/26israel-new-mwcq-mediumThreeByTwo440.jpg',
-//     title: 'Israel Boils as Netanyahu Ousts Minister Who Bucked Court Overhaul',
-//     url: 'https://www.nytimes.com/2023/03/26/world/middleeast/judiciary-overhaul-benjamin-netanyahu-israel-parliament.html',
-//   },
-// ];
+const news = [
+  {
+    alt: 'Politics and Government, Speeches and Statements',
+    info: 'Protests broke out shortly after Prime Minister Benjamin Netanyahu fired the defense minister, who had called for a halt to efforts to weaken the judiciary.',
+    published_date: '2023-03-26',
+    readDate: '27/03/2023',
+    section: 'World',
+    src: 'https://static01.nyt.com/images/2023/03/26/multimedia/26israel-new-mwcq-promo/26israel-new-mwcq-mediumThreeByTwo440.jpg',
+    title: 'Israel Boils as Netanyahu Ousts Minister Who Bucked Court Overhaul',
+    url: 'https://www.nytimes.com/2023/03/26/world/middleeast/judiciary-overhaul-benjamin-netanyahu-israel-parliament.html',
+  },
+  {
+    alt: 'Politics and Government, Speeches and Statements',
+    info: 'Protests broke out shortly after Prime Minister Benjamin Netanyahu fired the defense minister, who had called for a halt to efforts to weaken the judiciary.',
+    published_date: '2023-03-26',
+    readDate: '27/03/2023',
+    section: 'World',
+    src: 'https://static01.nyt.com/images/2023/03/26/multimedia/26israel-new-mwcq-promo/26israel-new-mwcq-mediumThreeByTwo440.jpg',
+    title: 'Israel Boils as Netanyahu Ousts Minister Who Bucked Court Overhaul',
+    url: 'https://www.nytimes.com/2023/03/26/world/middleeast/judiciary-overhaul-benjamin-netanyahu-israel-parliament.html',
+  },
+  {
+    alt: 'Politics and Government, Speeches and Statements',
+    info: 'Protests broke out shortly after Prime Minister Benjamin Netanyahu fired the defense minister, who had called for a halt to efforts to weaken the judiciary.',
+    published_date: '2023-03-26',
+    readDate: '26/03/2023',
+    section: 'World',
+    src: 'https://static01.nyt.com/images/2023/03/26/multimedia/26israel-new-mwcq-promo/26israel-new-mwcq-mediumThreeByTwo440.jpg',
+    title: 'Israel Boils as Netanyahu Ousts Minister Who Bucked Court Overhaul',
+    url: 'https://www.nytimes.com/2023/03/26/world/middleeast/judiciary-overhaul-benjamin-netanyahu-israel-parliament.html',
+  },
+  {
+    alt: 'Politics and Government, Speeches and Statements',
+    info: 'Protests broke out shortly after Prime Minister Benjamin Netanyahu fired the defense minister, who had called for a halt to efforts to weaken the judiciary.',
+    published_date: '2023-03-26',
+    readDate: '26/03/2023',
+    section: 'World',
+    src: 'https://static01.nyt.com/images/2023/03/26/multimedia/26israel-new-mwcq-promo/26israel-new-mwcq-mediumThreeByTwo440.jpg',
+    title: 'Israel Boils as Netanyahu Ousts Minister Who Bucked Court Overhaul',
+    url: 'https://www.nytimes.com/2023/03/26/world/middleeast/judiciary-overhaul-benjamin-netanyahu-israel-parliament.html',
+  },
+  {
+    alt: 'Politics and Government, Speeches and Statements',
+    info: 'Protests broke out shortly after Prime Minister Benjamin Netanyahu fired the defense minister, who had called for a halt to efforts to weaken the judiciary.',
+    published_date: '2023-03-26',
+    readDate: '25/03/2023',
+    section: 'World',
+    src: 'https://static01.nyt.com/images/2023/03/26/multimedia/26israel-new-mwcq-promo/26israel-new-mwcq-mediumThreeByTwo440.jpg',
+    title: 'Israel Boils as Netanyahu Ousts Minister Who Bucked Court Overhaul',
+    url: 'https://www.nytimes.com/2023/03/26/world/middleeast/judiciary-overhaul-benjamin-netanyahu-israel-parliament.html',
+  },
+  {
+    alt: 'Politics and Government, Speeches and Statements',
+    info: 'Protests broke out shortly after Prime Minister Benjamin Netanyahu fired the defense minister, who had called for a halt to efforts to weaken the judiciary.',
+    published_date: '2023-03-26',
+    readDate: '25/03/2023',
+    section: 'World',
+    src: 'https://static01.nyt.com/images/2023/03/26/multimedia/26israel-new-mwcq-promo/26israel-new-mwcq-mediumThreeByTwo440.jpg',
+    title: 'Israel Boils as Netanyahu Ousts Minister Who Bucked Court Overhaul',
+    url: 'https://www.nytimes.com/2023/03/26/world/middleeast/judiciary-overhaul-benjamin-netanyahu-israel-parliament.html',
+  },
+];
 
 // Uncomment this
 
-const dates = [...new Set(news.map(obj => obj.readDate))];
+// const dates = [...new Set(news.map(obj => obj.readDate))];
 
 const accordionEl = document.querySelector('.accordion');
 
