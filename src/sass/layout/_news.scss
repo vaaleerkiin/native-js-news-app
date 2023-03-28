@@ -217,10 +217,23 @@
   color: #111321;
   width: 168px;
   height: 28px;
-  left: 212px;
-  top: 355px;
+
   background: #ffffff;
   border-radius: 20px;
+  @media screen and (max-width: 767px) {
+    left: 112px;
+    top: 355px;
+  }
+
+  @media screen and (min-width: 768px) {
+    left: 173px;
+    top: 355px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    left: 215px;
+    top: 355px;
+  }
 }
 .opacity {
   opacity: 0.5;

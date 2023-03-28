@@ -121,7 +121,7 @@ function onCardClick(e) {
       alt: multimediaAlt,
       section: category,
     };
-    console.log(data);
+    // console.log(data);
     if (favoriteStorage.hasNews(data.url)) {
       favoriteStorage.removeNews(data.url);
       favoriteBtn.classList.replace(

@@ -6,14 +6,12 @@ const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
 const news = readStorage.getNews();
 
-
 oNmobileMenu();
 searchInputAnimation();
 currentPage();
 
 // Comment this
 // const dates = ['27/03/2023', '26/03/2023', '25/03/2023'];
-
 
 // News array for test
 // const news = [
@@ -136,27 +134,33 @@ function renderAccordionNews(arr) {
 
           let activeClass = '';
           let activeText = '';
-          if (
-            favoriteStorage.hasNews({
-              url,
-            })
-          ) {
+          let backdropRead = '';
+          let readText = '';
+          if (favoriteStorage.hasNews(url)) {
             activeText = 'Remove from favorite';
             activeClass = 'favorite-button__activ';
           } else {
             activeText = 'Add to favorite';
             activeClass = 'add-to-favorite';
           }
-          const markup = `<li class="card-photo">
+          if (readStorage.hasNews(url)) {
+            backdropRead = ' opacity';
+            readText = '<span class="news__read-status">Already read</span>';
+          } else {
+            backdropRead = '';
+          }
+
+          const markup = `<li class="card-photo${backdropRead}">
                             <div class="image-wrapper">
                                 <img class="photo" src="${src}" alt="${alt}" loading="lazy" />
                             </div>
                             <div class="card-category">${section}</div>
-                            <button type="button" class="${activeClass}">Add to favorite${favoriteIcon}</button>
+                            <button type="button" class="${activeClass}">${activeText}${favoriteIcon}</button>
                             <h2 class="card-title">${title}</h2>
                             <p class="card-info">${info}</p>
                             <span class="card-date">${published_date}</span>
                             <a href="${url}" class="card-url">Read more</a>
+                            ${readText}
                         </li>`;
           const contentEl = element.querySelector('.gallery__cards-list');
           contentEl.insertAdjacentHTML('beforeend', markup);
@@ -213,8 +217,8 @@ function onCardClick(e) {
       section: category,
     };
     // console.log(data);
-    if (favoriteStorage.hasNews(data)) {
-      favoriteStorage.removeNews(data);
+    if (favoriteStorage.hasNews(data.url)) {
+      favoriteStorage.removeNews(data.url);
       favoriteBtn.classList.replace(
         'favorite-button__activ',
         'add-to-favorite'
