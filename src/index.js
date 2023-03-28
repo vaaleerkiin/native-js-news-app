@@ -140,6 +140,7 @@ function onSearchSubmit(e) {
       renderMarkup(news.slice(0, numberOfNewsCards()));
     })
     .catch(er => {
+      console.log(er);
       Report.failure('Failure', `Try again later or reload the page`, 'Okay');
     })
     .finally(res => resetLoadingFrame());
