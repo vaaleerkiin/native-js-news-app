@@ -53,7 +53,7 @@ export function renderCategoryMarkup(news) {
         } else {
           backdropRead = '';
         }
-        if (index < 8) {
+        if (index <= 8) {
           return `<li class="card-photo${backdropRead}">
       		<div class="image-wrapper">
                 <img class="photo" src="${data.image}" alt="${
