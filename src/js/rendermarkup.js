@@ -53,7 +53,8 @@ function renderMarkup(searchedNews) {
           }
           if (readStorage.hasNews({ url })) {
             backdropRead = ' opacity';
-            readText = '<span class="news__read-status">Already read</span>';
+            readText =
+              '<span class="news__read-status">Already read<span class="card-icon"></span>';
           } else {
             backdropRead = '';
           }
