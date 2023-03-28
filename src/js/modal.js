@@ -2,11 +2,13 @@ import { auth } from './ui/firebase';
 
 const refs = {
   openModalBtn: document.querySelector('[data-modal-open]'),
+  openModalBtn2: document.querySelector('[data-modal-open2]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
 };
 
 refs.openModalBtn.addEventListener('click', loginLogout);
+refs.openModalBtn2.addEventListener('click', loginLogout);
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 
 export function toggleModal() {
