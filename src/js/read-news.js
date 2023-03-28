@@ -10,6 +10,9 @@ import { onThemeChange } from './switcher';
 oNmobileMenu();
 searchInputAnimation();
 currentPage();
+document
+  .querySelector('.search-form__input')
+  .addEventListener('click', (window.location.href = './index.html'));
 
 // Comment this
 const dates = ['27/03/2023', '26/03/2023', '25/03/2023'];
