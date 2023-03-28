@@ -45,11 +45,11 @@ addCategoriesFilter();
 const clientWidth = document.documentElement.clientWidth;
 const numberOfNewsCards = () => {
   if (clientWidth <= 768) {
-    return 5;
+    return 4;
   } else if (clientWidth > 768 && clientWidth <= 1280) {
-    return 8;
+    return 7;
   } else {
-    return 9;
+    return 8;
   }
 };
 
@@ -83,8 +83,8 @@ function onLoad() {
   newsApi
     .getMostPopularNews()
     .then(res => {
-      for (let i = 0; i < res.length; i += numberOfNewsCards() - 1) {
-        const chunk = res.slice(i, i + numberOfNewsCards() - 1);
+      for (let i = 0; i < res.length; i += numberOfNewsCards()) {
+        const chunk = res.slice(i, i + numberOfNewsCards());
         news.push(chunk);
       }
       newsApi.getTotalHits();
@@ -131,7 +131,7 @@ function onSearchSubmit(e) {
       stateOfPopular.status = false;
       typeOfSearch.categoriesStatus = false;
       typeOfSearch.searchStatus = true;
-
+      loadWeather();
       pagination.setCurrentPage(1);
       pagination.renderPagination(
         pagination.createPagination(newsApi.getTotalHits(), 1)
@@ -175,6 +175,7 @@ function onCategoryBtnClick(e) {
         console.log(news);
         newsApi.getTotalHits();
         renderCategoryMarkup(news.slice(0, numberOfNewsCards()));
+        loadWeather();
 
         stateOfPopular.status = false;
         typeOfSearch.categoriesStatus = true;
@@ -229,7 +230,7 @@ document
             );
 
             renderMarkup(res.slice(0, numberOfNewsCards()));
-
+            loadWeather();
             resetLoadingFrame();
             return;
           })
@@ -250,6 +251,7 @@ document
           .then(res => {
             newsApi.getTotalHits();
             renderCategoryMarkup(res.slice(0, numberOfNewsCards()));
+            loadWeather();
 
             pagination.renderPagination(
               pagination.createPagination(
