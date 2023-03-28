@@ -31,7 +31,6 @@ export function renderCategoryMarkup(news) {
           des_facet,
           section
         );
-        const urlCheck = data.url;
         let activeClass = '';
         let activeText = '';
         let backdropRead = '';
@@ -47,9 +46,10 @@ export function renderCategoryMarkup(news) {
           activeText = 'Add to favorite';
           activeClass = 'add-to-favorite';
         }
-        if (readStorage.hasNews({ urlCheck })) {
+        if (readStorage.hasNews(data)) {
           backdropRead = ' opacity';
-          readText = '<span class="news__read-status">Already read</span>';
+          readText =
+            '<span class="news__read-status">Already read<span class="card-icon"></span>';
         } else {
           backdropRead = '';
         }
