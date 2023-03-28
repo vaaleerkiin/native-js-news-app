@@ -6,7 +6,7 @@ export function currentPage() {
   }
 
   const pathName = window.location.pathname;
-  console.log(pathName);
+
   const links = [...document.querySelectorAll('.nav__list .nav__link')];
 
   if (pathName === '/goit-js-news-app/read.html') {
