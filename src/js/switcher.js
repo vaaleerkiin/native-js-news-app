@@ -78,4 +78,13 @@ function setDarkTheme() {
     'light-text',
     !refs.bodyEl.classList.contains('dark-mode')
   );
+  refs.calendarEl.classList.add('input-dark-mode');
+  refs.calendarButton.classList.add('button-dark-mode');
+  refs.buttonAuthorization.classList.add('buttonAuthorization-dark');
+  refs.loginModal.classList.add('modal-dark');
+  refs.loginModalTitle.classList.add('modal-dark');
+  refs.loginModalForm.classList.add('modal-dark');
+  refs.loginModalButtonsClose.classList.add('modal-dark');
+  refs.loginModalInputs.forEach(e => e.classList.add('modal-dark'));
+  refs.loginModalButtons.forEach(e => e.classList.add('modal-dark'));
 }
