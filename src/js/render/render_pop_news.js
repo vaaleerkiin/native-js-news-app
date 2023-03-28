@@ -40,7 +40,7 @@ export function renderMostPopMarkup(news) {
         }
         if (readStorage.hasNews({ url })) {
           backdropRead = ' opacity';
-          readText = '<span class="news__read-status">Already read</span>';
+          readText = '<span class="news__read-status">Already read<span class="card-icon"></span>';
         }
         return `<li class="card-photo${backdropRead}">
       		<div class="image-wrapper">
