@@ -1,7 +1,14 @@
 import { FavoriteStorage, ReadStorage } from './localStorage';
 import { onCardClick, onReadClick } from './onCardClick';
+import { searchInputAnimation } from './search-input-animation';
+import { oNmobileMenu } from './mobile-menu';
+import { currentPage } from './current-page';
 const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
+
+oNmobileMenu();
+searchInputAnimation();
+currentPage();
 
 const conteiner = document.querySelector('.favorite__conteiner');
 
@@ -29,7 +36,8 @@ function renderFavorite(news) {
       }
       if (readStorage.hasNews({ url })) {
         backdropRead = ' opacity';
-        readText = '<span class="news__read-status">Already read <span class="card-icon"></span>';
+        readText =
+          '<span class="news__read-status">Already read <span class="card-icon"></span>';
       } else {
         backdropRead = '';
       }
