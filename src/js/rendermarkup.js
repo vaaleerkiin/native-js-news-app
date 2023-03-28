@@ -52,13 +52,18 @@ function renderMarkup(searchedNews) {
             activeText = 'Add to favorite';
             activeClass = 'add-to-favorite';
           }
-          if (readStorage.hasNews({ url })) {
-            backdropRead = ' opacity';
-            readText = '<span class="news__read-status">Already read</span>';
-          } else {
-            backdropRead = '';
-          }
-
+          // ===========================================================================================================
+          // if (readStorage.hasNews({ url })) {
+          //   backdropRead = ' opacity';
+          //   readText = '<span class="news__read-status">Already read</span>';
+          // } else {
+          //   backdropRead = '';
+          // }
+          // Це погано та вночі нам крашнуло пошук,
+          // проблема що в пошук ти вставляєш url, а якщо подивитись в map де йде деструктуризація,
+          // такого елемента нема.спробуй шось інше використовувати для ідентифікатора.
+          // Там по запиту він може повертати id, можеш його спробувати
+          // ===========================================================================================================
           return `<li class="card-photo${backdropRead}">
       		<div class="image-wrapper">
          <img class="photo" src="${image()}" alt="${keyword()}" loading="lazy" />
