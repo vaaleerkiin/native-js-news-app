@@ -1,4 +1,5 @@
-.gallery__cards-list, .favorite__conteiner {
+.gallery__cards-list,
+.favorite__conteiner {
   display: grid;
   justify-content: center;
   padding: 0;
@@ -230,6 +231,7 @@
   stroke: #4440f7;
   position: absolute;
   right: 12px;
+  pointer-events: none;
   .favorite-button__activ & {
     fill: #4440f7;
   }
@@ -254,6 +256,7 @@
   fill: #4440f7;
   position: absolute;
   right: 12px;
+  pointer-events: none;
 }
 .news__read-status {
   color: #00dd73;
@@ -270,4 +273,8 @@
   border-left-width: 0;
   transform: rotate(45deg);
   margin-left: 10px;
+}
+.add-to-favorite,
+.favorite-button__activ {
+  cursor: pointer;
 }
