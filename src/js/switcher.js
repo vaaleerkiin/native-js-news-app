@@ -15,6 +15,12 @@ const refs = {
   calendarButton: document.querySelector('.date-form__button-icon'),
   headerEl: document.querySelector('.header'),
   buttonAuthorization: document.querySelector('.button-authorization'),
+  loginModal: document.querySelector('.modal'),
+  loginModalTitle: document.querySelector('.modal__title'),
+  loginModalForm: document.querySelector('.order-form'),
+  loginModalInputs: document.querySelectorAll('.order-form__input'),
+  loginModalButtons: document.querySelectorAll('.modal-button'),
+  loginModalButtonsClose: document.querySelector('.modal__close-button'),
 };
 
 if (localStorage.getItem(themeKey) === 'dark') {
@@ -47,6 +53,12 @@ export function onThemeChange() {
     !refs.bodyEl.classList.contains('dark-mode')
   );
   refs.buttonAuthorization.classList.toggle('buttonAuthorization-dark');
+  refs.loginModal.classList.toggle('modal-dark');
+  refs.loginModalTitle.classList.toggle('modal-dark');
+  refs.loginModalForm.classList.toggle('modal-dark');
+  refs.loginModalButtonsClose.classList.toggle('modal-dark');
+  refs.loginModalInputs.forEach(e => e.classList.toggle('modal-dark'));
+  refs.loginModalButtons.forEach(e => e.classList.toggle('modal-dark'));
   localStorage.setItem(
     themeKey,
     refs.bodyEl.classList.contains('dark-mode') ? 'dark' : 'light'
@@ -66,4 +78,13 @@ function setDarkTheme() {
     'light-text',
     !refs.bodyEl.classList.contains('dark-mode')
   );
+  refs.calendarEl.classList.add('input-dark-mode');
+  refs.calendarButton.classList.add('button-dark-mode');
+  refs.buttonAuthorization.classList.add('buttonAuthorization-dark');
+  refs.loginModal.classList.add('modal-dark');
+  refs.loginModalTitle.classList.add('modal-dark');
+  refs.loginModalForm.classList.add('modal-dark');
+  refs.loginModalButtonsClose.classList.add('modal-dark');
+  refs.loginModalInputs.forEach(e => e.classList.add('modal-dark'));
+  refs.loginModalButtons.forEach(e => e.classList.add('modal-dark'));
 }
