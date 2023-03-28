@@ -76,18 +76,16 @@ const markup = `<div class="weather">
 weatherBlock.innerHTML = markup;
 
 let x = document.documentElement.clientWidth;
-// positionForWeather.prepend(weatherBlock)
-// positionForWeather.insertBefore(weatherBlock, positionForWeather.children[2]);
-// positionForWeather.insertAdjacentHTML('afterbegin', markup);
+
 
 // if(window.innerWidth <= 320) {
 //     positionForWeather.prepend(weatherBlock)
 // } else if(window.innerWidth > 320 && window.innerWidth <= 768) {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[1]);
 // } else {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[2]);}
 
-if(x <= 320) {
+if(x < 768) {
     positionForWeather.insertBefore(weatherBlock, positionForWeather.children[0]);
-} else if(x > 320 && x < 1280) {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[1]);
+} else if(x >= 768 && x <= 1279) {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[1]);
 } else {positionForWeather.insertBefore(weatherBlock, positionForWeather.children[2]);}
 
 
