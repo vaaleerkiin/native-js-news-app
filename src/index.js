@@ -173,7 +173,7 @@ function onCategoryBtnClick(e) {
       .then(res => {
         news = res;
 
-        console.log(news);
+        // console.log(news);
         newsApi.getTotalHits();
         renderCategoryMarkup(news.slice(0, numberOfNewsCards()));
 
@@ -190,6 +190,7 @@ function onCategoryBtnClick(e) {
         resetLoadingFrame();
       })
       .catch(er => {
+        console.log(er);
         Report.failure('Failure', `Nothing found here, please return`, 'Okay');
       })
       .finally(res => resetLoadingFrame());
