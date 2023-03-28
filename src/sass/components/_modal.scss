@@ -180,6 +180,13 @@
   color: #f4f4f4;
   border-color: #f4f4f4;
   border: 1px solid #f4f4f4;
+
+  &:hover,
+  &:focus {
+    background-color: #2e2e2e;
+    border-color: #f4f4f4;
+    color: #f4f4f4;
+  }
 }
 
 .order-form__input.modal-dark {
