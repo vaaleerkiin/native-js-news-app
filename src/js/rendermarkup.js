@@ -59,7 +59,7 @@ function renderMarkup(searchedNews) {
 
           return `<li class="card-photo${backdropRead}">
       		<div class="image-wrapper">
-         <img class="photo" src="https://www.nytimes.com/${data.image}" alt="${data.alt}" loading="lazy" />
+         <img class="photo" src="${data.image}" alt="${data.alt}" loading="lazy" />
 		 </div>
             <div class="card-category">${data.category}</div>
             <button type="button" class="${activeClass}">Add to favorite
