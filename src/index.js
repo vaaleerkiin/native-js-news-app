@@ -281,10 +281,6 @@ document
 const dateForm = document.querySelector('.date-form');
 const dateFormInput = document.querySelector('.date-form__input');
 const dateFormButton = document.querySelector('.date-form__button');
-const dateFormInputIcon = document.querySelector('.date-form__button-icon use');
-
-// const currentDate = moment().format('DD/MM/YYYY');
-// dateFormInput.value = currentDate;
 
 var selectedDate;
 
@@ -293,32 +289,22 @@ dateForm.addEventListener('click', e => {
 });
 dateFormButton.addEventListener('click', dateFilterOpenClose);
 
-// let button = {
-//   content: 'Clear',
-//   className: 'custom-button-classname',
-//   onClick: dp => {
-//     airDate.hide();
-//     airDate.clear(opts);
-//   },
-// };
-
 const airDateOption = {
   autoClose: true,
   firstDay: 1,
   position: 'bottom center',
   dateFormat: 'dd/MM/yyyy',
   locale: localeEn,
+  // isMobile: true,
   buttons: ['today', 'clear'],
-  // visible: true,
   onSelect: ({ date, formattedDate, datepicker }) => {
     selectedDate = formattedDate;
   },
   onShow: isFinished => {
-    dateFormInputIcon.href.baseVal = '/symbol-defs.ec292798.svg#icon-arrow-up';
+    dateFormButton.classList.add('rotate');
   },
   onHide: isFinished => {
-    dateFormInputIcon.href.baseVal =
-      '/symbol-defs.ec292798.svg#icon-arrow-down';
+    dateFormButton.classList.remove('rotate');
   },
 };
 
