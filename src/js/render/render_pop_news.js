@@ -1,9 +1,10 @@
 import { normalizeImage, normalizeAlt, normalizeData } from '../normalize';
 import { FavoriteStorage, ReadStorage } from '../localStorage';
+import { onCardClick, onReadClick } from '../onCardClick';
 const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
 const newsGalleryEl = document.querySelector('.gallery__cards-list');
-
+const newsgallery = document.querySelector('.gallery__cards-list');
 export function renderMostPopMarkup(news) {
   // console.log(news);
   const markup = news
