@@ -88,7 +88,7 @@ function renderAccordion() {
   const markup = dates
     .map(date => {
       return `<div class="accordion-container">
-        <div class="accordion-date"><span class="accordion-paragraph">${date}</span><i class="down"></i>
+        <div class="accordion-date"><span class="accordion-paragraph">${date}</span><i class="accordion-arrow"></i>
         <hr />
             <div class="newsgallery">
                 <ul class="gallery__cards-list visually-hidden"></ul>
