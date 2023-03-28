@@ -146,7 +146,7 @@ function renderAccordionNews(arr) {
             activeText = 'Add to favorite';
             activeClass = 'add-to-favorite';
           }
-          const markup = `<li class="card-photo opacity">
+          const markup = `<li class="card-photo ">
                             <div class="image-wrapper">
                                 <img class="photo" src="${src}" alt="${alt}" loading="lazy" />
                             </div>
@@ -156,7 +156,7 @@ function renderAccordionNews(arr) {
                             <p class="card-info">${info}</p>
                             <span class="card-date">${published_date}</span>
                             <a href="${url}" class="card-url">Read more</a>
-                            <span class="news__read-status">Already read</span>
+                           
                         </li>`;
           const contentEl = element.querySelector('.gallery__cards-list');
           contentEl.insertAdjacentHTML('beforeend', markup);
