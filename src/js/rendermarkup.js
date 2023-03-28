@@ -1,3 +1,4 @@
+import { normalizeData } from './normalize';
 import moment from 'moment/moment';
 export { renderMarkup };
 import { FavoriteStorage, ReadStorage } from './localStorage';
@@ -7,6 +8,7 @@ const newsgallery = document.querySelector('.gallery__cards-list');
 // const readBtn = document.querySelector('.')
 
 function renderMarkup(searchedNews) {
+  console.log(searchedNews);
   const markup = searchedNews
     .map(
       (
@@ -21,22 +23,18 @@ function renderMarkup(searchedNews) {
         },
         index
       ) => {
-        const image = () => {
-          try {
-            return `https://www.nytimes.com/${multimedia[0].url}`;
-          } catch {
-            return 'https://source.unsplash.com/random/300x300?noimage';
-          }
-        };
-        const keyword = () => {
-          try {
-            return keywords[0].value;
-          } catch {
-            return 'news';
-          }
-        };
         if (index < 8) {
-          const cardDate = moment(pub_date).format('DD/MM/YYYY');
+          const data = normalizeData(
+            multimedia,
+            headline,
+            web_url,
+            abstract,
+            pub_date,
+            keywords,
+            section_name
+          );
+          const url = data.url;
+          // console.log(data);
           let activeClass = '';
           let activeText = '';
           let backdropRead = '';
@@ -61,9 +59,9 @@ function renderMarkup(searchedNews) {
 
           return `<li class="card-photo${backdropRead}">
       		<div class="image-wrapper">
-         <img class="photo" src="${image()}" alt="${keyword()}" loading="lazy" />
+         <img class="photo" src="https://www.nytimes.com/${data.image}" alt="${data.alt}" loading="lazy" />
 		 </div>
-            <div class="card-category">${section_name}</div>
+            <div class="card-category">${data.category}</div>
             <button type="button" class="${activeClass}">Add to favorite
             <span><svg class="item-news__block-icon active-news-icon" width="16" height="16" viewBox="0 0 37 32">
     <path style="stroke: var(--color1, #4440f7)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"
@@ -71,10 +69,10 @@ function renderMarkup(searchedNews) {
         d="M10.666 2.286c-4.207 0-7.619 3.377-7.619 7.543 0 3.363 1.333 11.345 14.458 19.413 0.235 0.143 0.505 0.219 0.78 0.219s0.545-0.076 0.78-0.219c13.125-8.069 14.458-16.050 14.458-19.413 0-4.166-3.412-7.543-7.619-7.543s-7.619 4.571-7.619 4.571-3.412-4.571-7.619-4.571z">
     </path>
 </svg></span></button>
-            <h2 class="card-title">${headline.main}</h2>
-            <p class="card-info">${abstract}</p>
-            <span class="card-date">${cardDate}</span>
-            <a href="${web_url}" class="card-url">Read more</a>
+            <h2 class="card-title">${data.title}</h2>
+            <p class="card-info">${data.info}</p>
+            <span class="card-date">${data.published_date}</span>
+            <a href="${data.url}" class="card-url">Read more</a>
  ${readText}
             </li>`;
         }
@@ -93,7 +91,7 @@ cardUrls.forEach(cardUrl => {
     cardUrl.parentElement.classList.add('opacity');
   });
 });
-console.log(cardUrls);
+// console.log(cardUrls);
 function onCardClick(e) {
   if (e.target.tagName.toLowerCase() !== 'button') {
     return;

@@ -5,7 +5,7 @@ const readStorage = new ReadStorage();
 const newsGalleryEl = document.querySelector('.gallery__cards-list');
 
 export function renderMostPopMarkup(news) {
-  console.log(news);
+  // console.log(news);
   const markup = news
     .map(
       (
