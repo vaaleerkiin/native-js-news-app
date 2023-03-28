@@ -1,11 +1,19 @@
 import { FavoriteStorage, ReadStorage } from './localStorage';
-
+import { searchInputAnimation } from './search-input-animation';
+import { oNmobileMenu } from './mobile-menu';
+import { currentPage } from './current-page';
 const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
 const news = readStorage.getNews();
 
+
+oNmobileMenu();
+searchInputAnimation();
+currentPage();
+
 // Comment this
 // const dates = ['27/03/2023', '26/03/2023', '25/03/2023'];
+
 
 // News array for test
 // const news = [
