@@ -6,7 +6,7 @@ import { onCardClick } from './onCardClick';
 const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
 const news = readStorage.getNews();
-
+import { onThemeChange } from './switcher';
 oNmobileMenu();
 searchInputAnimation();
 currentPage();

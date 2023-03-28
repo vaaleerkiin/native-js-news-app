@@ -84,7 +84,7 @@
   height: 28px;
   background: #ffffff;
   border-radius: 20px;
-
+  border: none;
   @media screen and (max-width: 767px) {
     left: 154px;
     top: 355px;
@@ -236,6 +236,7 @@
 }
 
 .favorite-button__activ {
+  border: none;
   @media screen and (max-width: 767px) {
     left: 112px;
   }
@@ -259,4 +260,14 @@
   position: absolute;
   top: 10px;
   right: 30px;
+}
+.card-icon {
+  display: inline-block;
+  width: 9px;
+  height: 20px;
+  border: 2.5px solid #00dd73;
+  border-top-width: 0;
+  border-left-width: 0;
+  transform: rotate(45deg);
+  margin-left: 10px;
 }
