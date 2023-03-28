@@ -1,0 +1,24 @@
+.accordion {
+    width: 1280px;
+    margin: 10px auto;
+}
+
+.accordion .accordion-date {
+    cursor: pointer;
+}
+
+
+.accordion .accordion-date::before {
+    content: '+';
+    color: black;
+}
+
+.accordion hr {
+    // width: 100%;
+    // border: 1px solid grey;
+}
+
+.accordion .accordion-container .accordion-date.active::before {
+    content: '-';
+    font-size: 30px;
+}

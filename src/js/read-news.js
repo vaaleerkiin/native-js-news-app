@@ -6,9 +6,14 @@ const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
 const news = readStorage.getNews();
 
+
 oNmobileMenu();
 searchInputAnimation();
 currentPage();
+
+// Comment this
+// const dates = ['27/03/2023', '26/03/2023', '25/03/2023'];
+
 
 // News array for test
 // const news = [
@@ -75,22 +80,19 @@ currentPage();
 // ];
 
 // Uncomment this
+
 const dates = [...new Set(news.map(obj => obj.readDate))];
 
-// Comment this
-// const dates = ['27/03/2023', '26/03/2023', '25/03/2023'];
-
 const accordionEl = document.querySelector('.accordion');
-// console.log('Dates: ' + dates);
 
 function renderAccordion() {
   const markup = dates
     .map(date => {
-      return `<div class="container">
+      return `<div class="accordion-container">
         <div class="accordion-date">${date}
         <hr />
             <div class="newsgallery">
-                <ul class="gallery__cards-list"></ul>
+                <ul class="gallery__cards-list visually-hidden"></ul>
             </div>
         </div>
       </div>`;
@@ -100,19 +102,21 @@ function renderAccordion() {
 }
 
 accordionEl.innerHTML = renderAccordion();
-const accordion = document.getElementsByClassName('container');
-const labels = document.querySelectorAll('.accordion-date');
+const accordionContainer = document.getElementsByClassName(
+  'accordion-container'
+);
+const accordion = document.querySelectorAll('.accordion-date');
 
-// console.log(`News: `);
-// console.log(news);
+renderAccordionNews(accordion);
 
-labels.forEach(element => {
-  const accordionElDate = element.innerText;
-  console.log(`Checking for ${accordionElDate}`);
-  news.map(
-    ({ readDate, src, title, url, info, published_date, alt, section }) => {
-      if (readDate === accordionElDate) {
-        const favoriteIcon = `<span>
+function renderAccordionNews(arr) {
+  arr.forEach(element => {
+    const accordionElDate = element.innerText;
+    // console.log(`Checking for ${accordionElDate}`);
+    news.map(
+      ({ readDate, src, title, url, info, published_date, alt, section }) => {
+        if (readDate === accordionElDate) {
+          const favoriteIcon = `<span>
                                 <svg
                                     class="item-news__block-icon active-news-icon"
                                     width="16"
@@ -130,20 +134,20 @@ labels.forEach(element => {
                                 </svg>
                             </span>`;
 
-        let activeClass = '';
-        let activeText = '';
-        if (
-          favoriteStorage.hasNews({
-            url,
-          })
-        ) {
-          activeText = 'Remove from favorite';
-          activeClass = 'favorite-button__activ';
-        } else {
-          activeText = 'Add to favorite';
-          activeClass = 'add-to-favorite';
-        }
-        const markup = `<li class="card-photo">
+          let activeClass = '';
+          let activeText = '';
+          if (
+            favoriteStorage.hasNews({
+              url,
+            })
+          ) {
+            activeText = 'Remove from favorite';
+            activeClass = 'favorite-button__activ';
+          } else {
+            activeText = 'Add to favorite';
+            activeClass = 'add-to-favorite';
+          }
+          const markup = `<li class="card-photo">
                             <div class="image-wrapper">
                                 <img class="photo" src="${src}" alt="${alt}" loading="lazy" />
                             </div>
@@ -154,33 +158,36 @@ labels.forEach(element => {
                             <span class="card-date">${published_date}</span>
                             <a href="${url}" class="card-url">Read more</a>
                         </li>`;
-        const contentEl = element.querySelector('.gallery__cards-list');
-        contentEl.insertAdjacentHTML('beforeend', markup);
+          const contentEl = element.querySelector('.gallery__cards-list');
+          contentEl.insertAdjacentHTML('beforeend', markup);
+        }
       }
-    }
-  );
-});
+    );
+  });
+  document.querySelector('.accordion-date').classList.toggle('active');
+  document
+    .querySelector('.gallery__cards-list')
+    .classList.toggle('visually-hidden');
+}
 
 for (let i = 0; i < accordion.length; i++) {
-  accordion[i].addEventListener('click', function () {
+  accordion[i].addEventListener('click', function (e) {
+    if (e.target !== this) {
+      return;
+    }
     this.classList.toggle('active');
+    const currentGallery = this.querySelector('.gallery__cards-list');
+    currentGallery.classList.toggle('visually-hidden');
   });
 }
 
-//
-//
-//
-
-// import { onCardClick } from './rendermarkup';
 accordionEl.addEventListener('click', onCardClick);
 
 function onCardClick(e) {
   if (e.target.tagName.toLowerCase() !== 'button') {
     return;
   } else {
-    console.log('Click');
     const favoriteBtn = e.target.closest('BUTTON');
-    console.log(favoriteBtn);
     const newsCard = favoriteBtn.closest('li');
 
     const headline = newsCard.querySelector('.card-title').textContent;
@@ -205,7 +212,7 @@ function onCardClick(e) {
       alt: multimediaAlt,
       section: category,
     };
-    console.log(data);
+    // console.log(data);
     if (favoriteStorage.hasNews(data)) {
       favoriteStorage.removeNews(data);
       favoriteBtn.classList.replace(
