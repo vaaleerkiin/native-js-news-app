@@ -118,9 +118,12 @@ html {
   transform: rotate(180deg);
   background-size: contain;
 }
-.pagination__arrow-left,
-.pagination__arrow-right {
+a.pagination__arrow-left,
+a.pagination__arrow-right {
   width: 72px;
+  @media screen and (max-width: 425px) {
+    width: 30px;
+  }
 }
 
 .pagination__page-icon {
@@ -133,5 +136,12 @@ html {
   @media screen and (max-width: 425px) {
     display: none;
     margin: 0;
+  }
+}
+
+.pagination__text {
+  display: block;
+  @media screen and (max-width: 425px) {
+    display: none;
   }
 }

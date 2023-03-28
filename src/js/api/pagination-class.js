@@ -7,7 +7,7 @@ export default class Pagination {
   createPagination(totalPages, currentPage) {
     this.totalPages = totalPages;
     let startPage, endPage;
-    if (totalPages <= 10) {
+    if (totalPages <= 6) {
       startPage = 1;
       endPage = totalPages;
     } else {
@@ -29,10 +29,24 @@ export default class Pagination {
     }
 
     let pagination = [];
-    if (startPage > 1) {
+
+    if (this.currentPage < 6 && this.currentPage > 1) {
       pagination.push(
-        `<a class="pagination__btn pagination__arrow-left" href="#top"><span class="pagination__icon pagination__arrow-left"></span> Prew</a>`
+        `<a class="pagination__btn pagination__arrow-left" href="#top"><span class="pagination__icon pagination__arrow-left"></span> <span class="pagination__text pagination__arrow-right">Prew</span></a>`
       );
+    }
+
+    if (startPage > 1) {
+      if (
+        !pagination.includes(
+          '<a class="pagination__btn pagination__arrow-left" href="#top"><span class="pagination__icon pagination__arrow-left"></span> <span class="pagination__text pagination__arrow-right">Prew</span></a>'
+        )
+      ) {
+        pagination.push(
+          `<a class="pagination__btn pagination__arrow-left" href="#top"><span class="pagination__icon pagination__arrow-left"></span> <span class="pagination__text pagination__arrow-right">Prew</span></a>`
+        );
+      }
+
       pagination.push('<a class="pagination__btn" href="#top">1</a>');
       pagination.push(
         '<a class="pagination__btn pre-dots" href="#top">...</a>'
@@ -57,10 +71,23 @@ export default class Pagination {
         `<a class="pagination__btn" href="#top">${totalPages}</a>`
       );
       pagination.push(
-        `<a class="pagination__btn pagination__arrow-right" href="#top">Next <span class="pagination__icon pagination__arrow-right"></span></a>`
+        `<a class="pagination__btn pagination__arrow-right" href="#top"><span class="pagination__text pagination__arrow-right">Next</span> <span class="pagination__icon pagination__arrow-right"></span></a>`
       );
     }
-
+    if (
+      this.currentPage + 4 >= this.totalPages &&
+      this.currentPage !== this.totalPages
+    ) {
+      if (
+        !pagination.includes(
+          `<a class="pagination__btn pagination__arrow-right" href="#top"><span class="pagination__text pagination__arrow-right">Next</span> <span class="pagination__icon pagination__arrow-right"></span></a>`
+        )
+      ) {
+        pagination.push(
+          `<a class="pagination__btn pagination__arrow-right" href="#top"><span class="pagination__text pagination__arrow-right">Next</span> <span class="pagination__icon pagination__arrow-right"></span></a>`
+        );
+      }
+    }
     return pagination;
   }
   renderPagination(pag) {
