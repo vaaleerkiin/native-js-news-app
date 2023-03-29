@@ -15,7 +15,7 @@ export function onCardClick(e) {
     const multimediaSrc = newsCard.querySelector('img').getAttribute('src');
     const multimediaAlt = newsCard.querySelector('img').getAttribute('alt');
     const info = newsCard.querySelector('p').textContent;
-    const date = newsCard.querySelector('span').textContent;
+    const date = newsCard.querySelector('.card-date').textContent;
     const category = newsCard.querySelector('.card-category').textContent;
     const webUrl = newsCard.querySelector('.card-url').getAttribute('href');
 
