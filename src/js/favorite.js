@@ -68,3 +68,6 @@ renderFavorite(news);
 
 conteiner.addEventListener('click', onCardClick);
 conteiner.addEventListener('click', onReadClick);
+document.querySelector('.search-form__input').addEventListener('click', () => {
+  window.location.href = './index.html';
+});

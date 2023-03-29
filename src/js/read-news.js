@@ -10,9 +10,6 @@ import { onThemeChange } from './switcher';
 oNmobileMenu();
 searchInputAnimation();
 currentPage();
-document
-  .querySelector('.search-form__input')
-  .addEventListener('click', (window.location.href = './index.html'));
 
 // Comment this
 const dates = ['27/03/2023', '26/03/2023', '25/03/2023'];
@@ -185,3 +182,6 @@ for (let i = 0; i < accordion.length; i++) {
 }
 
 accordionEl.addEventListener('click', onCardClick);
+document.querySelector('.search-form__input').addEventListener('click', () => {
+  window.location.href = './index.html';
+});
