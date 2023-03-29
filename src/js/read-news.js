@@ -88,7 +88,7 @@ function renderAccordion() {
   const markup = dates
     .map(date => {
       return `<div class="accordion-container">
-        <div class="accordion-date"><span class="accordion-paragraph">${date}</span><i class="down"></i>
+        <div class="accordion-date"><span class="accordion-paragraph">${date}</span><i class="accordion-arrow"></i>
         <hr />
             <div class="newsgallery">
                 <ul class="gallery__cards-list visually-hidden"></ul>
@@ -186,6 +186,13 @@ for (let i = 0; i < accordion.length; i++) {
 }
 
 accordionEl.addEventListener('click', onCardClick);
+
+
+
 if (accordionEl.innerHTML == '') {
   accordionEl.insertAdjacentHTML('afterend', `<div class="news__plug"></div>`);
 }
+
+document.querySelector('.search-form__input').addEventListener('click', () => {
+  window.location.href = './index.html';
+});
