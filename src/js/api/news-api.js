@@ -48,7 +48,7 @@ class nytNewsApi {
     try {
       const news = await axiosInstance.get(this.searchUrl).then(response => {
         if ((response.statusText = 'OK')) {
-          console.log(this.searchUrl);
+          // console.log(this.searchUrl);
           // console.log(response.data.response.docs);
           if (Math.ceil(response.data.response.meta.hits / 10) > 100) {
             this.totalHits = 100;
@@ -107,7 +107,7 @@ class nytNewsApi {
     } else {
       this.date = `begin_date=${date}&end_date=${date}&`;
     }
-    console.log(this.date);
+    // console.log(this.date);
   }
 
   getTotalHits() {
@@ -133,7 +133,7 @@ class nytNewsApi {
 
   setSearchUrl() {
     this.searchUrl = `${this.BASE_URL}${this.SEARCH_URL}?${this.date}q=${this.searchQuery}&page=${this.page}&api-key=${this.API_KEY}`;
-    console.log(this.searchUrl);
+    // console.log(this.searchUrl);
   }
 
   setCategory(category) {

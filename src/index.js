@@ -301,7 +301,7 @@ const airDateOption = {
   autoClose: true,
   firstDay: 1,
   position: 'bottom center',
-  dateFormat: 'yyyy/MM/dd/',
+  dateFormat: 'yyyy/MM/dd',
   locale: localeEn,
   // isMobile: true,
   buttons: ['today', 'clear'],
