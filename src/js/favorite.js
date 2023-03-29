@@ -68,6 +68,11 @@ renderFavorite(news);
 
 conteiner.addEventListener('click', onCardClick);
 conteiner.addEventListener('click', onReadClick);
+if (conteiner.innerHTML == '') {
+  conteiner.insertAdjacentHTML('afterend', `<div class="news__plug"></div>`);
+}
+
 document.querySelector('.search-form__input').addEventListener('click', () => {
   window.location.href = './index.html';
 });
+
