@@ -186,7 +186,7 @@ for (let i = 0; i < accordion.length; i++) {
     const currentGallery = this.querySelector('.gallery__cards-list');
     currentGallery.classList.toggle('visually-hidden');
     this.querySelector('.accordion-arrow').classList.toggle('active');
-    console.log(this);
+    // console.log(this);
   });
 }
 
