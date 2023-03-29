@@ -12,10 +12,11 @@ class nytNewsApi {
 
     // Most popular search
     this.mostPopUrl = `${this.BASE_URL}${this.POP_URL}?api-key=${this.API_KEY}`;
-    // Search by keyword
     this.page = 1;
+    // Search by keyword
+    this.date = ``;
     this.searchQuery = `election`;
-    this.searchUrl = `${this.BASE_URL}${this.SEARCH_URL}?q=${this.searchQuery}&page=${this.page}&api-key=${this.API_KEY}`;
+    this.searchUrl = `${this.BASE_URL}${this.SEARCH_URL}?${this.date}q=${this.searchQuery}&page=${this.page}&api-key=${this.API_KEY}`;
     // Sections
     this.sectionListUrl = `${this.BASE_URL}news/v3/content/section-list.json?api-key=${this.API_KEY}`;
     // Category search
@@ -40,7 +41,8 @@ class nytNewsApi {
     }
   }
 
-  async getNewsBySearchQuery(query) {
+  async getNewsBySearchQuery(query, date) {
+    this.setDate(date);
     this.setSearchQuery(query);
     this.setSearchUrl();
     try {
@@ -99,8 +101,17 @@ class nytNewsApi {
     }
   }
 
+  setDate(date) {
+    if (date === '') {
+      this.date = '';
+    } else {
+      this.date = `begin_date=${date}&end_date=${date}&`;
+    }
+    console.log(this.date);
+  }
+
   getTotalHits() {
-    console.log(this.totalHits);
+    // console.log(this.totalHits);
     return this.totalHits;
   }
 
@@ -121,7 +132,8 @@ class nytNewsApi {
   }
 
   setSearchUrl() {
-    this.searchUrl = `${this.BASE_URL}${this.SEARCH_URL}?q=${this.searchQuery}&page=${this.page}&api-key=${this.API_KEY}`;
+    this.searchUrl = `${this.BASE_URL}${this.SEARCH_URL}?${this.date}q=${this.searchQuery}&page=${this.page}&api-key=${this.API_KEY}`;
+    console.log(this.searchUrl);
   }
 
   setCategory(category) {
