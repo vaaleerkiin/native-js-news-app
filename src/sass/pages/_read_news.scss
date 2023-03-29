@@ -26,13 +26,14 @@
 
 .accordion-arrow {
   pointer-events: none;
-    border: solid #111321;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 4px;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    transition: transform 250ms;
+  border: solid #111321;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transition: transform 250ms;
+  caret-color: transparent;
 }
 
 .accordion-arrow.active {
@@ -54,6 +55,7 @@
   // color: #111321;
   margin-right: 8px;
   pointer-events: none;
+  caret-color: transparent;
 }
 .read__wrap {
   // position: relative;
@@ -71,7 +73,7 @@
   }
 
   @media screen and (min-width: 1280px) {
-  margin-top: 53px;
-  // margin-bottom: 0px;
+    margin-top: 53px;
+    // margin-bottom: 0px;
   }
 }
