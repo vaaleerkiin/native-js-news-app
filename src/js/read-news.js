@@ -3,6 +3,7 @@ import { searchInputAnimation } from './search-input-animation';
 import { oNmobileMenu } from './mobile-menu';
 import { currentPage } from './current-page';
 import { onCardClick } from './onCardClick';
+import { monitorAuthState } from './ui/ui';
 const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
 const news = readStorage.getNews();
@@ -10,6 +11,7 @@ import { onThemeChange } from './switcher';
 oNmobileMenu();
 searchInputAnimation();
 currentPage();
+monitorAuthState();
 
 // Comment this
 // const dates = ['27/03/2023', '26/03/2023', '25/03/2023'];

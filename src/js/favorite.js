@@ -3,12 +3,14 @@ import { onCardClick, onReadClick } from './onCardClick';
 import { searchInputAnimation } from './search-input-animation';
 import { oNmobileMenu } from './mobile-menu';
 import { currentPage } from './current-page';
+import { monitorAuthState } from './ui/ui';
 const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
 
 oNmobileMenu();
 searchInputAnimation();
 currentPage();
+monitorAuthState();
 
 const conteiner = document.querySelector('.favorite__conteiner');
 
@@ -75,4 +77,3 @@ if (conteiner.innerHTML == '') {
 document.querySelector('.search-form__input').addEventListener('click', () => {
   window.location.href = './index.html';
 });
-
