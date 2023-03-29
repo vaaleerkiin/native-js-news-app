@@ -72,7 +72,7 @@ export function onReadClick(e) {
 
     const info = newsCard.querySelector('p').textContent;
 
-    const date = newsCard.querySelector('span').textContent;
+    const date = newsCard.querySelector('.card-date').textContent;
 
     const category = newsCard.querySelector('.card-category').textContent;
 
