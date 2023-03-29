@@ -6,6 +6,7 @@ import { currentPage } from './current-page';
 import { monitorAuthState } from './ui/ui';
 const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
+import { onThemeChange } from './switcher';
 
 oNmobileMenu();
 searchInputAnimation();

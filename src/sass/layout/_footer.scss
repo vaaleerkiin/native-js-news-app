@@ -19,32 +19,6 @@
   }
   margin: 0 auto;
 }
-
-// .footer-box {
-//   @media screen and (min-width: 768px) {
-//     display: flex;
-//     align-items: baseline;
-//   }
-// }
-
-.footer-logo {
-  @media screen and (min-width: 320px) {
-    font-size: 24px;
-    line-height: 33px;
-  }
-  @media screen and (min-width: 768px) {
-    font-size: 32px;
-    line-height: 44px;
-  }
-  @media screen and (min-width: 1280px) {
-    font-size: 42px;
-    line-height: 57px;
-  }
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 700;
-  color: white;
-}
 .footer-menu__link {
   font-family: 'Manrope';
   font-style: normal;
@@ -109,40 +83,6 @@
   font-style: normal;
   font-weight: 700;
   color: white;
-}
-
-.footer-social__list {
-  display: flex;
-  justify-content: space-between;
-  margin-left: auto;
-}
-
-.footer-social__item {
-  @media screen and (min-width: 1280px) {
-    margin-right: 100px;
-  }
-
-  margin-right: 40px;
-}
-
-.footer-social__link {
-  @media screen and (min-width: 320px) {
-    font-size: 14px;
-    line-height: 1.4;
-  }
-  @media screen and (min-width: 768px) {
-    font-size: 18px;
-    line-height: 1.4;
-  }
-  @media screen and (min-width: 1280px) {
-    font-size: 22px;
-    line-height: 1.4;
-  }
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 900;
-  color: white;
-  font-size: px;
 }
 .footer-mark {
   font-family: 'Manrope';
