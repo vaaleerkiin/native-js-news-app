@@ -58,9 +58,9 @@
   caret-color: transparent;
 }
 .read__wrap {
-  // position: relative;
+  position: relative;
   min-height: 64vh;
-  display: block;
+  // display: block;
 
   @media screen and (max-width: 767px) {
     margin-top: 0px;
