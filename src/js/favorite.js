@@ -5,6 +5,7 @@ import { oNmobileMenu } from './mobile-menu';
 import { currentPage } from './current-page';
 const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
+import { onThemeChange } from './switcher';
 
 oNmobileMenu();
 searchInputAnimation();
@@ -75,4 +76,3 @@ if (conteiner.innerHTML == '') {
 document.querySelector('.search-form__input').addEventListener('click', () => {
   window.location.href = './index.html';
 });
-

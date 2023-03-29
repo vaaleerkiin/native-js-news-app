@@ -1,3 +1,5 @@
+import { ReadStorage } from './localStorage';
+
 const themeKey = 'selectedTheme';
 const refs = {
   themeSwitcherEl: document.querySelector('#theme'),
