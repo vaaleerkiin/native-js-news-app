@@ -1,24 +1,23 @@
-
 .accordion {
-    margin: 10px auto;
+  margin: 10px auto;
 
-    @media screen and (max-width: 767px) {
-        width: 288px;
-    }
+  @media screen and (max-width: 767px) {
+    width: 288px;
+  }
 
-    @media screen and (min-width: 768px) {
-        width: 736px;
-    }
+  @media screen and (min-width: 768px) {
+    width: 736px;
+  }
 
-    @media screen and (min-width: 1280px) {
-        width: 1248px;
-    }
+  @media screen and (min-width: 1280px) {
+    width: 1248px;
+  }
 }
 
 .accordion .accordion-date {
-    cursor: pointer;
-    margin-top: 60px;
-    // height: 33px;
+  cursor: pointer;
+  margin-top: 60px;
+  // height: 33px;
 }
 
 // .accordion .accordion-date::before {
@@ -27,15 +26,18 @@
 // }
 
 .accordion hr {
+
     width: 100%;
     margin: 8px 0px 8px 0px;
     border: 1px solid #929292;
+
 }
 
 // .accordion .accordion-container .accordion-date.active::before {
 //     content: '-';
 //     font-size: 30px;
 // }
+
 
 .accordion-arrow {
     border: solid #111321;
@@ -44,20 +46,25 @@
     padding: 4px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+
 }
 
 .up {
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
 }
 
 .accordion-paragraph {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.71;
-    letter-spacing: 0.02em;
-    color: #111321;
-    margin-right: 8px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.02em;
+  color: #111321;
+  margin-right: 8px;
+}
+.read__wrap {
+  position: relative;
+  min-height: 60vh;
 }
