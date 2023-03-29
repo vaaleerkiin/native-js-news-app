@@ -37,12 +37,14 @@
 // }
 
 .accordion-arrow {
-  border: solid #111321;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 4px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+  pointer-events: none;
+    border: solid #111321;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transition: transform 250ms;
 }
 
 .accordion-arrow.active {
@@ -65,21 +67,22 @@
   margin-right: 8px;
 }
 .read__wrap {
-  position: relative;
-  min-height: 60vh;
+  // position: relative;
+  min-height: 66vh;
+  display: block;
 
   @media screen and (max-width: 767px) {
     margin-top: 40px;
-    margin-bottom: 140px;
+    margin-bottom: 67px;
   }
 
   @media screen and (min-width: 768px) {
     margin-top: 48px;
-    margin-bottom: 180px;
+    margin-bottom: 85px;
   }
 
   @media screen and (min-width: 1280px) {
   margin-top: 60px;
-  margin-bottom: 210px;
+  margin-bottom: 53px;
   }
 }
