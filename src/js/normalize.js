@@ -3,7 +3,7 @@ import moment from 'moment/moment';
 export function normalizeImage(img) {
   // console.log(img);
   if (!img) {
-    return 'https://source.unsplash.com/random/300x300?noimage';
+    return 'https://source.unsplash.com/random/300x300';
   } else if (img[2]) {
     try {
       const image = img[2].url;
@@ -17,13 +17,13 @@ export function normalizeImage(img) {
         return `https://www.nytimes.com/${image}`;
       }
     } catch {
-      return 'https://source.unsplash.com/random/300x300?noimage';
+      return 'https://source.unsplash.com/random/300x300';
     }
   } else {
     try {
       return img[0]['media-metadata'][2].url;
     } catch {
-      return 'https://source.unsplash.com/random/300x300?noimage';
+      return 'https://source.unsplash.com/random/300x300';
     }
   }
 }
