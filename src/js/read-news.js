@@ -82,7 +82,7 @@ monitorAuthState();
 
 // Uncomment this
 
-const dates = [...new Set(news.map(obj => obj.readDate))];
+const dates = [...new Set(news.map(obj => obj.readDate))].reverse();
 
 const accordionEl = document.querySelector('.accordion');
 
