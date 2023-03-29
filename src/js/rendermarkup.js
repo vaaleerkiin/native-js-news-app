@@ -9,7 +9,7 @@ const newsgallery = document.querySelector('.gallery__cards-list');
 // const readBtn = document.querySelector('.')
 
 function renderMarkup(searchedNews) {
-  console.log(searchedNews);
+  // console.log(searchedNews);
   const markup = searchedNews
     .map(
       (

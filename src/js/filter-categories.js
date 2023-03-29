@@ -89,7 +89,7 @@ export function filtrBtnClickHandler(evt) {
     arrowIcon.classList.add('icon-is-white');
     return;
   }
-  console.dir(evt.target);
+  // console.dir(evt.target);
 
   const currentActiveBtn = evt.target;
   currentActiveBtn.classList.add('news__filtr-menu-button--active');

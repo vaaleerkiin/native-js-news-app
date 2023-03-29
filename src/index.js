@@ -111,6 +111,14 @@ monitorAuthState();
 const searchQuery = document.querySelector('.search-form');
 searchQuery.addEventListener('submit', onSearchSubmit);
 
+function normalizeDate(date) {
+  if (date) {
+    return date.replaceAll('/', '');
+  } else {
+    return '';
+  }
+}
+
 function onSearchSubmit(e) {
   e.preventDefault();
   const query = searchQuery.query.value.trim().toLowerCase();
@@ -125,7 +133,7 @@ function onSearchSubmit(e) {
   newsApi.resetPage();
   let news = [];
   newsApi
-    .getNewsBySearchQuery(query)
+    .getNewsBySearchQuery(query, normalizeDate(selectedDate))
     .then(res => {
       news = res;
 
@@ -324,7 +332,7 @@ const airDateOption = {
   autoClose: true,
   firstDay: 1,
   position: 'bottom center',
-  dateFormat: 'dd/MM/yyyy',
+  dateFormat: 'yyyy/MM/dd',
   locale: localeEn,
   // isMobile: true,
   buttons: ['today', 'clear'],
