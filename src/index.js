@@ -247,7 +247,7 @@ document
         newsApi.setPage(pagination.getCurrentPage());
         const query = searchQuery.query.value.trim().toLowerCase();
         newsApi
-          .getNewsBySearchQuery(query)
+          .getNewsBySearchQuery(query, normalizeDate(selectedDate))
           .then(res => {
             stateOfPopular.status = false;
 
