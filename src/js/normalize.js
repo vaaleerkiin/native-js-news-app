@@ -89,3 +89,11 @@ export function normalizeData(
   };
   return normData;
 }
+
+export function normalizeDate(date) {
+  if (date) {
+    return date.replaceAll('/', '');
+  } else {
+    return '';
+  }
+}

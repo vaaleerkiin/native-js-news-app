@@ -1,4 +1,5 @@
 import { newsApi } from './js/api/news-api';
+import { normalizeDate } from './js/normalize';
 import { pagination, onChangePage } from './js/pagination';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 // ===============filter-menu===================
@@ -110,14 +111,6 @@ monitorAuthState();
 
 const searchQuery = document.querySelector('.search-form');
 searchQuery.addEventListener('submit', onSearchSubmit);
-
-function normalizeDate(date) {
-  if (date) {
-    return date.replaceAll('/', '');
-  } else {
-    return '';
-  }
-}
 
 function onSearchSubmit(e) {
   e.preventDefault();
