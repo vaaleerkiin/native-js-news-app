@@ -1,5 +1,5 @@
 .accordion {
-  margin: 10px auto;
+  margin: 0px auto;
 
   @media screen and (max-width: 767px) {
     width: 288px;
@@ -40,11 +40,6 @@
   transform: rotate(225deg);
 }
 
-.up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-}
-
 .accordion-paragraph {
   font-family: 'Poppins';
   font-style: normal;
@@ -52,14 +47,14 @@
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.02em;
-  // color: #111321;
   margin-right: 8px;
   pointer-events: none;
   caret-color: transparent;
 }
+
 .read__wrap {
   position: relative;
-  min-height: 64vh;
+  min-height: 65vh;
   // display: block;
 
   @media screen and (max-width: 767px) {
@@ -69,11 +64,26 @@
 
   @media screen and (min-width: 768px) {
     margin-top: 63px;
-    // margin-bottom: 85px;
   }
 
   @media screen and (min-width: 1280px) {
     margin-top: 53px;
-    // margin-bottom: 0px;
   }
+}
+
+.accordion-container .newsgallery{
+  @media screen and (max-width: 767px) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  
+    @media screen and (min-width: 768px) {
+      margin-top: 20px;
+      margin-bottom: 28px;
+    }
+  
+    @media screen and (min-width: 1280px) {
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
 }
