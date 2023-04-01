@@ -2,6 +2,7 @@ import { newsApi } from './js/api/news-api';
 import { normalizeDate } from './js/normalize';
 import { pagination, onChangePage } from './js/pagination';
 import { Report } from 'notiflix/build/notiflix-report-aio';
+var debounce = require('lodash.debounce');
 // ===============filter-menu===================
 
 import {
@@ -36,21 +37,18 @@ import 'air-datepicker/air-datepicker.css';
 import CalendarDates from 'calendar-dates';
 import moment from 'moment';
 
+/* Match media */
+
+window.addEventListener('resize', debounce(onWindowResize, 500));
+function onWindowResize() {
+  // document.querySelector('.filtr-buttons-container').innerHTML = '';
+  onLoad();
+  // addCategoriesFilter();
+}
+
 // ===============filter===================
 
 addCategoriesFilter();
-
-// ==============================
-const clientWidth = document.documentElement.clientWidth;
-const numberOfNewsCards = () => {
-  if (clientWidth <= 768) {
-    return 5;
-  } else if (clientWidth > 768 && clientWidth <= 1280) {
-    return 8;
-  } else {
-    return 9;
-  }
-};
 
 filtrButtonsContainerRef.addEventListener('click', filtrBtnClickHandler);
 filtrButtonsContainerRef.addEventListener(
@@ -62,12 +60,21 @@ document.addEventListener('click', closeOtherBtnsMenu);
 
 // ==================================
 
+const clientWidth = () => {
+  return document.documentElement.clientWidth;
+};
+const numberOfNewsCards = () => {
+  if (clientWidth() <= 768) {
+    return 5;
+  } else if (clientWidth() > 768 && clientWidth() <= 1280) {
+    return 8;
+  } else {
+    return 9;
+  }
+};
+
 const stateOfPopular = { status: true, pages: [], numberOfNewsCards: 8 };
 const typeOfSearch = { searchStatus: false, categoriesStatus: false };
-// newsApi.getCategories(); // Returns list of 50 categories
-// newsApi.getMostPopularNews(); // Returns array of Most popular news
-// newsApi.getNewsBySearchQuery(); // Returns array of articles by search word. Can get pages
-// newsApi.getNewsByCategory(); // Returns array of articles by category. Can get pages
 
 /* On page load */
 
