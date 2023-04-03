@@ -1,4 +1,4 @@
-const categoriesList = [
+const categoriesList = () => [
   { section: 'admin', display_name: 'Admin' },
   { section: 'arts', display_name: 'Arts' },
   { section: 'automobiles', display_name: 'Automobiles' },
@@ -180,12 +180,12 @@ function createCategoriesFilterMobile(categories) {
 export function addCategoriesFilter() {
   const windowWidth = document.documentElement.clientWidth;
   if (windowWidth >= 1280) {
-    createCategoriesFilter(categoriesList, 6);
+    createCategoriesFilter(categoriesList(), 6);
     return;
   }
   if (windowWidth >= 768 && windowWidth < 1280) {
-    createCategoriesFilter(categoriesList, 4);
+    createCategoriesFilter(categoriesList(), 4);
     return;
   }
-  createCategoriesFilterMobile(categoriesList);
+  createCategoriesFilterMobile(categoriesList());
 }

@@ -41,9 +41,9 @@ import moment from 'moment';
 
 window.addEventListener('resize', debounce(onWindowResize, 500));
 function onWindowResize() {
-  // document.querySelector('.filtr-buttons-container').innerHTML = '';
+  document.querySelector('.filtr-buttons-container').innerHTML = '';
   onLoad();
-  // addCategoriesFilter();
+  addCategoriesFilter();
 }
 
 // ===============filter===================
