@@ -38,13 +38,26 @@ import CalendarDates from 'calendar-dates';
 import moment from 'moment';
 
 /* Match media */
+const clientWidth = () => {
+  return document.documentElement.clientWidth;
+};
+const numberOfNewsCards = () => {
+  if (clientWidth() <= 768) {
+    return 5;
+  } else if (clientWidth() > 768 && clientWidth() <= 1280) {
+    return 8;
+  } else {
+    return 9;
+  }
+};
 
-// window.addEventListener('resize', debounce(onWindowResize, 500));
-// function onWindowResize() {
-//   document.querySelector('.filtr-buttons-container').innerHTML = '';
-//   onLoad();
-//   addCategoriesFilter();
-// }
+const pastWidth = clientWidth();
+window.addEventListener('resize', debounce(onWindowResize, 500));
+function onWindowResize() {
+  if (clientWidth() > +pastWidth + 100 || clientWidth() < +pastWidth - 100) {
+    location.reload();
+  }
+}
 
 // ===============filter===================
 
@@ -59,19 +72,6 @@ filtrButtonsContainerRef.addEventListener(
 document.addEventListener('click', closeOtherBtnsMenu);
 
 // ==================================
-
-const clientWidth = () => {
-  return document.documentElement.clientWidth;
-};
-const numberOfNewsCards = () => {
-  if (clientWidth() <= 768) {
-    return 5;
-  } else if (clientWidth() > 768 && clientWidth() <= 1280) {
-    return 8;
-  } else {
-    return 9;
-  }
-};
 
 const stateOfPopular = { status: true, pages: [], numberOfNewsCards: 8 };
 const typeOfSearch = { searchStatus: false, categoriesStatus: false };
