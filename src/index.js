@@ -39,12 +39,12 @@ import moment from 'moment';
 
 /* Match media */
 
-window.addEventListener('resize', debounce(onWindowResize, 500));
-function onWindowResize() {
-  document.querySelector('.filtr-buttons-container').innerHTML = '';
-  onLoad();
-  addCategoriesFilter();
-}
+// window.addEventListener('resize', debounce(onWindowResize, 500));
+// function onWindowResize() {
+//   document.querySelector('.filtr-buttons-container').innerHTML = '';
+//   onLoad();
+//   addCategoriesFilter();
+// }
 
 // ===============filter===================
 
