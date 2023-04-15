@@ -1,11 +1,11 @@
 {
-  "name": "parcel-project-template",
+  "name": "native-js-news-app",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://torn80beta.github.io/goit-js-news-app",
+  "homepage": "https://github.com/vaaleerkiin/native-js-news-app",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url ./"
+    "build": "parcel build src/*.html --public-url /native-js-news-app/"
   },
   "repository": {
     "type": "git",
