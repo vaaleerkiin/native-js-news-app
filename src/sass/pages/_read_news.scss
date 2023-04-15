@@ -1,0 +1,89 @@
+.accordion {
+  margin: 0px auto;
+
+  @media screen and (max-width: 767px) {
+    width: 288px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 736px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1248px;
+  }
+}
+
+.accordion .accordion-date {
+  cursor: pointer;
+}
+
+.accordion hr {
+  width: 100%;
+  margin: 8px 0px 8px 0px;
+  border: 1px solid #929292;
+}
+
+.accordion-arrow {
+  pointer-events: none;
+  border: solid #111321;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transition: transform 250ms;
+  caret-color: transparent;
+}
+
+.accordion-arrow.active {
+  transform: rotate(225deg);
+}
+
+.accordion-paragraph {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.02em;
+  margin-right: 8px;
+  pointer-events: none;
+  caret-color: transparent;
+}
+
+.read__wrap {
+  position: relative;
+  min-height: 65vh;
+  // display: block;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 40px;
+    margin-bottom: 62px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: 63px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 53px;
+  }
+}
+
+.accordion-container .newsgallery{
+  @media screen and (max-width: 767px) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  
+    @media screen and (min-width: 768px) {
+      margin-top: 20px;
+      margin-bottom: 28px;
+    }
+  
+    @media screen and (min-width: 1280px) {
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+}

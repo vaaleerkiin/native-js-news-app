@@ -26,7 +26,14 @@ async function newUserRegistration() {
   const validator = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
   if (!password.match(validator)) {
     modalErrorMessageAreaEl.textContent =
-      'A password must be between 6 to 20 characters and contain at least one numeric digit, one uppercase and one lowercase letter';
+      'A password must be between 6 to 20 characters and contain at least one numeric digit, one uppercase and one lowercase letter.';
+    if (modalErrorMessageAreaEl.classList.contains('modal-err-message')) {
+      modalErrorMessageAreaEl.classList.remove('modal-err-message');
+    }
+    if (modalErrorMessageAreaEl.classList.contains('modal-ok-message')) {
+      modalErrorMessageAreaEl.classList.remove('modal-ok-message');
+    }
+    modalErrorMessageAreaEl.classList.add('modal-err-message');
     return;
   }
   // console.log(email, password);
@@ -37,8 +44,15 @@ async function newUserRegistration() {
       if (user) {
         // console.log(user);
         sendEmailVerification(auth.currentUser).then(() => {
-          modalErrorMessageAreaEl.textContent = 'Email verification sent!';
+          modalErrorMessageAreaEl.textContent = 'Email verification sent.';
           console.log('Email verification sent!');
+          if (modalErrorMessageAreaEl.classList.contains('modal-err-message')) {
+            modalErrorMessageAreaEl.classList.remove('modal-err-message');
+          }
+          if (modalErrorMessageAreaEl.classList.contains('modal-ok-message')) {
+            modalErrorMessageAreaEl.classList.remove('modal-ok-message');
+          }
+          modalErrorMessageAreaEl.classList.add('modal-ok-message');
         });
       }
     })
@@ -73,6 +87,13 @@ export async function userLogIn(e) {
     modalErrorMessageAreaEl.textContent =
       'Wrong email or password. Please, try again.';
     console.log(error.message);
+    if (modalErrorMessageAreaEl.classList.contains('modal-err-message')) {
+      modalErrorMessageAreaEl.classList.remove('modal-err-message');
+    }
+    if (modalErrorMessageAreaEl.classList.contains('modal-ok-message')) {
+      modalErrorMessageAreaEl.classList.remove('modal-ok-message');
+    }
+    modalErrorMessageAreaEl.classList.add('modal-err-message');
   }
 }
 

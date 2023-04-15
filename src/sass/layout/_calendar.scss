@@ -1,0 +1,129 @@
+.air-datepicker.-bottom-center-.-from-bottom-.-active- {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000000;
+  background: #f8f8f8;
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.air-datepicker-nav .air-datepicker-nav--action path {
+  stroke: var(--accent-color);
+  width: 9px;
+  height: 17px;
+}
+
+.air-datepicker-nav .air-datepicker-nav--title,
+.air-datepicker-nav .air-datepicker-nav--title i {
+  color: #000000;
+
+  &:hover,
+  &:focus {
+    border-color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: #ffffff;
+  }
+}
+
+.air-datepicker-body--day-names .air-datepicker-body--day-name {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(60, 60, 67, 0.3);
+}
+
+.air-datepicker-body--cells.-days- .air-datepicker-cell.-day-.-other-month-,
+.air-datepicker-cell.-day-,
+.air-datepicker-cell.-day-.-current-,
+.air-datepicker-body--cells.-months- {
+  font-size: 14px;
+  line-height: 25px;
+  color: #000000;
+}
+
+.air-datepicker-cell.-day-.-current- {
+  color: var(--accent-color);
+}
+
+.air-datepicker-cell.-month-.-focus-,
+.air-datepicker-cell.-month-.-current-.-focus- {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+.air-datepicker-cell.-month-.-current- {
+  color: var(--accent-color);
+}
+
+.air-datepicker-body--cells.-days-
+  .air-datepicker-cell.-day-.-other-month-.-focus-,
+.air-datepicker-cell.-day-.-focus-,
+.air-datepicker-cell.-day-.-current-.-focus-,
+.air-datepicker-body--cells.-days- .air-datepicker-cell.-selected-,
+.air-datepicker-body--cells.-days-
+  .air-datepicker-cell.-day-.-weekend-.-selected- {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  cursor: pointer;
+  border-radius: 50%;
+  color: #ffffff;
+}
+
+.air-datepicker-body--cells.-days- .air-datepicker-cell.-day-.-weekend-,
+.air-datepicker-body--cells.-days-
+  .air-datepicker-cell.-day-.-weekend-.-other-month- {
+  font-size: 14px;
+  line-height: 25px;
+  color: #5f6775;
+}
+
+.air-datepicker-body--cells.-days- .air-datepicker-cell.-day-.-weekend-.-focus-,
+.air-datepicker-body--cells.-days-
+  .air-datepicker-cell.-day-.-weekend-.-other-month-.-focus- {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  cursor: pointer;
+  border-radius: 50%;
+  color: #ffffff;
+}
+
+.air-datepicker-buttons .air-datepicker-button {
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--accent-color);
+}
+
+.air-datepicker-buttons .air-datepicker-button {
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--accent-color);
+
+  &:hover,
+  &:focus {
+    border-color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: #ffffff;
+  }
+}
+
+.air-datepicker-cell.-year-,
+.air-datepicker-body--cells.-years- .air-datepicker-cell.-year-.-other-decade- {
+  color: #000000;
+}
+
+.air-datepicker-cell.-year-.-current- {
+  color: var(--accent-color);
+}
+
+.air-datepicker-cell.-year-.-focus-,
+.air-datepicker-cell.-year-.-current-.-focus-,
+.air-datepicker-body--cells.-years-
+  .air-datepicker-cell.-year-.-other-decade-.-focus- {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  cursor: pointer;
+  color: #ffffff;
+}

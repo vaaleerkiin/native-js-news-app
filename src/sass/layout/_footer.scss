@@ -1,0 +1,136 @@
+.footer {
+  //   background: #4340f7fd;
+  //   background: linear-gradient(0deg, #4340f7fd 4%, rgb(119, 173, 217) 100%);
+  background: #2e2e2e;
+  background: linear-gradient(0deg, #2e2e2e 4%, rgb(93, 92, 92) 100%);
+}
+
+.footer-container {
+  padding: 30px;
+  @media screen and (min-width: 320px) {
+    width: 320px;
+    padding: 20px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 25px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+  margin: 0 auto;
+}
+.footer-menu__link {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18;
+  color: white;
+  @media screen and (min-width: 320px) {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
+.footer-address {
+  @media screen and (min-width: 768px) {
+    align-items: center;
+  }
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.footer-address__list {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
+}
+.footer-contacts__title {
+  @media screen and (min-width: 320px) {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-right: 20px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.4;
+    margin-right: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-right: 20px;
+  }
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  color: white;
+}
+.footer-address__item {
+  margin-right: 20px;
+}
+
+.footer-address__link {
+  @media screen and (min-width: 320px) {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  color: white;
+}
+.footer-mark {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  justify-content: center;
+  @media screen and (min-width: 320px) {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.footer-menu__item {
+  margin-right: 30;
+  @media screen and (min-width: 320px) {
+    margin-right: 25;
+  }
+  @media screen and (min-width: 768px) {
+    margin-right: 20;
+  }
+}
+.footer-menu__item:last-child {
+  margin-right: 0;
+}
+.footer-menu__item:hover {
+  transform: scale(1.2);
+}
+.footer-menu__item:focus {
+  transform: scale(1.2);
+}

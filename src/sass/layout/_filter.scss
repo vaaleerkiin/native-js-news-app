@@ -12,7 +12,7 @@
 }
 
 .news {
-  padding: 28px 0;
+  padding-top: 28px;
 }
 
 .news-navigation {
@@ -37,18 +37,48 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
+  caret-color: transparent;
+
+  &:hover {
+    background-color: #4b48db;
+    color: #ffffff;
+  }
+
+  &--active {
+    background-color: #4b48db;
+    color: #ffffff;
+  }
 }
 
-.news__filtr-menu-button:hover {
-  background-color: #4b48db;
-  color: #ffffff;
+.menu-button-others {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover .menu-button-others__icon {
+    border-top: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+  }
+
+  &__icon {
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #4b48db;
+    border-right: 2px solid #4b48db;
+    margin-left: 10px;
+
+    transform: rotate(-45deg);
+  }
 }
 
-.news__filtr-menu-button--active {
-  background-color: #4b48db;
-  color: #ffffff;
+.icon-is-white {
+  border-top: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
 }
 
+.icon-is-rotate {
+  transform: rotate(135deg);
+}
 .filtr-buttons-container {
   position: relative;
 }
@@ -57,7 +87,7 @@
   z-index: 10;
   position: absolute;
   top: 34px;
-  right: -88px;
+  left: 0;
   width: 168px;
   height: 380px;
   padding: 8px 0;
@@ -65,6 +95,14 @@
 
   background-color: #f8f8f8;
   border-radius: 20px;
+  @media screen and (min-width: 768px) {
+    top: 34px;
+    left: 400px;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 34px;
+    left: 612px;
+  }
 }
 
 .btns-are-hidden {
@@ -98,13 +136,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
 }
 
 .date-form {
   position: relative;
-  margin-left: 35px;
-  width: 168px;
+
+  width: 140px;
+  @media screen and (min-width: 768px) {
+    width: 168px;
+  }
 }
 .date-form__input {
   text-align: center;
@@ -117,19 +157,35 @@
   line-height: 1.5;
   height: 31px;
   width: 100%;
-  padding-left: 46px;
-  padding-right: 46px;
+  padding-left: 30px;
+  padding-right: 30px;
   border: 1px solid #111321;
   outline: none;
   border-radius: 20px;
+  @media screen and (min-width: 768px) {
+    padding-left: 46px;
+    padding-right: 46px;
+  }
 }
 
-.date-form__icon {
+.date-form__input::placeholder {
+  color: #111321;
 }
 
-.date-form__icon:hover {
-  // color: #4b48db;
+.input-dark-mode {
+  color: #f4f4f4;
+  background-color: #2e2e2e;
+  border: 1px solid #f4f4f4;
 }
+
+.input-dark-mode::placeholder {
+  color: #f4f4f4;
+  opacity: 0.4;
+}
+
+// .date-form__icon:hover {
+//   // color: #4b48db;
+// }
 
 .date-form__icon-calendar {
   width: 20px;
@@ -157,15 +213,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #111321;
+  fill: #111321;
 }
 
 .date-form__button:hover {
   color: #4b48db;
 }
 
+.date-form__button.rotate {
+  transform: rotate(180deg);
+}
+
 .date-form__button-icon {
   width: 20px;
   height: 20px;
   // fill: #4440f6;
+}
+
+.button-dark-mode {
+  fill: #f4f4f4;
 }
