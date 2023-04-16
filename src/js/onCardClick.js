@@ -7,9 +7,8 @@ export function onCardClick(e) {
   if (e.target.tagName.toLowerCase() !== 'button') {
     return;
   } else {
-    console.log('Click');
     const favoriteBtn = e.target.closest('BUTTON');
-    console.log(favoriteBtn);
+
     const newsCard = favoriteBtn.closest('li');
     const headline = newsCard.querySelector('.card-title').textContent;
     const multimediaSrc = newsCard.querySelector('img').getAttribute('src');
@@ -58,9 +57,9 @@ export function onReadClick(e) {
     return;
   } else {
     const moreBtn = e.target.closest('A');
-    console.log(moreBtn);
+
     const newsCard = moreBtn.closest('li');
-    console.log(newsCard);
+
     newsCard.classList.add('opacity');
     const headline = newsCard.querySelector('.card-title').textContent;
     newsCard.insertAdjacentHTML(
@@ -90,7 +89,6 @@ export function onReadClick(e) {
       alt: multimediaAlt,
       section: category,
     };
-    console.log(data);
 
     readStorages.addNews(data);
   }

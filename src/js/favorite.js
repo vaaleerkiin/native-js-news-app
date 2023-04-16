@@ -16,7 +16,6 @@ monitorAuthState();
 const conteiner = document.querySelector('.favorite__conteiner');
 
 function renderFavorite(news) {
-  console.log(news);
   const markup = news
     .map(({ src, title, url, info, published_date, alt, section }) => {
       let activeClass = '';
