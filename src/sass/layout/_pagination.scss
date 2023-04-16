@@ -121,7 +121,7 @@ html {
 a.pagination__arrow-left,
 a.pagination__arrow-right {
   width: 72px;
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 364px) {
     width: 30px;
   }
 }
@@ -141,7 +141,7 @@ a.pagination__arrow-right {
 
 .pagination__text {
   display: block;
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 364px) {
     display: none;
   }
 }

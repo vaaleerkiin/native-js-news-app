@@ -7,7 +7,7 @@ export default class Pagination {
   createPagination(totalPages, currentPage) {
     this.totalPages = totalPages;
     let startPage, endPage;
-    if (totalPages <= 6) {
+    if (totalPages <= 5) {
       startPage = 1;
       endPage = totalPages;
     } else {
